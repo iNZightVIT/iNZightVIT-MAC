@@ -11,7 +11,8 @@ Imports: iNZightRegression
 Suggests: iNZight
 Description: Interaction and analysis of Multiple Response Data
 License: GPL-2
+Packaged: 2014-01-23 22:25:45 UTC; EC\cwil119
 Author: Simon Potter [aut, cre],
   Junjie Zeng [aut]
 Maintainer: Simon Potter <spot023@aucklanduni.ac.nz>
-Built: R 2.15.3; ; 2014-01-20 07:09:27 UTC; unix
+Built: R 2.15.3; ; 2014-01-23 22:25:46 UTC; unix

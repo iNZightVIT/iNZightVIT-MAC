@@ -12,8 +12,9 @@ Imports: grid, car
 Suggests: iNZight, s20x
 Description: Core functions for iNZight Model Fitting module, and can also be used as a standalone package called directly from R.
 License: GPL-2
+Packaged: 2014-01-23 22:24:15 UTC; EC\cwil119
 Author: Simon Potter [aut, cre],
   David Banks [aut],
   Tom Elliott [aut]
 Maintainer: Simon Potter <spot023@aucklanduni.ac.nz>
-Built: R 2.15.3; ; 2014-01-21 08:08:29 UTC; unix
+Built: R 2.15.3; ; 2014-01-23 22:24:16 UTC; unix

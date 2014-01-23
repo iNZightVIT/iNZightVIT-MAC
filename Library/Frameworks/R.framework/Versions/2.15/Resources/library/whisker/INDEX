@@ -1,0 +1,6 @@
+isFalsey                Is a value falsey according to Mustache
+                        specifications?
+iteratelist             Create an iteration list from a R object
+whisker-package         Mustache for R
+whisker.escape          escape basic HTML characters
+whisker.render          Logicless templating

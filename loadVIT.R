@@ -2,4 +2,4 @@
 library(vit)
 
 # Start running it
-iNZightVIT()
+iNZightVIT(disposeR = TRUE)
