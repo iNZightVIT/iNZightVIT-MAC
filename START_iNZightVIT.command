@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Need to find out where we are currently running from
 export R_DIR="`dirname \"$0\"`"
