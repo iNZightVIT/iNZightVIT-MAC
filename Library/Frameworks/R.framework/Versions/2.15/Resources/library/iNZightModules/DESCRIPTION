@@ -13,14 +13,9 @@ Imports: iNZightRegression, iNZightMR, survey, mgcv, rgl, barcode,
         gpairs
 License: GPL-2
 Description: A suite of add-on modules for the iNZight GUI, including model fitting module, multiple response, time series, and some advanced plotting.
-Packaged: 2014-01-23 22:25:53 UTC; EC\cwil119
 Author: Junjie Zeng [cre, aut],
   Dineika Chandrananda [aut],
   Simon Potter [aut],
   David Banks [aut]
 Maintainer: Junjie Zeng <jzen188@aucklanduni.ac.nz>
-<<<<<<< HEAD
-Built: R 2.15.3; ; 2014-01-23 09:38:17 UTC; unix
-=======
-Built: R 2.15.3; ; 2014-01-23 22:25:53 UTC; unix
->>>>>>> f5b042eaac36bd9d6eb40cd7b7686aea509fae6c
+Built: R 2.15.3; ; 2014-01-28 04:56:50 UTC; unix
