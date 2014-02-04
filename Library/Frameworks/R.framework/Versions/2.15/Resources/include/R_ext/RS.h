@@ -17,8 +17,6 @@
  *  http://www.r-project.org/Licenses/
  */
 
-/* Included by R.h: API */
-
 #ifndef R_RS_H
 #define R_RS_H
 

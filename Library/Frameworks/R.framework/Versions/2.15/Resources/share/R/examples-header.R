@@ -41,9 +41,9 @@ assign("cleanEx",
 	   set.seed(1)
    	   options(warn = 1)
 	   .CheckExEnv <- as.environment("CheckExEnv")
-	   delayedAssign("T", stop("T used instead of TRUE", domain = NA),
+	   delayedAssign("T", stop("T used instead of TRUE"),
 		  assign.env = .CheckExEnv)
-	   delayedAssign("F", stop("F used instead of FALSE", domain = NA),
+	   delayedAssign("F", stop("F used instead of FALSE"),
 		  assign.env = .CheckExEnv)
 	   sch <- search()
 	   newitems <- sch[! sch %in% .oldSearch]
@@ -51,7 +51,7 @@ assign("cleanEx",
 	   missitems <- .oldSearch[! .oldSearch %in% sch]
 	   if(length(missitems))
 	       warning("items ", paste(missitems, collapse=", "),
-		       " have been removed from the search path", domain = NA)
+		       " have been removed from the search path")
        },
        pos = "CheckExEnv")
 assign("ptime", proc.time(), pos = "CheckExEnv")

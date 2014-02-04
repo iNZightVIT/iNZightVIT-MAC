@@ -1,0 +1,68 @@
+Version 2.2-4
+
+ o Add argument 'ci.style' to plot.eff() and plot.eff() to allow confidence intervals to be displayed as lines or using error bars.  Confidence bars are permitted on multiline plots (after suggestion by Steve Taylor).
+
+ o Allow empty cells with crossed factors for lm, glm and multinom.
+
+ o Added warning about logical predictors (suggestion of Kazuki Yoshida).
+
+Version 2.2-3
+
+ o Fixed bugs in axis scaling and xlim specification (reported by Achim Zeileis).
+
+ o Small changes for compatability with R 2.16.0.
+
+Version 2.2-2
+
+o Use asymptotic normal to get confidence limits for mer and lme objects
+
+o Correct effects.lme to work with weights
+
+o Added Effect.mer(), Effect.lme(), Effect.gls(), Effect.multinom(), and Effect.polr() methods.
+
+o Safe predictions simplified in effect.multinom() and effect.polr().
+
+o plot() methods for eff and effpoly objects permit predictor transformations.
+
+o Added as.data.frame.eff(), as.data.frame.effpoly(), and as.data.frame.efflatent (suggestion of Steve Taylor).
+
+o Small bug fixes.
+
+Version 2.2-1
+
+o Some examples wrapped in \donttest{} to decrease package check time.
+
+Version 2.2-0
+
+o Introduced more flexible Effect() generic, along with Effect.lm() method for linear and generalized linear models.
+
+o Default is now ask=FALSE for plot.efflist().
+
+o globalVariables("wt") declared for R 2.15.1 and above.
+
+o Small bug fixes.
+
+Version 2.1-2
+
+o Offsets for linear and generalized linear (and mixed) models are now supported.
+
+o cbind(successes, failures) now supported for binomial generalized linear (and mixed) models.
+
+Version 2.1-1
+
+o plot.effpoly() now honors ylim argument when no confidence intervals are plotted (fixing problem reported by Achim Zeileis).
+
+o safe predictions simplified in effect.lm(), producing correct results for mixed models (other methods to follow).
+
+o plot.eff() now honors type argument.
+
+o nlme and lme4 moved to Suggests.
+
+o effect() now works when options(OutDec= ',') (suggestion of Guomundur Arnkelsson).
+
+
+Version 2.1-0
+
+o added support for 'mer' objects from lme4 and 'lme' objects from 'nlme'.  Added 'rotx', 'roty' and 'grid' arguments to the plot methods.
+
+o See CHANGES file for changes to older versions.

@@ -24,9 +24,6 @@
    ``#include <Rmath.h> ''
 
    and nothing else.
-
-   It is part of the API and supports 'standalone Rmath'.
-
 */
 #ifndef RMATH_H
 #define RMATH_H

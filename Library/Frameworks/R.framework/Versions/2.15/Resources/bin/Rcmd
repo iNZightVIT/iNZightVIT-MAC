@@ -8,7 +8,7 @@
 R_CMD="${R_HOME}/bin/Rcmd"
 export R_CMD
 
-R_VERSION=2.15.3
+R_VERSION=2.15.1
 export R_VERSION
 
 R_OSTYPE="unix"

@@ -886,7 +886,7 @@
 #define PACKAGE_NAME "R"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "R 2.15.3"
+#define PACKAGE_STRING "R 2.15.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "R"
@@ -895,7 +895,7 @@
 #define PACKAGE_URL "http://www.r-project.org"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "2.15.3"
+#define PACKAGE_VERSION "2.15.1"
 
 /* Define if <inttypes.h> exists and defines unusable PRI* macros. (For intl)
    */
@@ -1046,7 +1046,7 @@
 #define VALGRIND_LEVEL 0
 
 /* Version number of package */
-#define VERSION "2.15.3"
+#define VERSION "2.15.1"
 
 /* Define to 1 if your processor stores words with the most significant byte
    first (like Motorola and SPARC, unlike Intel and VAX). */

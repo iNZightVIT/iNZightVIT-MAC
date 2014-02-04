@@ -10,8 +10,6 @@ checkDocStyle	QC
 checkFF	checkFF
 checkMD5sums	checkMD5sums
 checkNEWS	readNEWS
-checkPoFile	checkPoFiles
-checkPoFiles	checkPoFiles
 checkRd	checkRd
 checkRdaFiles	checkRdaFiles
 checkReplaceFuns	QC

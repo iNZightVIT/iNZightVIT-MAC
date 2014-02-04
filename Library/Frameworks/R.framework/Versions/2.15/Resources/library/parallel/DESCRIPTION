@@ -1,5 +1,5 @@
 Package: parallel
-Version: 2.15.3
+Version: 2.15.1
 Priority: base
 Title: Support for Parallel computation in R
 Author: R Core Team
@@ -7,6 +7,6 @@ Maintainer: R Core Team <R-core@r-project.org>
 Description: Support for parallel computation, including by forking
    (taken from package multicore), by sockets (taken from package snow)
    and random-number generation.
-License: Part of R 2.15.3
+License: Part of R 2.15.1
 Enhances: snow
-Built: R 2.15.3; universal-apple-darwin9.8.0; 2013-03-04 21:21:32 UTC; unix
+Built: R 2.15.1; universal-apple-darwin9.8.0; 2012-06-22 19:11:35 UTC; unix

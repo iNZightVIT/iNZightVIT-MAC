@@ -13,8 +13,6 @@ bibstyle                Select or define a bibliography style.
 buildVignettes          List and Build Package Vignettes
 checkFF                 Check Foreign Function Calls
 checkMD5sums            Check and Create MD5 Checksum Files
-checkPoFiles            Check translation files for inconsistent format
-                        strings.
 checkRd                 Check an Rd Object
 checkRdaFiles           Report on Details of Saved Images or Re-saves
                         them

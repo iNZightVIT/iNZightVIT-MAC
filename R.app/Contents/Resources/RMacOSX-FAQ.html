@@ -33,11 +33,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <h2 class="unnumbered">R for Mac OS X FAQ</h2>
 
 <p><h2>Frequently Asked Questions on R for Mac OS X</h2>
-<h2>Version 2.15.3 2013-03-01, R.app 1.53</h2>
+<h2>Version 2.15-1 2012-06-22, R.app 1.52</h2>
 <address>Stefano M. Iacus</address>
 <address>Simon Urbanek</address>
 <address>Rob J. Goedman</address>
-<address>Brian Ripley</address>
 <p><p><hr><p>
 
 <ul class="menu">
@@ -48,11 +47,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <li><a accesskey="5" href="#How-to-install-packages">How to install packages</a>
 <li><a accesskey="6" href="#R-and-external-applications">R and external applications</a>
 <li><a accesskey="7" href="#Quartz-device">Quartz device</a>
-<li><a accesskey="8" href="#Tcl_002fTk-issues">Tcl/Tk issues</a>
+<li><a accesskey="8" href="#TclTk-issues">TclTk issues</a>
 <li><a accesskey="9" href="#Internationalization-of-the-R_002eapp">Internationalization of the R.app</a>
 <li><a href="#Additional-resources">Additional resources</a>
 <li><a href="#Acknowledgments">Acknowledgments</a>
-<li><a href="#Miscellaneous-questions">Miscellaneous questions</a>
+<li><a href="#Sparse-questions">Sparse questions</a>
 </ul>
 
 <div class="node">
@@ -66,28 +65,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">1 Introduction</h2>
 
-<p>This document contains a user guide to the <span class="sc">R.app</span> version of <acronym>R</acronym>, and
-information on using <acronym>R</acronym> on OS X which supplements the main <acronym>R</acronym>
-manuals.
+<p>This R for Mac OS X FAQ is rather incomplete at the moment and requires contributions from users. 
+Anything specific to the R language can be found in the official R-FAQ (see <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">http://cran.r-project.org/doc/FAQ/R-FAQ.html</a>). 
+Please send any requests/questions you would like answers to the <a href="https://stat.ethz.ch/mailman/listinfo/r-sig-mac">R-SIG-Mac</a> mailing list.
 
-   <p>In this document <acronym>R</acronym> refers to the core, command-line-based <acronym>R</acronym> system
-while <span class="sc">R.app</span> refers to the GUI-based Mac OS application that controls
-the underlying <acronym>R</acronym>.
+   <p>In this document <acronym>R</acronym> refers to the core, command line based <acronym>R</acronym> system while <span class="sc">R.app</span> refers to the GUI based Mac OS application that controls the underlying <acronym>R</acronym>.
 
-   <p>This `R for Mac OS X FAQ' is rather incomplete at the moment and requires
-contributions from users.  Anything specific to the R language can be
-found in the main R-FAQ (see
-<a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">http://cran.r-project.org/doc/FAQ/R-FAQ.html</a>).  Please send any
-requests/questions you would like answers to the
-<a href="https://stat.ethz.ch/mailman/listinfo/r-sig-mac">R-SIG-Mac</a>
-mailing list (after subscribing) as well as comments on this FAQ.
+   <p>This document contains information on how to build <acronym>R</acronym> from sources, how to install and run it on Mac OS X. 
+It also contains a user guide to the <span class="sc">R.app</span> version of <acronym>R</acronym>.
 
-   <p>The last section of this document contains the most frequently asked
-questions that don't fit strictly into any of the categories above &ndash; it
-is usually a good idea to always look into that section if your issue
-doesn't fit any of the above or was not answered in one of the specific
-sections. <em>Always read this FAQ before asking for help on
-R-SIG-Mac!</em>
+   <p>The last section of this document contains the most frequently asked questions that don't fit strictly into any of the categories above &ndash; it is usually a good idea to always look into that section if your issue doesn't fit any of the above or was not answered in one of the specific sections. <em>Always read this FAQ first before asking for help on R-SIG-Mac!</em>
 
 <ul class="menu">
 <li><a accesskey="1" href="#How-many-versions-of-R-for-Mac-OS-X_003f">How many versions of R for Mac OS X?</a>
@@ -109,10 +96,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction">Introduction</a>
 
 <h3 class="section">1.1 How many versions of R for Mac OS X?</h3>
 
-<p>There is only one version of R for Mac OS X.  However, <acronym>R</acronym> on Mac OS X
-can be used either on the command-line (see <a href="#Command-line-version-of-R">Command line version of R</a>) like on other Unix systems, or via the <span class="sc">R.app</span> GUI (see <a href="#R_002eapp">R.app</a>). 
-The second approach is mostly preferred by Macintosh users.  There are
-separate 32- and 64-bit versions of <span class="sc">R.app</span>.
+<p>There is currently only one version of R for Mac OS X. 
+However, <acronym>R</acronym> on Mac OS X can be used either on the command-line (see <a href="#Command-line-version-of-R">Command line version of R</a>) like on other Unix systems, or via the <span class="sc">R.app</span> GUI (see <a href="#R_002eapp">R.app</a>). The second approach is mostly preferred by Macintosh users.
 
 <div class="node">
 <p><hr>
@@ -126,16 +111,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction">Introduction</a>
 
 <h3 class="section">1.2 What machines does R for Mac OS X run on?</h3>
 
-<p>The binaries provided on <acronym>CRAN</acronym> are multi-architecture (currently
-32-bit Intel + 64-bit Intel) and require Mac OS X 10.5 (Leopard) or
-higher.
+<p>R for Mac OS X requires Mac OS X version 10.2 (Jaguar) or higher to run. The <span class="sc">R.app</span> GUI requires Mac OS X 10.3 (Panther) or higher. The latest version of the system is always preferable, though. We do not support Mac OS X version 10.1 and earlier. The binaries provided on <acronym>CRAN</acronym> are multi-architecture (32-bit Intel + 64-bit Intel) and require Mac OS X 10.5 (Leopard) or higher.
 
-   <p>Support for Leopard and 32-bit builds will be dropped in the next <acronym>R</acronym>
-series (starting with 3.0.0 in April 2013).
-
-   <p><acronym>R</acronym> can in principle be built from the sources on earlier versions of
-OS X, and also for PowerPC and PowerPC64 on Leopard: but this has not be
-tested recently.  (PowerPC binaries were last supplied for <acronym>R</acronym> 2.15.0.)
+   <p><acronym>R</acronym> can be compiled from sources as a pure 64-bit application on PowerMac G5 and Intel x86_64 machines on Mac OS X 10.4 or higher. <span class="sc">R.app</span> GUI can be built for 64-bit R as well, but Mac OS X 10.5 (Leopard) or higher is necessary.
 
 <div class="node">
 <p><hr>
@@ -149,19 +127,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction">Introduction</a>
 
 <h3 class="section">1.3 How can R for Mac OS X be obtained and installed?</h3>
 
-<p><acronym>R</acronym> is available on <acronym>CRAN</acronym> in the form of an Installer package
-containing the R framework and the 32- and 64-bit versions of the
-<span class="sc">R.app</span> GUI. The package is usually named <samp><span class="file">R.pkg</span></samp> with an optional
-version number.
+<p><acronym>R</acronym> is available on <acronym>CRAN</acronym> in the form of an Installer package consisting of the R framework and the <span class="sc">R.app</span> GUI. The package is usually named <samp><span class="file">R.pkg</span></samp> with optional version number. Previously the legacy Tiger build was packaged in a compressed disk image and usually named <samp><span class="file">R.dmg</span></samp>.
 
-   <p>The installation is done by double-clicking on the Installer
-package. The Installer will guide you through the necessary steps.  Note
-that it will require password or login of an account with administrator
-privileges.  The installation can be customized, but the default is
-suitable for most users.
+   <p>The installation is done by double-clicking on the Installer package. The Installer will guide you through the steps necessary to install <acronym>R</acronym> on Mac OS X. Note that the Installer will require password or login of an administrator. The installation can be customized, but the default is suitable for most users.
 
-   <p>Snapshots of the R-patched and R-devel flavours are available at
-<a href="http://r.research.att.com/">http://r.research.att.com/</a>, packaged in the same way.
+   <p>If you experience problems with <acronym>R</acronym>, we highly recommend the use of the <acronym>CRAN</acronym> binary package to make sure <acronym>R</acronym> was built correctly. Nevertheless it is possible to build <acronym>R</acronym> from the sources which can be useful for special purposes. Note that the <acronym>CRAN</acronym> binary includes R shared library, so there is no need to re-compile <acronym>R</acronym> with <code>--enable-R-shlib</code>.
 
 <div class="node">
 <p><hr>
@@ -175,28 +145,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction">Introduction</a>
 
 <h3 class="section">1.4 How can R for Mac OS X be uninstalled?</h3>
 
-<p><acronym>R</acronym> for Mac OS X consists of two parts: the GUI (<span class="sc">R.app</span>) and the R
-framework. The un-installation is as simple as removing those folders
-(e.g. by dragging them into the Trash). The typical installation will
-install the GUI into the <samp><span class="file">/Applications</span></samp> folder and the R framework
-in the <samp><span class="file">/Library/Frameworks</span></samp> folder.
+<p><acronym>R</acronym> for Mac OS X consists of two parts: the GUI (<span class="sc">R.app</span>) and the R framework. The un-installation is as simple as removing those two folders (e.g. by dragging them into the Trash). The typical installation will install the GUI into the <samp><span class="file">/Applications</span></samp> folder and the R framework in the <samp><span class="file">/Library/Frameworks</span></samp> folder.
 
-   <p>If you want to get rid of R using a Terminal, simply run (prepend
-<code>sudo</code> if needed):
+   <p>If you want to get rid of R from the Terminal, simply run (prepend <code>sudo</code> if you don't have admin privileges):
 
-<pre class="example">     rm -rf /Library/Frameworks/R.framework /Applications/R.app /Applications/R64.app
-     rm -f /usr/bin/R /usr/bin/Rscript /usr/bin/R32 /usr/bin/R64
+<pre class="example">     rm -rf /Library/Frameworks/R.framework /Applications/R.app
 </pre>
-   <p>An alternative is to use Apple's <code>pkgutil</code> tools to uninstall
-R. The installation consists of three packages:
-<code>org.r-project.R.Leopard.fw.pkg</code>,
-<code>org.r-project.R.Leopard.GUI.pkg</code> and
-<code>org.r-project.R.Leopard.GUI64.pkg</code>. You can use <code>pkgutil
---unlink</code> (not supported on Lion and later) for each of them to remove
-their files and/or <code>pkgutil --forget</code> if you want the Apple
-Installer to forget about the package without deleting its files (useful
-when installing multiple R versions in parallel), or after you have
-deleted the files.
+   <p>Another alternative is to use Apple's <code>pkgutil</code> tools to uninstall R. R consists of three packages: <code>org.r-project.R.Leopard.fw.pkg</code>, <code>org.r-project.R.Leopard.GUI.pkg</code> and <code>org.r-project.R.Leopard.GUI64.pkg</code>. You can use <code>pkgutil --unlink</code> for each of them to remove their files and/or <code>pkgutil --forget</code> if you want the Apple Installer to forget about the package without deleting its files (useful when installing multiple R versions in parallel).
 
 <div class="node">
 <p><hr>
@@ -208,21 +163,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction">Introduction</a>
 
 <h3 class="section">1.5 Installation Problems</h3>
 
-<p>On Mountain Lion some of the packages may need (depending on your
-security settings) to be installed by right/control-clicking, selecting
-`<samp><span class="samp">Open</span></samp>' and then clicking `<samp><span class="samp">Open</span></samp>' in the resulting dialog box.
+<p>The binary version of <acronym>R</acronym> is provided as an Apple Installer package. Therefore the installation is performed by the Apple Installer, which is the recommended way of installing software on Mac OS X. If you encounter any problem during the installation, please check the Installer log by clicking on the &ldquo;Window&rdquo; menu and item &ldquo;Installer Log&rdquo;. The full output (select &ldquo;Show All Log&rdquo;) is useful for tracking down problems.
 
-   <p>The binary version of <acronym>R</acronym> is provided as an Apple Installer package. If
-you encounter any problem during the installation, please check the
-Installer log by clicking on the &ldquo;Window&rdquo; menu and item &ldquo;Installer
-Log&rdquo;. The full output (select &ldquo;Show All Log&rdquo;) is useful for tracking
-down problems.
+   <p>Some users have experienced problems during the installation of optional packages (compiler tools or Tcl/Tk) due to an infinite soft link &ldquo;<samp><span class="file">/usr/local/lib</span></samp>&rdquo;. This prevents installation of any files into that location. Apple Xcode 2.5 and 3.0 is suspected to create this problem as it renames the &ldquo;real&rdquo;, existing <samp><span class="file">/usr/local/lib</span></samp> to &ldquo;lib 1&rdquo; while creating an infinite link (i.e a link that points to itself). If that is the case (easily verified with <code>ls -ld /usr/local/lib*</code>), you can fix this problem by issuing the following commands in Terminal:
 
-   <p><strong>Note:</strong> In order for Tcl/Tk to work, don't forget to install the
-additional tools from
-<a href="http://cran.r-project.org/bin/macosx/tools/">http://cran.r-project.org/bin/macosx/tools/</a>.  These are updated
-rarely, so only need to be installed the first time you install <acronym>R</acronym>. 
-The disk image contains a package <samp><span class="file">tcltk.pkg</span></samp>.
+<pre class="example">     sudo rm -f /usr/local/lib &amp;&amp; \
+     sudo mv '/usr/local/lib 1' /usr/local/lib
+</pre>
+   <p><strong>Note:</strong> In order for Tcl/Tk to work, don't forget to install the additional tools the very first time you upgrade. On the MacOS install page, see the note on the difference between the xxx.pkg and the xxx.dmg.
+
+   <p>R installer since version 2.7.0 attempts to detect and resolve the above problem automatically.
 
 <div class="node">
 <p><hr>
@@ -235,10 +185,445 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">2 Building R from sources</h2>
 
-<p>This information is now in the `R Installation and Administration
-Manual' which ships with each version of <acronym>R</acronym>: the latest versions can
-be found at <a href="http://cran.r-project.org/manuals.html">http://cran.r-project.org/manuals.html</a>.  It includes
-information on how to build <span class="sc">R.app</span>.
+<ul class="menu">
+<li><a accesskey="1" href="#Quick-start">Quick start</a>
+<li><a accesskey="2" href="#What-is-needed-to-build-R">What is needed to build R</a>
+<li><a accesskey="3" href="#How-to-configure-and-build-R">How to configure and build R</a>
+<li><a accesskey="4" href="#How-to-install-R">How to install R</a>
+<li><a accesskey="5" href="#How-to-build-and-install-the-R_002eapp">How to build and install the R.app</a>
+<li><a accesskey="6" href="#How-to-build-universal-R">How to build universal R</a>
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="Quick-start"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#What-is-needed-to-build-R">What is needed to build R</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Building-R-from-sources">Building R from sources</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.1 Quick start</h3>
+
+<p>If you have a clean, recent Mac OS X (10.5 Leopard or 10.6 Snow Leopard) and want quick instructions how to build your own R binary, read this section. In all other cases please read the details in the following sections.
+
+   <p>First, you need to install developer tools - that is Xcode 3.1 for Mac OS X 10.5 (Leopard) or Xcode 3.2 for Mac OS X 10.6 (Snow Leopard) or any higher version. Xcode is present on the OS X installation DVD (where applicable) or can be downloaded from <a href="http://developer.apple.com/mac/">http://developer.apple.com/mac/</a>. Then download the matching FORTRAN compiler from <a href="http://R.research.att.com/tools/">http://R.research.att.com/tools/</a>.
+
+   <p>Xcode 4.3 and higher (available for Mac OS X 10.7 and higher) no longer installs command line tools in the system location, they need to be downloaded and installed separately. Look for &ldquo;Command Line Tools for Xcode&rdquo; at the Apple's Developer site or in the App Store. Alternatively it is also possible to add the full path to the tools present inside the Xcode application to the <code>PATH</code> environment variable (recommended only for advanced users since it is a bit tricky to get it right).
+
+   <p>Optionally you can also install TeX (<a href="http://www.tug.org/mactex/">http://www.tug.org/mactex/</a>) to build documntation. You can pick useful external libraries from <a href="http://r.research.att.com/libs/">http://r.research.att.com/libs/</a> (such as readline, libpng, jpeg) but they are not required. You can install them using the Terminal (in Application/Utilities) for example:
+
+<pre class="smallexample">     curl -s -S http://r.research.att.com/libs/readline-5.2-12-darwin8-bin4.tar.gz \
+     | sudo tar fvxz - -C /
+</pre>
+   <p>Download, configure and build R. In the following we assume you have an Intel-based Mac with of 64-bit support. Again in Terminal type:
+
+<pre class="smallexample">     # download R
+     curl -O http://cran.r-project.org/src/base/R-2/R-2.15.1.tar.gz
+     # unpack R
+     tar fxz R-2.15.1.tar.gz
+     # choose the architecture (x86_64, i386, ppc or ppc64)
+     arch=x86_64
+     # create a build directory
+     mkdir R-$arch
+     cd R-$arch
+     # configure R
+     ../R-2.15.1/configure r_arch=$arch  CC="gcc -arch $arch" \
+          CXX="g++ -arch $arch" F77="gfortran -arch $arch" \
+          FC="gfortran -arch $arch" OBJC="gcc -arch $arch" \
+          --x-includes=/usr/X11/include --x-libraries=/usr/X11/lib \
+          --with-blas='-framework vecLib' --with-lapack
+     # build R
+     make -j8
+     # At this point you can run R as `bin/R' even without installing
+     
+     # install R
+     make install
+     # in some cases you may need to use ``sudo make install'' instead
+</pre>
+   <p>If you want 32-bit Intel build replace <code>arch=x86_64</code> with <code>arch=i386</code>. For PowerPC use <code>arch=ppc</code> (32-bit) or <code>arch=ppc64</code> (64-bit and only supported on Mac OS X 10.5). You can repeat the steps above for any number of architectures.
+
+   <p>In order to make the newly installed R visible from the command line, use
+
+<pre class="smallexample">     sudo ln -sfn /Library/Frameworks/R.framework/Resources/bin/R /usr/bin/R
+</pre>
+   <p>Please note that any version of R you build yourself will be different from the released binary CRAN version and may not work with the package binaries we provide. Therefore we recommend using the CRAN binary or nightly builds from <a href="http://R.research.att.com">http://R.research.att.com</a> unless you want to modify R sources yourself.
+
+<div class="node">
+<p><hr>
+<a name="What-is-needed-to-build-R"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#How-to-configure-and-build-R">How to configure and build R</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Quick-start">Quick start</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.2 What is needed to build R</h3>
+
+<p>The requirements for building <acronym>R</acronym> vary, depending whether the build machine is an Intel-based or PowerPC-based Mac and whether universal build is desired. The following description shows the minimum requirements for building <acronym>R</acronym>. The process of building a universal binary is more complex and described in section see <a href="#How-to-build-universal-R">How to build universal R</a>.
+
+<ul class="menu">
+<li><a accesskey="1" href="#C_002fC_002b_002b-compiler-_0028gcc-3_002e3-or-later_0029">C/C++ compiler (gcc 3.3 or later)</a>
+<li><a accesskey="2" href="#Fortran-compiler-_0028g77-3_002e3-or-later_0029">Fortran compiler (g77 3.3 or later)</a>
+<li><a accesskey="3" href="#libreadline-4_002e3-or-higher-_0028optional_0029">libreadline 4.3 or higher (optional)</a>
+<li><a accesskey="4" href="#X11-window-server-_0028optional_0029">X11 window server (optional)</a>
+<li><a accesskey="5" href="#Cairo-graphics-library-_0028optional_0029">Cairo graphics library (optional)</a>
+<li><a accesskey="6" href="#X11-TclTk-headers-and-libraries-_0028optional_0029">X11 TclTk headers and libraries (optional)</a>
+<li><a accesskey="7" href="#Aqua-TclTk-headers-and-libraries-_0028optional_0029">Aqua TclTk headers and libraries (optional)</a>
+<li><a accesskey="8" href="#TeX-suite-of-tools-for-documentation-_0028optional_0029">TeX suite of tools for documentation (optional)</a>
+</ul>
+
+<div class="node">
+<p><hr>
+<a name="C%2fC++-compiler-(gcc-3.3-or-later)"></a>
+<a name="C_002fC_002b_002b-compiler-_0028gcc-3_002e3-or-later_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Fortran-compiler-_0028g77-3_002e3-or-later_0029">Fortran compiler (g77 3.3 or later)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-is-needed-to-build-R">What is needed to build R</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.1 C/C++ compiler (gcc 3.3 or later)</h4>
+
+<p>If you have Mac OS X 10.7 (Lion) or higher and Xcode 4.3 or higher, you will need to install &ldquo;Command Line Tools for Xcode&ldquo;. Those are available from the Apple Mac Developer website or the App Store. Xcode alone is no longer sufficient because with Xcode 4.3 Apple has removed the capability of Xcode to install system-wide command line tools.
+
+   <p>Note that some versions of Xcode 4.2 and higher no longer include <code>gcc-4.2</code> in the Xcode installation, so you may have to use llvm gcc or clang instead.
+
+   <p>If you have Mac OS X 10.3 (aka Panther) or higher you just need to install the software from the Xcode Tools CD or DVD. This is only true if you bought retail version of Mac OS X. If your computer came with pre-installed version of OS X, look into <samp><span class="file">/Applications/Installers</span></samp>. Recent installations feature <samp><span class="file">Xcode Tools</span></samp> folder containing the necessary installer. If neither of the above works for you, download Xcode from <a href="http://developer.apple.com/tools/xcode/">http://developer.apple.com/tools/xcode/</a>.
+
+   <p>If you are using Mac OS X 10.2 (aka Jaguar) then you should download and install the
+Apple Developers Tools Dec 2002 including the latest updates which dates August 2003. Either it comes
+on a separate CD with your Mac or you can download these from the Apple Developer Connection site (see <a href="#Apple-Developer-Connection">Apple Developer Connection</a>)
+In either cases be sure you have gcc version 3.3 or later - you can check the version by typing the following in a Terminal window:
+<pre class="example">     gcc --version
+</pre>
+   <p>Users of Intel Macs have to use `<samp><span class="samp">gcc</span></samp>' version 4.0 or higher, because `<samp><span class="samp">gcc</span></samp>' 3.x is not supported on Intel Macs. Apple's gcc-4.2 is highly recommended because previous versions are known to contain bugs.
+
+<div class="node">
+<p><hr>
+<a name="Fortran-compiler-(g77-3.3-or-later)"></a>
+<a name="Fortran-compiler-_0028g77-3_002e3-or-later_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#libreadline-4_002e3-or-higher-_0028optional_0029">libreadline 4.3 or higher (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#C_002fC_002b_002b-compiler-_0028gcc-3_002e3-or-later_0029">C/C++ compiler (gcc 3.3 or later)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.2 Fortran compiler (g77 3.3 or later)</h4>
+
+<p>Unfortunately the Xcode Tools don't include a Fortran compiler. You need to install a version 3.3 or later of the Fortran compiler from gcc which is built for Mac OS X. We provide GNU Fortran builds that can be added to Apple's Xcode tools - see <a href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>. The <acronym>CRAN</acronym> binaries are configured to use Apple's gcc and the supplied Fortran compiler (see also see <a href="#Why-do-I-need-custom-compilers-for-the-CRAN-binary_003f">Why do I need custom compilers for the CRAN binary?</a>).
+
+   <p>Please note that it is important that the major version of the Fortran compiler matches the version of your C compiler! You can only use gcc 3.x with g77 3.x or gcc 4.x with gfortran 4.x, other combinations usually don't work.
+
+<div class="node">
+<p><hr>
+<a name="libreadline-4.3-or-higher-(optional)"></a>
+<a name="libreadline-4_002e3-or-higher-_0028optional_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#X11-window-server-_0028optional_0029">X11 window server (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Fortran-compiler-_0028g77-3_002e3-or-later_0029">Fortran compiler (g77 3.3 or later)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.3 libreadline 4.3 or higher (optional)</h4>
+
+<p>The readline library is optional and only necessary for OS X 10.3 (Panther) and earlier. Mac OS X 10.4 (Tiger) comes with `<samp><span class="samp">libedit</span></samp>' library which emulates readline. Nevertheless, GNU readline has some additional functionality so it may be worth installing anyway.
+
+   <p>Readline is necessary if you want to be able to retrieve history using use arrow keys or for &lt;TAB&gt; completion of filenames when you run R as a command line tool. The original source archive is located at GNU web page <a href="ftp://www.gnu.org">ftp://www.gnu.org</a>. (Also consider installing the `<samp><span class="samp">rcompletion</span></samp>' package that uses readline for code-completion in R).
+
+   <p>Readline 5.0 and later compile out-of-the box, however it is recommended to use <code>make CPPFLAGS=-DNEED_EXTERN_PC</code>, because the configure script fails to detect that flag. The use of readline 5.2 with recent patches is recommended due to bugs in earlier versions that can lead to crashes. (We cannot distribute readline 6.0 on <acronym>CRAN</acronym>
+
+   <p>To compile readline, uncompress the source archive and follow the standard installation sequence:
+<pre class="example">     ./configure
+     make CPPFLAGS=-DNEED_EXTERN_PC
+     sudo make install
+</pre>
+   <p>It installs everything in <samp><span class="file">/usr/local</span></samp>.
+
+   <p><em>Note:</em> It is possible to build multi-architecture readline binary in one step, for example set `<samp><span class="samp">CC='gcc -arch ppc -arch ppc64 -arch i386 -arch x86_64'</span></samp>' to build all four architectures (see Apple Xcode tools reference for details). Such binary is available as a part of the development pack from <a href="http://cran.r-project.org/bin/macosx/tools/">http://cran.r-project.org/bin/macosx/tools/</a>.
+
+<div class="node">
+<p><hr>
+<a name="X11-window-server-(optional)"></a>
+<a name="X11-window-server-_0028optional_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Cairo-graphics-library-_0028optional_0029">Cairo graphics library (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#libreadline-4_002e3-or-higher-_0028optional_0029">libreadline 4.3 or higher (optional)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.4 X11 window server (optional)</h4>
+
+<p>X11 window system is necessary to use the X11 device in R and other devices that rely on X11.
+
+   <p>Mac OS X 10.6 (Snow Leopard) requires manual identification of X11 location using <code>--x-includes=/usr/X11/include --x-libraries=/usr/X11/lib</code>.
+
+   <p>Mac OS X 10.5 (Leopard) installs X11 by default, however the default X11 installation ships with a broken OpenGL library that prevents compilation. See <a href="http://r.research.att.com/building.html">http://r.research.att.com/building.html</a> for the latest update on the details. Also <code>/usr/X11/bin</code> must be on the <code>PATH</code> in order for <acronym>R</acronym> to recognize X11 properly (e.g. by issuing <code>export PATH=/usr/X11/bin:$PATH</code>).
+
+   <p>Mac OS X 10.3 (Panther) and 10.4 (Tiger) include X11 on the installation CD/DVD, however, it is not selected by default. If it is not installed, you can re-install it using the original installation CD/DVD.
+
+   <p>To install X11 on those systems, follow these steps:
+
+     <ol type=1 start=1>
+<li>Insert Mac OS X Disk 1 (CD/DVD) that came with your Mac
+
+     <li>&lt;Ctrl&gt;-Click (or right button click) on "Install Bundled Software Only", select "Show Original"
+
+     <li>double-click on "X11User.pkg"
+        </ol>
+
+   <p>If you have a retail version of OS X, replace second step by
+     <ol type=1 start=2>
+<li>Go to `<samp><span class="samp">System/Installation/Packages</span></samp>' direrctory on the DVD
+        </ol>
+
+   <p>In addition to the user part, you need to install the X11 SDK package from the Xcode Tools CD. In Xcode 2.4.0 and higher this is the default if X11 is installed, therefore it is important to install X11 before installing Xcode.
+
+   <p>Mac OS X 10.2 (Jaguar) does not include X11 installer. However, there are two options to obtain X11: Apple released X11 beta for Jaguar which is still around, although not officially supported. It features the Quartz window manager that integrates nicely into the system. If you are unable to find Apple's X11 beta, you will need to install both the X11 Window server and the X11 SDK package from the XFree86 web page. Other versions such as using fink are available, too.
+
+<div class="node">
+<p><hr>
+<a name="Cairo-graphics-library-(optional)"></a>
+<a name="Cairo-graphics-library-_0028optional_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#X11-TclTk-headers-and-libraries-_0028optional_0029">X11 TclTk headers and libraries (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#X11-window-server-_0028optional_0029">X11 window server (optional)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.5 Cairo graphics library (optional)</h4>
+
+<p>R 2.7.0 and later include support for cairo graphics library as one of the options in X11 support. Mac OS X does not include cairo library, therefore we have to build our own. In order to simplify the distribution, we use a static build of cairo. Therefore the library is not needed at run time as it's already part of R. However, if you want to compile R, you can obtain the same binary we use for the release from <a href="http://r.research.att.com/libs/">http://r.research.att.com/libs/</a>. Read more on CRAN in the &ldquo;tools&rdquo; directory.
+
+   <p>In general cairo grapics library can be obtained from <a href="http://www.cairographics.org/">http://www.cairographics.org/</a>. More recent versions can use either native ATSUI/Quartz font back-end or FreeType. If the latter is used, make sure you get the most recent (even development) version available, because there are known bugs in FreeType with respect to Mac font support.
+
+   <p>Cairo support is strictly optional given that Quartz is the default graphics device on Mac OS X, but it can be useful for remote displays.
+
+<div class="node">
+<p><hr>
+<a name="X11-TclTk-headers-and-libraries-(optional)"></a>
+<a name="X11-TclTk-headers-and-libraries-_0028optional_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Aqua-TclTk-headers-and-libraries-_0028optional_0029">Aqua TclTk headers and libraries (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Cairo-graphics-library-_0028optional_0029">Cairo graphics library (optional)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.6 X11 TclTk headers and libraries (optional)</h4>
+
+<p>If you plan to use tcltk package for <acronym>R</acronym>, you can either use Tcl/Tk headers and library supplied in the <acronym>R</acronym> <acronym>CRAN</acronym> binary or compile your own. The <acronym>CRAN</acronym> binary includes universal Tcl/Tk 8.5.5 for X11 (boht 32-bit and 64-bit).
+
+   <p>Alternatively you need to download the sources of the Tcl and Tk 8.5.x packages to build yourself the sources. 
+The original sources can be found on the official TclTk web page <a href="http://www.tcl.tk/software/tcltk/8.5.html">http://www.tcl.tk/software/tcltk/8.5.html</a> (do NOT use the ActiveTcl native binaries, they don't work with the tcltk package in R). 
+Please do the following respecting the sequence (you'll be asked for a root password). These are examples for version 8.5.5
+of the Tcl and Tk sources, you'll probably find new version on the web page, thus only the name of the .tar.gz archives
+changes.
+
+   <p>The following shell commands will download, compile and install universal Tcl/Tk. Modify the configure part to suit your needs, such as if you don't need all architectures:
+<pre class="example">     cd /tmp/
+     curl -O http://internap.dl.sourceforge.net/sourceforge/tcl/tcl8.5.5-src.tar.gz
+     curl -O http://internap.dl.sourceforge.net/sourceforge/tcl/tk8.5.5-src.tar.gz
+     tar fxz tcl8.5.5-src.tar.gz
+     cd tcl8.5.5/unix
+     CFLAGS='-arch i386 -arch ppc -arch ppc64 -arch x86_64' ./configure --with-x \
+     --disable-corefoundation --enable-threads --disable-symbols --disable-aqua
+     make
+     sudo make install
+     
+     cd ../..
+     tar fxz tk8.5.5-src.tar.gz
+     cd tk8.5.5/unix
+     CFLAGS='-arch i386 -arch ppc -arch ppc64 -arch x86_64' ./configure --with-x \
+     --disable-corefoundation --enable-threads --disable-symbols --disable-aqua
+     make
+     sudo make install
+</pre>
+   <p>(64-bit build of Tk will only work if you have 64-bit X11 installed - this is the default o Leaoprd but not on Tiger).
+
+<div class="node">
+<p><hr>
+<a name="Aqua-TclTk-headers-and-libraries-(optional)"></a>
+<a name="Aqua-TclTk-headers-and-libraries-_0028optional_0029"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#TeX-suite-of-tools-for-documentation-_0028optional_0029">TeX suite of tools for documentation (optional)</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#X11-TclTk-headers-and-libraries-_0028optional_0029">X11 TclTk headers and libraries (optional)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.7 Aqua TclTk headers and libraries (optional)</h4>
+
+<p>Mac OS X 10.4 (Tiger) comes with Aqua TclTk libraries. If those are not detected automatically, use the following flags with <code>configure</code>:
+<pre class="example">     --with-tcl-config=/System/Library/Frameworks/Tcl.framework/tclConfig.sh
+     --with-tk-config=/System/Library/Frameworks/Tk.framework/tkConfig.sh
+</pre>
+   <p>Note that currently <span class="sc">R.app</span> doesn't support Aqua Tcl/Tk, because of conflicting event loops (in fact Aqua Tcl/Tk cannot be embedded in any UI application due to its design assumptions). Therefore we strongy discourage the use of Aqua TclTk.
+
+<div class="node">
+<p><hr>
+<a name="TeX-suite-of-tools-for-documentation-(optional)"></a>
+<a name="TeX-suite-of-tools-for-documentation-_0028optional_0029"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Aqua-TclTk-headers-and-libraries-_0028optional_0029">Aqua TclTk headers and libraries (optional)</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#What-is-needed-to-build-R">What is needed to build R</a>
+
+</div>
+
+<h4 class="subsection">2.2.8 TeX suite of tools for documentation (optional)</h4>
+
+<p>There is a nice installer, called the <em>i-Installer II</em>, that allows you to install a complete
+teTeX distribution. You can find details on the i-Installer at <a href="http://www.rna.nl/ii.html">http://www.rna.nl/ii.html</a>. 
+The teTeX is one of the i-Packages.
+
+   <p>MacTeX (<a href="http://www.tug.org/mactex/">http://www.tug.org/mactex/</a>) is a more recent alternative, but it is huge and contains other (possibly unwanted) libraries and programs.
+
+   <p><strong>Note:</strong> You may also want to install TeXShop (<a href="http://www.uoregon.edu/~koch/texshop/texshop.html">http://www.uoregon.edu/~koch/texshop/texshop.html</a>). Beside wonderful GUI for editing TeX files that page also provides many useful links for TeX on Mac OS X.
+
+<div class="node">
+<p><hr>
+<a name="How-to-configure-and-build-R"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#How-to-install-R">How to install R</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-is-needed-to-build-R">What is needed to build R</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.3 How to configure and build R</h3>
+
+<p>Download the latest sources of R from <acronym>CRAN</acronym> or fetch them using SVN. Unpack the archive with tar -zxf <em>name_of_R_sources_archive</em> and cd
+inside the R sources directory. Then you need to configure R for your system and build R. It is recommended to use separate directory for building from the sources. For example if you unpackged <acronym>R</acronym> as R-2.15.1 type:
+<pre class="example">     mkdir build
+     cd build
+     ../R-2.15.1/configure
+     make
+</pre>
+   <p>This will configure R to be built as a Framework to be installed inside your <em>/Library/Frameworks</em> directory with the name <em>R.framework</em>. <code>make</code> will compile R. Such compiled <acronym>R</acronym> can already be used by running the <code>bin/R</code> script.
+
+   <p>Note that the default configuration assumes that all your compilers produce binaries for the same architecture. This is not true on Mac OS X 10.6 (Snow Leopard) where by default Xcode gcc produces 64-bit binaries but gfortran produces 32-bit binaries. Therefore in such a case you must set the compiler varaibles (<code>CC</code>, <code>CXX</code>, <code>OBJC</code>, <code>F77</code>, <code>FC</code>) accordingly to make sure they target the same architecture (see also see <a href="#How-to-build-universal-R">How to build universal R</a>).
+
+   <p>Some additional, useful flags that you may want to add to configure include:
+     <ul>
+<li><code>--with-blas='-framework vecLib'</code> enables <code>vecLib</code> as BLAS implementation. Given that <code>vecLib</code> is highly optimized by Apple, it is recommended for most users. (Currently there is one exception: users with Nehalem-based Mac Pros may want to use other alternatives such as ATLAS because current vecLib fails to recognize cores on such machines and will run in single-threaded mode which is slow.)
+
+     <li><code>--enable-BLAS-shlib</code> enables the use of <code>libRblas.dylib</code> which separates BLAS from the R library. This allows you to switch between various BLAS implementations (such as vecLib, internal R BLAS and ATLAS) without the need to re-compile R. It is in general a good idea and can be used with both internal BLAS and vecLib. (This option is enabled in the binary available from CRAN.)
+
+     <!--  better keep quiet, it is not recommended - -->
+<!-- @item -->
+<!-- @code{-disable-R-framework} builds R the 'unix' way, not as a framework. This is in general not recommended, but users that want exactly the same layout as on other unices may prefer this. Note that this influences mainly the installation of R, not the compilation - in fact R compiled as a framework still behaves the 'unix' way until installed. -->
+</ul>
+
+   <p>You can change the default location of the <em>R.framework</em>
+installation at configure time by specifying the flag <code>--enable-R-framework[=DIR]</code>, i.e. 
+with something like
+<pre class="example">     ./configure --enable-R-framework=FOO
+</pre>
+   <p>and the final destination of the <em>R.framework</em> will be <em>FOO/R.framework</em>, which means that you
+don't have to specify the <em>R.framework</em> text in the path.
+
+   <p>The R framework supports multiple versions of R in the same framework, thus allowing parallel R versions to co-exist. By default R version `<samp><span class="samp">x.y.z</span></samp>' will install into the `<samp><span class="samp">Versions/x.y</span></samp>' subdirectory of the framework. The name of the subdirectory can be overridden by using `<samp><span class="samp">FW_VERSION</span></samp>' configure setting, such as for example `<samp><span class="samp">FW_VERSION=R-devel</span></samp>' which will install in `<samp><span class="samp">Versions/R-devel</span></samp>'. The currently used framework is always the one pointed to by the `<samp><span class="samp">Versions/Current</span></samp>', see Apple's documentation on framework bundle anatomy for details (<a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/FrameworkAnatomy.html">http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/FrameworkAnatomy.html</a>).
+
+<div class="node">
+<p><hr>
+<a name="How-to-install-R"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#How-to-build-and-install-the-R_002eapp">How to build and install the R.app</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-to-configure-and-build-R">How to configure and build R</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.4 How to install R</h3>
+
+<p>Once the compilation succeeds type:
+<pre class="example">     sudo make install
+</pre>
+   <p>to install R in <em>/Library/Frameworks</em> (unless changed at configure time). You must have admin privileges and your password will be required.
+
+   <p>You can decide to change the installation destination by using the <em>prefix</em> option:
+final destination.
+<pre class="smallexample">     sudo make prefix=/my/new/R/location install
+</pre>
+   <p>As in the above, you don't need to specify the name <em>R.framework</em> in the path. (See R documentation for details.)
+
+<div class="node">
+<p><hr>
+<a name="How-to-build-and-install-the-R.app"></a>
+<a name="How-to-build-and-install-the-R_002eapp"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#How-to-build-universal-R">How to build universal R</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-to-install-R">How to install R</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.5 How to build and install the R.app</h3>
+
+<p>The sources for the <span class="sc">R.app</span> GUI are currently not included in the global R source distribution. They are available in the form of a Xcode project on the R for Mac OS X <acronym>CRAN</acronym> pages (released versions) as well as the SVN repository. In order to check out the latest development version, use
+<pre class="example">     svn co https://svn.r-project.org/R-packages/trunk/Mac-GUI
+</pre>
+   <p>Before compiling <span class="sc">R.app</span> make sure <acronym>R</acronym> is installed in <em>/Library/Frameworks/R.framework</em> and working.
+
+   <p>Using Xcode load the <em>R.xcodeproj</em> project, select <em>R</em> target (which is the default), set <em>Deployment</em> configuration build. The same effect can be achieved on the command line in the <samp><span class="file">Mac-GUI</span></samp> directory by typing:
+<pre class="example">     xcodebuild -target R -configuration Deployment
+</pre>
+   <p>The current development is done using Xcode 3.1 or higher. The default deployment build is universal, therefore you will need universal R framework and Mac OS X 10.4u SDK. Make sure /Library is available inside the SDK, recent Xcode installations ensure this automatically.
+
+   <p>For compatibility, the GUI offers an old-style project for Xcode 2.0 named <samp><span class="file">R.xcode</span></samp> which will build PowerPC binary only. However, this project file is no longer actively maintained. In addition to the default <code>Deployment</code> configuration there is also <code>Depolyment64</code> configuration that build 64-bit version of the GUI - you must have 64-bit R framework and Mac OS X 10.5 or higher for this to work. Other useful configurations include <code>Leopard</code>, <code>Leopard64</code>, <code>SnowLeopard</code> and <code>Debug</code>.
+
+   <p>The build includes both <span class="sc">R.app</span> and this R for Mac OS X FAQ. However, it is recommended to use at least GNU texinfo 4.7, because a bug in previous versions leads to invalid html output. Mac OS X 10.4 (Tiger) and later include the correct version of makeinfo.
+
+   <p><span class="sc">R.app</span> does not need to be installed in any specific way. Building <span class="sc">R.app</span> results in the <span class="sc">R.app</span> bundle which appears as one R icon. This application bundle can be run anywhere and it is customary to place it in the <em>Applications</em> folder.
+
+<div class="node">
+<p><hr>
+<a name="How-to-build-universal-R"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-to-build-and-install-the-R_002eapp">How to build and install the R.app</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Building-R-from-sources">Building R from sources</a>
+
+</div>
+
+<h3 class="section">2.6 How to build universal R</h3>
+
+<p>Starting with <acronym>R</acronym> 2.3.0 it is possible to build <acronym>R</acronym> that runs on multiple architectures. One special application of this feature is to build <acronym>R</acronym> that runs on both Intel and PowerPC based Macs on Mac OS X 10.4.4 or higher. Such <acronym>R</acronym> build is called <em>universal</em>. Other application is to build 32-bit and 64-bit version of <acronym>R</acronym> for the same platform.
+
+   <p>In order to be able to build universal R, all necessary libraries must be available as `<samp><span class="samp">i386</span></samp>' and `<samp><span class="samp">ppc</span></samp>' binaries. For system libraries this is the default for Mac OS X on Intel Macs. Other libraries such as readline must be compiled accordingly.
+
+   <p>In addition, the compilers must support both architectures as well. You will need Xcode Developer Tools version 2.4.0 or higher and a Fortran compiler that can create universal binaries. Such compiler is supplied with <acronym>R</acronym> 2.6.x in the <acronym>CRAN</acronym> binary package and available from <a href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>.
+
+   <p>The next step is to build a binary for each architecture. This can be either done natively on two machines - one PowerPC and one Intel based Mac, or by cross-compiling the PowerPC part on an Intel Mac. In either case, the configuration is the same.
+
+   <p>Configure, build and install the `<samp><span class="samp">ppc</span></samp>' binary (assuming `<samp><span class="samp">R-2.15.1.tar.gz</span></samp>' is in the current directory, replace `<samp><span class="samp">R-2.15.1</span></samp>' with any other version or name as appropriate):
+<pre class="example">     tar fxz R-2.15.1.tar.gz
+     mkdir R-ppc
+     cd R-ppc
+     ../R-2.15.1/configure r_arch=ppc CC="gcc -arch ppc" \
+     CXX="g++ -arch ppc" F77="gfortran -arch ppc" \
+     FC="gfortran -arch ppc" OBJC="gcc -arch ppc"
+     make
+     make install
+     cd ..
+</pre>
+   <p>Depending on your permissions, you may need to run `<samp><span class="samp">sudo make install</span></samp>'. The next step is to build and install the Intel binary:
+
+<pre class="example">     mkdir R-i386
+     cd R-i386
+     ../R-2.15.1/configure r_arch=i386 CC="gcc -arch i386" \
+     CXX="g++ -arch i386" F77="gfortran -arch i386" \
+     FC="gfortran -arch i386" OBJC="gcc -arch i386"
+     make
+     make install
+     cd ..
+</pre>
+   <p>The installation scripts in <acronym>R</acronym> are intelligent enough to merge both builds together and create a universal <acronym>R</acronym> framework. One crucial requirement for this to work is to use `<samp><span class="samp">i386</span></samp>' and `<samp><span class="samp">ppc</span></samp>' as the architecture names. Other supported architecture names are <code>ppc64</code> and <code>x86_64</code> for 64-bit builds. One R installation can contain all four architectures.
+
+<!-- Since Mac OS X 10.4.8 @samp{vecLib} is now multi-threaded, so there is no need for threaded ATLAS anymore and the corresponding static library is no longer included in the toolbox. -->
+<p>Finally, the standard <acronym>R</acronym> shell script uses by default the last installed architecture. This is probably not what you want, because the native architecture is known at run time. Therefore the line
+<pre class="smallexample">     : ${R_ARCH=/i386}
+</pre>
+   <p>can be replaced by
+<pre class="smallexample">     : ${R_ARCH=/`arch`}.
+</pre>
+   <p>to default to the current native architecture. It addition, it may be a good idea to make sure that the `<samp><span class="samp">PATH</span></samp>' environment variable contains the path to your universal compiler, otherwise there may be problems with compilation of universal packages. Those are also modifications that you will find in the <acronym>CRAN</acronym> release as compared to vanilla R (plus the default of package type being binary instead of source).
+
+   <p>To run a specific architecture use the `<samp><span class="samp">--arch</span></samp>' flag when starting <acronym>R</acronym>, e.g., `<samp><span class="samp">R --arch x86_64</span></samp>' for 64-bit R on Intel platform.
+
+   <p>Starting with R 2.10.0 CRAN installations on Mac OS X 10.6 (Snow Leopard) default to 64-bit if the host CPU supports is. All other installations use the native platform type (which is 32-bit in most cases).
 
 <div class="node">
 <p><hr>
@@ -251,39 +636,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">3 Command line version of R</h2>
 
-<p>The command line version of <acronym>R</acronym> is almost identical to <acronym>R</acronym> as used on
-other Unix-like operating systems. Therefore general documentation for
-<acronym>R</acronym> applies to this version as well.  On each release ready-to-use
-binaries are distributed through <acronym>CRAN</acronym>.  These binaries come with a
-common installer used by <span class="sc">R.app</span> so please read the related notes
-(see <a href="#How-to-get-R_002eapp">How to get R.app</a>).
+<p>The command line version of <acronym>R</acronym> is identical to <acronym>R</acronym> as used on other unix operating systems. Therefore general
+documentation for <acronym>R</acronym> applies to this version as well. 
+On each release (and patched-release) ready to use binaries are distributed through <acronym>CRAN</acronym>. 
+These binaries come with a common installer used by <span class="sc">R.app</span> so please read
+the related notes (see <a href="#How-to-get-R_002eapp">How to get R.app</a>). 
+To use <acronym>R</acronym> you probably need to add a symbolic link on your system as the <acronym>R</acronym> binary is
+located inside the framework. 
+Suppose you have the <em>/usr/local/bin</em> directory on your system (if you do not have one, you can use <em>/usr/bin</em> instead) you should just type in your Terminal (a root password is required)
+<pre class="smallexample">     sudo ln -s /Library/Frameworks/R.framework/Resources/R /usr/local/bin/R
+</pre>
+   <p>Assuming that you have <em>/usr/local/bin</em> in your <em>PATH</em> environment variable, you will be able to launch R from any location on your system just by typing <em>R</em>. In this way, when you install a new version of the <em>R.framework</em> this link will point to the latest R binary.
 
-   <p>On recent versions of OS X (Snow Leopard and later) the installer links
-three executables in <samp><span class="file">/usr/bin</span></samp>, <code>R32</code>, <code>R64</code> and
-<code>R</code>.  The first is 32-bit, the second is 64-bit and <code>R</code> is
-64-bit on Snow Leopard and Lion and later but 32-bit on Leopard (and on
-Mountain Lion for 2.15.2 and earlier).  It also links <code>Rscript</code> (of
-the same default architecture as <code>R</code>).
-
-   <p>One thing that is different from <acronym>R</acronym> on any other Unix-like is the way
-output is displayed on a terminal.  Except for `dumb' terminals,
-messages to <samp><span class="file">stderr</span></samp> are diverted to <samp><span class="file">stdout</span></samp> and displayed in
-bold using ANSI terminal escapes.
-
-<!-- links to /usr/bin/R these days. -->
-<!-- To use @R{} you probably need to add a symbolic link on your system as -->
-<!-- the @R{} binary is located inside the framework.  Suppose you have the -->
-<!-- @emph{/usr/local/bin} directory on your system (if you do not have one, -->
-<!-- you can use @emph{/usr/bin} instead) you should just type in your -->
-<!-- Terminal (a root password is required) -->
-<!-- @example -->
-<!-- sudo ln -s /Library/Frameworks/R.framework/Resources/R /usr/local/bin/R -->
-<!-- @end example -->
-<!-- Assuming that you have @emph{/usr/local/bin} in your @emph{PATH} -->
-<!-- environment variable, you will be able to launch R from any location on -->
-<!-- your system just by typing @emph{R}. In this way, when you install a new -->
-<!-- version of the @emph{R.framework} this link will point to the latest R -->
-<!-- binary. -->
 <div class="node">
 <p><hr>
 <a name="R.app"></a>
@@ -303,19 +667,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a accesskey="4" href="#General-Features">General Features</a>
 <li><a accesskey="5" href="#The-Menus">The Menus</a>
 <li><a accesskey="6" href="#Preferences">Preferences</a>
-<li><a accesskey="7" href="#R_002eapp-Bugs">R.app Bugs</a>
+<li><a accesskey="7" href="#The-near-future-of-the-R_002eapp">The near future of the R.app</a>
+<li><a accesskey="8" href="#R_002eapp-Bugs">R.app Bugs</a>
 </ul>
 
-<p><span class="sc">R.app</span> is the name of the GUI for Mac OS X that was introduced in R
-2.0.0. It appears as an icon labeled <em>R</em> or <em>R64</em>, but to
-avoid confusion with general <acronym>R</acronym>, we prefer to use the name as it
-appears when using <em>Get Info</em> on the GUI: <span class="sc">R.app</span> This stands for
-<em>R application</em>.
+<p><span class="sc">R.app</span> is the name of the Cocoa-based GUI for Mac OS X that was introduced in R 2.0.0. It appears as an icon labeled <em>R</em>, but to avoid confusion with general <acronym>R</acronym>, we prefer to use the name as it appears when using <em>Get Info</em> on the GUI: <span class="sc">R.app</span> This stands for <em>R application</em>.
 
-   <p>Internally <span class="sc">R.app</span> is a Cocoa program (hence written in Objective C)
-which links to embedded <acronym>R</acronym> installed as a framework.
+   <p>Internally <span class="sc">R.app</span> is a Cocoa program (hence written in Obj-C) that loads the R dynamic library in order to use R facilities.
 
-<!-- Historically there were two more GUIs for Mac OS X: @emph{RAqua} and @emph{Cocoa GUI bundle}. The latter was never officially released and RAqua was retired in R version 2.1, because it used legacy toolkit from the times of MacOS9. -->
+   <p>Historically there were two more GUIs for Mac OS X: <em>RAqua</em> and <em>Cocoa GUI bundle</em>. The latter was never officially released and RAqua was retired in R version 2.1, because it used legacy toolkit from the times of MacOS9.
+
 <div class="node">
 <p><hr>
 <a name="How-to-get-R.app"></a>
@@ -328,14 +689,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
 
 <h3 class="section">4.1 How to get R.app</h3>
 
-<p><span class="sc">R.app</span> is part of the binary distribution of R for Mac OS X available
-from <acronym>CRAN</acronym>. That distribution consists of one package containing the R
-framework and 32- and 64-bit versions of <span class="sc">R.app</span>.
+<p><span class="sc">R.app</span> is part of the binary distribution of R for Mac OS X available from <acronym>CRAN</acronym>. That distribution consists of one disk image containing multiple packages including the R framework and <span class="sc">R.app</span>.
 
-   <p>Development versions of <span class="sc">R.app</span> are made available on daily basis in the
-form of a disk image containing the <span class="sc">R.app</span> itself. See the Mac OS X
-pages on <acronym>CRAN</acronym> for detail how to obtain such snapshots (currently at
-<a href="http://R.research.att.com/">http://R.research.att.com/</a>).
+   <p>Development versions of <span class="sc">R.app</span> are made available on daily basis in the form of a disk image containing the <span class="sc">R.app</span> itself. See the Mac OS X pages on <acronym>CRAN</acronym> for detail how to obtain such images (currently at <a href="http://R.research.att.com/">http://R.research.att.com/</a>).
 
 <div class="node">
 <p><hr>
@@ -349,13 +705,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
 
 <h3 class="section">4.2 How to install the R.app</h3>
 
-<p><span class="sc">R.app</span> is installed the same way as the R framework, namely using
-binary package provided on <acronym>CRAN</acronym>. The <samp><span class="file">bin/macosx</span></samp> directory of a
-<acronym>CRAN</acronym> site contains a standard Apple installer package named
-<samp><span class="file">R.pkg</span></samp> (optionally containing the version number). Download and
-double-click the package icon.
+<p><span class="sc">R.app</span> is installed the same way as the R framework, namely using binary package provided on <acronym>CRAN</acronym>. The <samp><span class="file">bin/macosx</span></samp> directory of a <acronym>CRAN</acronym> site contains a standard Apple installer package inside a disk image named <samp><span class="file">R.dmg</span></samp> (optinally containing the version number). Download and double-click the image. New window will appear with a package icon representing the installer. Double-click that icon and it will install the current non-developer release of R, including <span class="sc">R.app</span>.
 
-   <p>Please, carefully read the note on the usage of tcltk and Fortran on the <samp><span class="file">bin/macosx</span></samp> directory of a <acronym>CRAN</acronym> site.
+   <p>Please, carefully read the note on the usage of tcltk and Fortran on the <samp><span class="file">bin/macosx</span></samp> directory of a <acronym>CRAN</acronym> site, e.g. <a href="http://cran.cnr.berkeley.edu/">http://cran.cnr.berkeley.edu/</a>.
+
+   <p>Nightly builds typically come as a disk image that contains <span class="sc">R.app</span> itself and thus can be started directly from the disk image or installed by dragging the icon in the `<samp><span class="samp">Applications</span></samp>' folder.
 
 <div class="node">
 <p><hr>
@@ -419,7 +773,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#The-R-Console">The R Console</a>
 <h4 class="subsection">4.3.3 The current and startup working directories</h4>
 
 <p>If not otherwise specified in the Preferences (see <a href="#Preferences">Preferences</a>), or if the specified path is no longer available, then the default working directory at startup is the user home. 
-The working directory can be changed using the <em>setwd</em> R command or using the <em>Misc</em> menu item <em>Change working directory</em>. Finally it is possible to use a specific directory for a single <acronym>R</acronym> session by dragging a folder onto the <span class="sc">R.app</span> icon. If <span class="sc">R.app</span> is not running, this will cause <span class="sc">R.app</span> to be started in the directory corresponding to the folder dragged. The same can be achieved on the command line &ndash; for example <code>open -a R .</code> causes <span class="sc">R.app</span> to be started using the current directory as the startup working directory.
+The working directory can be changed using the <em>setwd</em> R command or using the <em>Misc</em> menu item <em>Change working directory</em>. Finally it is possible to use a specific directory for a single <acronym>R</acronym> session by dragging a folder onto the <span class="sc">R.app</span> icon. If <span class="sc">R.app</span> is not runnig, this will cause <span class="sc">R.app</span> to be started in the directory corresponding to the folder dragged. The same can be achieved on the command line - for example <code>open -a R .</code> causes <span class="sc">R.app</span> to be started using the current directory as the startup working directory.
 
 <p class="noindent">This feature is useful if you want different startup procedures defined by the <samp><span class="file">.Rprofile</span></samp>; you can
 edit a <samp><span class="file">.Rprofile</span></samp> (containing you personal initialization <acronym>R</acronym> commands) in a particular directory and use
@@ -473,7 +827,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
 <li><a accesskey="8" href="#Drag-_0026-drop">Drag &amp; drop</a>
 <li><a accesskey="9" href="#Help-system">Help system</a>
 <li><a href="#History">History</a>
-<li><a href="#Authentication-and-_002elibPaths">Authentication and .libPaths</a>
+<li><a href="#Authentication-and-_002elibPath">Authentication and .libPath</a>
 </ul>
 
 <div class="node">
@@ -592,24 +946,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#General-Features">General Features</a>
 
 <h4 class="subsection">4.4.8 Drag &amp; drop</h4>
 
-<p>Drag and drop of a directory on the <span class="sc">R.app</span> icon while <span class="sc">R.app</span> is not
-running will start <span class="sc">R.app</span> and set the working directory. By default
-<samp><span class="file">.RData</span></samp> and the history file (default name <samp><span class="file">.Rapp.history</span></samp>)
-are fetched from this working directory.  If a file is dropped on the
-<span class="sc">R.app</span> icon while <span class="sc">R.app</span> is not running, <span class="sc">R.app</span> is started, the file
-is either restored (if it is a saved workspace), sourced into <span class="sc">R.app</span> or
-opened in the selected editor. Whether the file is opened or sourced is
-specified by a Preference setting in the StartUp Preference Pane.
+<p>Drag and drop of a directory on the R icon while R is not running will start R and
+set the working directory. By default <samp><span class="file">.RData</span></samp> and <samp><span class="file">.Rapp.history</span></samp> are fetched from this working directory. 
+If a file is dropped on the R icon while R is not running, R is started, the file is either
+restored (if it is a saved workspace), sourced into R or opened in the selected editor. Whether
+the file is opened or sourced is specified by a Preference setting in the StartUp Preference Pane.
 
-   <p>Note: At this point opening a file in the editor before <span class="sc">R.app</span> is finished
-loading will crash <span class="sc">R.app</span>.
+   <p>Note: At this point opening a file in the editor before R is finished loading will crash R.
 
-   <p>While <span class="sc">R.app</span> is running, drag &amp; drop of a directory updates the working
-directory. Drag &amp; drop of a file sources or opens the file in the
-selected editor. Double clicking on files bound to ("Open With ...") R,
-if <span class="sc">R.app</span> is not running, <span class="sc">R.app</span> is started and the file is sourced or
-opened in editor. If <span class="sc">R.app</span> is running, the file is opened in the
-editor.
+   <p>While R is running, d&amp;d of a directory updates the working directory. D&amp;d of a file sources or
+opens the file in the selected editor. Double clicking on files bound to ("Open With ...") R, if
+R is not running, R is started and the file is sourced or opened in editor. If R is running, the
+file is opened in the editor.
 
 <div class="node">
 <p><hr>
@@ -622,15 +970,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#General-Features">General Features</a>
 
 <h4 class="subsection">4.4.9 Help system</h4>
 
-<p>The Help screen allows a user to go back or forward to previous help
-pages.  It is possible to print help pages. If a help topic is not
-found, a pop-up window allows to exit the help search or expand the
-search to a fuzzy/approximate search.
+<p>The Help screen allows a user to go back or forward to previous help pages. 
+It is possible to print help pages. If a help topic is not found, a pop-up window allows
+to exit the help search or expand the search to a fuzzy/approximate search.
 
 <div class="node">
 <p><hr>
 <a name="History"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Authentication-and-_002elibPaths">Authentication and .libPaths</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Authentication-and-_002elibPath">Authentication and .libPath</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Help-system">Help system</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#General-Features">General Features</a>
 
@@ -638,57 +985,33 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#General-Features">General Features</a>
 
 <h4 class="subsection">4.4.10 History</h4>
 
-<p><span class="sc">R.app</span> uses history files that are (superset) compatible with history
-files created by R. Multiline support remains available from inside
-<span class="sc">R.app</span>. Multiline is particularly useful when using the
-<kbd>&lt;Command&gt;-&lt;Return&gt;</kbd> feature while editing an R
-script. Import and export allows storing and importing history from
-files visible in the Mac OS Finder. Multiline is preserved. This can be
-set through the StartUp Preference Panel. Default number of kept history
-entries is 250. A variety of history entry cleanup modes is possible. 
-At a minimum it is suggested to select "Cleanup history entries". It's
-optional to select removal of duplicate entries and strip comments.
+<p><span class="sc">R.app</span> uses history files that are (superset) compatible with history files created by R. Multiline
+support remains available from inside <span class="sc">R.app</span>. Multiline is particularly useful when using the
+<kbd>&lt;Command&gt;-&lt;Return&gt;</kbd> feature while editing an R script. Import and export allows storing and importing
+history from files visible in the Mac OS Finder. Multiline is preserved. This can be set through
+the StartUp Preference Panel. Default number of kept history entries is 250. A variety of history
+entry cleanup modes is possible. 
+At a minimum it is suggested to select "Cleanup history entries". It's optional to select removal
+of duplicate entries and strip comments.
 
-   <p>Note: Command-line <acronym>R</acronym> stores history in a file usually called
-<samp><span class="file">.Rhistory</span></samp>. It is suggested to use a different name for the
-<span class="sc">R.app</span> history file, and the default is <samp><span class="file">.Rapp.history</span></samp>.
-
-   <p>Note that the functions <code>loadhistory()</code>, <code>savehistory()</code> and
-hence <code>history()</code> are not currently supported in <span class="sc">R.app</span>.
+   <p>Note: R itself sometimes stores history in a file usually called .Rhistory. It is suggested to use a different name for the R.app history file.
 
 <div class="node">
 <p><hr>
-<a name="Authentication-and-.libPaths"></a>
-<a name="Authentication-and-_002elibPaths"></a>
+<a name="Authentication-and-.libPath"></a>
+<a name="Authentication-and-_002elibPath"></a>
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#History">History</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#General-Features">General Features</a>
 
 </div>
 
-<h4 class="subsection">4.4.11 Authentication and .libPaths</h4>
+<h4 class="subsection">4.4.11 Authentication and .libPath</h4>
 
-<p>The official <acronym>CRAN</acronym> binaries come pre-packaged in such a way that
-administrator have sufficient privileges to update R and install
-packages system-wide. However, the default Unix build requires
-root-authentication for package installation and other administrative
-tasks. As it is not feasible to run the GUI as root, we provide the
-possibility to authenticate system commands issued from the GUI. The
-authentication requires an administrator login and causes all subsequent
-system commands to be executed as root. Use with care!
+<p>The official CRAN binaries come pre-packaged in such a way that administrator have sufficient privileges to update R and install packages system-wide. However, the default unix build requires root-authentication for package instllation and other administrative tasks. As it is not feasible to run the GUI as root, we provide the possibility to authenticate system commands issued from the GUI. The authentication requires an administrator login and causes all subsequent system commands to be executed as root. Use with care!
 
-   <p>In order to allow non-administrators to maintain their own set of
-packages, <span class="sc">R.app</span> optionally adds <code>~/Library/R/x.y/library</code> to the
-<code>.libPaths</code> (see start-up preferences, <code>x.y</code> denotes the R
-version without patch level). It is possible to use the Package
-Installer to install packages either globally (admin users only) or for
-the current user only.  (This is the same mechanism for personal library
-directories described in the main <acronym>R</acronym> documentation, but with a location
-specific to <acronym>CRAN</acronym>-like builds of <acronym>R</acronym> on OS X.)
+   <p>In order to allow non-administrators to maintain their own set of packages, <span class="sc">R.app</span> optionally adds <code>~/Library/R/x.y/library</code> to the <code>.libPaths</code> (see start-up preferences, <code>x.y</code> denotes the R version without patch level). It is possible to use the Package Installer to install packages either globally (admin users only) or for the current user only.
 
-   <p>Note that user-local packages are only used when the corresponding
-preference option is enabled. The default for admin users is to use
-system-wide directories, for non-admin users the personal library
-directory will be used.
+   <p>Note that user-local packages are only used when the corresponding preference option is enabled. The default for admin users is to use system-wide directorie, for non-admin users local packages will be used.
 
 <div class="node">
 <p><hr>
@@ -722,14 +1045,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#The-Menus">The Menus</a>
 
 <h4 class="subsection">4.5.1 Application Menu</h4>
 
-<p>The Application menu is the first one after the main Apple Menu: it is
-labelled <code>R</code>.
+<p>The Application menu is the first one after the main Apple Menu.
 
-   <p>With this menu you can access three items: 1. the About box, which tells
-you which version of R is currently in use, 2. Check for updates, which
-search on <acronym>CRAN</acronym> if a new version of the binary distribution of <acronym>R</acronym>
-for Mac OS X is available (you need an Internet connection), 3. you can
-access the Preferences (see <a href="#Preferences">Preferences</a>).
+   <p>With this menu you can access three items: 1. the About box, which tells you which version of R is currently in use, 2. Check for updates, which search on <acronym>CRAN</acronym> if a new version
+of the binary distribution of <acronym>R</acronym> for Mac OS X is available (you need an internet connection), 3. you can access the Preferences (see <a href="#Preferences">Preferences</a>).
 
 <div class="node">
 <p><hr>
@@ -757,9 +1076,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#The-Menus">The Menus</a>
 
 <h4 class="subsection">4.5.3 Misc Menu</h4>
 
-<p>Apart for standard functionalities, the only relevant item in this menu
-is <em>Edit Object</em> which is an interface to the <acronym>R</acronym> <samp><span class="command">edit</span></samp>
-function.
+<p>Apart for standard functionalities, the only relevant item in this menu is the <em>Edito Object</em> which is an interface to
+the  <acronym>R</acronym> <samp><span class="command">edit</span></samp> function.
 
 <div class="node">
 <p><hr>
@@ -787,14 +1105,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#The-Menus">The Menus</a>
 
 <h4 class="subsection">4.5.5 Workspace Menu</h4>
 
-<p>Here you find self explanatory menu items for manage your workspace in
-<acronym>R</acronym>. You can either load and save the workspace also by specifying file
-name. All of these are interfaces to the <samp><span class="command">load</span></samp> and
-<samp><span class="command">save</span></samp> <acronym>R</acronym> commands.  The only relevant item, which is specific
-to this GUI, is <em>Browse workspace</em> which invokes the
-<code>browseEnv()</code> function in <acronym>R</acronym>. This will open a window with a
-summary description of the objects in your workspace. Recursive objects
-(like lists, data.frame etc) can be expanded (one level only though).
+<p>Here you find self explanatory menu items for manage your workspace in <acronym>R</acronym>. You can either load and save the workspace also
+by specifying file name. All of these are interfaces to the <samp><span class="command">load</span></samp> and <samp><span class="command">save</span></samp> <acronym>R</acronym> commands. 
+The only relevant item, which is specific to this GUI, is the <em>Browse workspace</em>. This will open a window with a summary
+description of the objects in your workspace. Complex objects (like lists, data.frame etc) can be expanded (one level only though).
 
 <div class="node">
 <p><hr>
@@ -807,52 +1121,35 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#The-Menus">The Menus</a>
 
 <h4 class="subsection">4.5.6 Packages Menu</h4>
 
-<p>Using this menu you can have access to the list of packages and
-data-sets installed on your system and to the ones on <acronym>CRAN</acronym> or on the
-Bioconductor site.
+<p>Using this menu you can have access to the list of packages and data-sets installed on your system and to the ones
+on <acronym>CRAN</acronym> or on the Bioconductor site.
 
-   <p>With the first two menus you can load and detach packages and data-set
-from the workspace.  Let's start with the <em>Package Manager</em>. This
-opens a window with several columns displayed.  For each package on your
-system you can see a check box, the current status of the package
-(loaded/not loaded), its name and the package description text. You use
-the check box to select/de-select the packages you want.  On window
-closure, the checked packaged will be loaded and the unchecked ones (if
-loaded) will the detached (not completely as on Mac OS X you cannot
+   <p>With the first two menus you can load and detach packages and data-set from the workspace. 
+Let's start with the <em>Package Manager</em>. This opens a window with several columns displayed. 
+For each package on your system you can see a check box, the current status of the package (loaded/not loaded), its name
+and the package description text. You use the check box to select/de-select the packages you want. 
+On window closure, the checked packaged will be loaded and the unchecked ones (if loaded) will the detached (not completely as on Mac OS X you cannot
 unload completely dynamic libraries).
 
    <p>The same applies to the <em>Dataset Manager</em> menu but for data-sets.
 
-   <p>You can than get or update packages <acronym>CRAN</acronym> either in binary or source
-format. Daily build of <acronym>CRAN</acronym> packages are available for Mac OS X. If
-you don't know how to build <acronym>R</acronym> itself from source (see <a href="#Building-R-from-sources">Building R from sources</a>), you'll probably be unable to build packages from source
-on your own.  In this case, you should always choose for the binary
-option. These binary packages work (for sure!) for the release version
-of <acronym>R</acronym> for Mac OS X you find on <acronym>CRAN</acronym> even though it is not excluded
-that they will work for other prebuilt versions of <acronym>R</acronym>.
+   <p>You can than get or update packages <acronym>CRAN</acronym> either in binary or source format. Daily build of <acronym>CRAN</acronym> packages are available
+for Mac OS X. If you don't know how to build <acronym>R</acronym> itself from source (see <a href="#Building-R-from-sources">Building R from sources</a>),
+you'll probably be unable to build packages from source on your own. 
+In this case, you should always choose for the binary option. These binary packages work (for sure!) for the release version of <acronym>R</acronym> for Mac OS X
+you find on <acronym>CRAN</acronym> even though it is not excluded that they will work for other prebuilt versions of <acronym>R</acronym>.
 
-   <p>When you attempt to install packages from <acronym>CRAN</acronym>, <acronym>R</acronym> first tries to
-get a connection to the Internet to download the list of available
-packages. Than a window will open similar to the one in the package
-manager with the only difference that for each package there is also the
-information concerning the version of the package installed on your
-system (if any) and the version of the prebuilt package available on
-<acronym>CRAN</acronym>. When you close the window, the select packages will be
-downloaded.
+   <p>When you attempt to install packages from <acronym>CRAN</acronym>, <acronym>R</acronym> first tries to get a connection to the Internet to download
+the list of available packages. Than a window will open similar to the one in the package manager with the only difference that
+for each package there is also the information concerning the version of the package installed on your system (if any) and
+the version of the prebuilt package available on <acronym>CRAN</acronym>. When you close the window, the select packages will be downloaded.
 
-   <p>The same strategy applies to the Bioconductor menu item, with some more
-options typical of the Bioconductor way of managing packages.
+   <p>The same strategy applies to the Bioconductor menu item, with some more options typical of the Bioconductor way
+of managing packages.
 
-   <p>For some reason it could happen that you have the package you want to
-install (either in binary or source form) on one of your local disks, or
-even a directory containing a package source. You can use the last menu
-to do the task of installing the package.  Having a package in a
-directory form usually applies to people that are developing packages
-themselves.
-
-   <p>Note that packages which do not contain C, C++, Fortran <small class="dots">...</small> code
-which needs to be compiled can be compiled from their sources with no
-additional tools.
+   <p>For some reason it could happen that you have the package you want to install (either in binary or source form) on one of your
+local disks, or even a directory containing a package source. You can use the last menu to do the task of installing the package. 
+Having a package in a directory form usually applies to people that are developing packages themselves.
 
    <p>For more information on this topic see also <a href="#How-to-install-packages">How to install packages</a>.
 
@@ -872,7 +1169,7 @@ There are also interfaces to the R <em>help</em> and <em>help.search</em> functi
 <div class="node">
 <p><hr>
 <a name="Preferences"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#R_002eapp-Bugs">R.app Bugs</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#The-near-future-of-the-R_002eapp">The near future of the R.app</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#The-Menus">The Menus</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
 
@@ -902,27 +1199,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Preferences">Preferences</a>
 
 <h5 class="subsubsection">4.6.0.1 Startup</h5>
 
-<p>The Drag &amp; drop section defines drag &amp; drop behaviour during R
-start-up. Options are to open file in an editor or to source
-file. Default is to source the file.  The Default Library Paths section
-enables, on next start-up of R, to add a directory, e.g. 
-<samp><span class="file">~/R/Library</span></samp>, to the library search/install path. The initial
-working directory section can be used to enforce the initial working
-directory. If no directory is specified, this directory is used as the
-default. The Change button allows to select a new directory. The Always
-apply selection will enforce the specified intial start-up
-directory. The history section controls reading of the history file on
-startup. If selected, R will read history file on start-up.  The R
-history file field is used to read and store history from/to. This field
-can be edited to allow selecting files starting with a period (e.g. 
-<samp><span class="file">.Rapp.history</span></samp>). If you want the same history file regardless of
-your selected working directory, specify a fixed path (e.g. 
-<samp><span class="file">~/.Rapp.history</span></samp>).  The Default button will reset the history file
-name to its default value. The History handling area allows setting of
-the max number of entries to be kept in history, to remove duplicate
-entries, to cleanup history entries (this is very useful to remove blank
-lines when submitting multiple lines using Command-Return) and the strip
-comments before the entry is added to the history.
+<p>The Drag &amp; drop section defines drag &amp; drop behaviour during R start-up. Options are to open
+file in an editor or to source file. Default is to source the file. 
+The Default Library Paths section enables, on next start-up of R, to add a directory, e.g. 
+~/R/Library, to the
+library search/install path. The initial working directory section can be used to enforce
+the initial working directory. If no directory is specified, this directory is used as the
+default. The Change button allows to select a new directory. The Always apply selection will
+enforce the specified intial start-up directory. The history section controls reading of
+the history file on startup. If selected, R will read history file on start-up. 
+The R history file field is used to read and store history from/to. This field can be edited
+to allow selecting files starting with a period (e.g. <code>.Rapp.history</code>). If you want the same history
+file regardless of your selected working directory, specify a fixed path (e.g. <code>~/.Rapp.history</code>). 
+The Default button will reset the history file name to its default value. The History handling
+area allows setting of the max number of entries to be kept in history, to remove duplicate
+entries, to cleanup history entries (this is very useful to remove blank lines when submitting
+multiple lines using Command-Return) and the strip comments before the entry is added to the
+history.
 
 <div class="node">
 <p><hr>
@@ -935,18 +1228,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Preferences">Preferences</a>
 
 <h5 class="subsubsection">4.6.0.2 Editor Preferences</h5>
 
-<p>If Built-in editor is selected, allows enable/disable of syntax
-coloring, brace highlighting and the showing of line numbers. If
-External editor is selected, allows specifying which external
-editor. That editor will be used for all editing functions. It runs as a
-separate application. Using an external editor means that R will never
-wait while editing (e.g. <code>edit(A)</code> will return immediately and
-open <code>A</code> in the external editor. Command-E and Command-Return like
-functionality would need to be implemented by other means,
-i.e. AppleScript. The external editor can be any application
-(e.g. SubEthaEdit, TextWrangler, BBEdit, Smultron, etc) or can be
-activated through a shell script (e.g. see or smultron, both give better
-control on how to start the editor).
+<p>If Built-in editor is selected, allows enable/disable of syntax coloring, brace highlighting
+and the showing of line numbers. If External editor is selected, allows specifying which
+external editor. That editor will be used for all editing functions. It runs as a separate
+application. Using an external editor means that R will never wait while editing (e.g. edit(A)
+will return immediately and open A in the external editor. Command-E and Command-Return like
+functionality would need to be implemented by other means, i.e. AppleScript. The external editor
+can be any application (e.g. SubEthaEdit, TextWrangler, BBEdit, Smultron, etc) or can be activated
+through a shell script (e.g. see or smultron, both give better control on how to start the editor).
 
 <div class="node">
 <p><hr>
@@ -988,32 +1277,42 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Preferences">Preferences</a>
 
 <div class="node">
 <p><hr>
-<a name="R.app-Bugs"></a>
-<a name="R_002eapp-Bugs"></a>
+<a name="The-near-future-of-the-R.app"></a>
+<a name="The-near-future-of-the-R_002eapp"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#R_002eapp-Bugs">R.app Bugs</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Preferences">Preferences</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
 
 </div>
 
-<h3 class="section">4.7 R.app Bugs</h3>
+<h3 class="section">4.7 The near future of the R.app</h3>
+
+<p>We have introduced <span class="sc">R.app</span> in R 2.0. Although it was a new apporach, tt that point it was mainly replicating features fount in the old Carbon GUI. With R 2.1 we have moved more towards look at feel of the OS X operating system and worked mainly on improving the editor and its integration. In the near future we want to continue to improve the interface, add new features and exploit the possibilities of Mac OS X 10.4 (Tiger).
+
+   <p>The <span class="sc">R.app</span> is still very much a moving target. Although we release official versions with each R release, we continue to work on <span class="sc">R.app</span> and offer experimental builds that can be used with the last official release of R. See <a href="http://R.research.att.com/">http://R.research.att.com/</a> for the current links to the most recent <span class="sc">R.app</span>.
+
+<div class="node">
+<p><hr>
+<a name="R.app-Bugs"></a>
+<a name="R_002eapp-Bugs"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#The-near-future-of-the-R_002eapp">The near future of the R.app</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#R_002eapp">R.app</a>
+
+</div>
+
+<h3 class="section">4.8 R.app Bugs</h3>
 
 <p>On Unix systems a bug report can be generated using the function
-<code>bug.report()</code>.  Alternatively the bug report can be submitted to
-the Web page at <a href="http://bugs.R-project.org/">http://bugs.R-project.org/</a>.
+<code>bug.report()</code>.  This automatically includes the version
+information and sends the bug to the correct address.  Alternatively the
+bug report can be emailed to <a href="mailto:R-bugs@R-project.org">R-bugs@R-project.org</a> or submitted
+to the Web page at <a href="http://bugs.R-project.org/">http://bugs.R-project.org/</a>.
 
-   <p>Before you file a bug report, please try to reproduce it using both
-<span class="sc">R.app</span> and the console version of <acronym>R</acronym> (if applicable). If the bug if
-<span class="sc">R.app</span>-specific, please report the bug to the mailing list
-<a href="mailto:R-SIG-Mac@R-project.org">R-SIG-Mac@R-project.org</a> instead. Please do NOT forget to
-mention the exact <span class="sc">R.app</span> version and include the output of
-<code>sessionInfo()</code>.
+   <p>Before you fill a bug report, please try to reproduce it using both <span class="sc">R.app</span> and the console version of R (if applicable). If the bug if <span class="sc">R.app</span>-specific, please report the bug to <a href="mailto:R-SIG-Mac@R-project.org">R-SIG-Mac@R-project.org</a> instead. Please do NOT forget to mention the exact <span class="sc">R.app</span> version and include the output of <code>sessionInfo()</code>.
 
-   <p>In any circumstances, in case of a crash, please report the crash.log
-for the <em>R.bin</em> and/or <em>R.app</em> application. You can get this
-crash.log using the <em>Console.app</em> located inside
-<em>/Applications/Utilities</em> (select `1' in the crash menu in the R
-console at the time of the crash (if you see that menu) to generate a
-crash report).
+   <p>In any circumstances, in case of a crash, please report the
+crash.log for the <em>R.bin</em> and/or <em>R.app</em> application. You can get this
+crash.log using the <em>Console.app</em> located inside <em>/Applications/Utilities</em> (select `1' in the crash menu in the R console at the time of the crash (if you see that menu) to generate a crash report).
 
 <div class="node">
 <p><hr>
@@ -1026,10 +1325,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">5 How to install packages</h2>
 
-<p>You have several options for installing new packages on your system. We
-discuss here only the GUI interface to the standard <acronym>R</acronym> functions like
-<samp><span class="command">install.package</span></samp>. For the <acronym>R</acronym> functions see the standard <acronym>R</acronym>
-documentation.
+<p>You have several options for installing new packages on your system. We discuss here only the interface to the standard
+<acronym>R</acronym> functions like <samp><span class="command">install.package</span></samp>. For the <acronym>R</acronym> functions see the standard <acronym>R</acronym> documentation.
 
 <ul class="menu">
 <li><a accesskey="1" href="#Which-kind-of-packages-can-I-install-using-the-GUI_003f">Which kind of packages can I install using the GUI?</a>
@@ -1052,12 +1349,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <h3 class="section">5.1 Which kind of packages can I install using the GUI?</h3>
 
-<p>At the moment the GUI provide direct access/download/installation of
-packages located on <acronym>CRAN</acronym>, the Bioconductor repositories or a custom
-repository. You can also install packages from local files, either
-binary of source packages, as explained below. Otherwise you can use the
-appropriate <acronym>R</acronym> commands (see <code>install.packages</code>) to install
-packages from a specific location other than the above mentioned ones.
+<p>At the moment the GUI provide direct access/download/installation of packages located on <acronym>CRAN</acronym>, the Bioconductor repository or a custom repository. You can also install packages from local files, either binary of source packages, as explained below. Otherwise you can use the appropriate <acronym>R</acronym> commands (see <code>install.packages</code>) to install packages from a specific location other than the above mentioned ones.
 
 <div class="node">
 <p><hr>
@@ -1072,7 +1364,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <p><acronym>R</acronym> for Mac OS X recognizes packages in two forms: <em>binary</em> packages and <em>source</em> packages.
 
-   <p>Binary packages are <acronym>R</acronym> packages in ready-to-use form, such that no additional tools are necessary for their use. Binary packages are specific for a given <acronym>R</acronym> version and OS. <acronym>CRAN</acronym> and Bioconductor repositories offer <acronym>R</acronym> packages in binary form for the last released <acronym>R</acronym> version. Unlike on other Unix systems, R for Mac OS X installs binary packages by default, i.e. <code>install.packages</code> will look for binary repositories unless instructed otherwise.
+   <p>Binary packages are <acronym>R</acronym> packages in ready-to-use form, such that no additional tools are necessary for their use. Binary packages are specific for a given <acronym>R</acronym> version and OS. <acronym>CRAN</acronym> and Bioconductor repositories offer <acronym>R</acronym> packages in binary form for the last released <acronym>R</acronym> version. Unlike on other unix systems, R for Mac OS X installs binary packages by default, i.e. <code>install.packages</code> will look for binary repositories unless instructed otherwise.
 
    <p>Source packages are general in that they can be used on any platform and OS supported by <acronym>R</acronym>, but they need to be processed and/or compiled before they can be used. Additional tools are necessary for that, see see <a href="#Installation-of-source-packages">Installation of source packages</a> for details. For most users binary packages are sufficient.
 
@@ -1086,7 +1378,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
      <li>Using <code>R CMD INSTALL</code> command in the shell (aka <em>Terminal</em>)
 </ul>
 
-   <p>The latter two methods are common to all Unix systems and as such described in the general R documentation. In the following we will concentrate on using the <em>Package Installer</em>.
+   <p>The latter two methods are common to all unix systems and as such described in the general R documentation. In the following we will concentrate on using the <em>Package Installer</em>.
 
 <p class="noindent">If you decide to install packages you should use the <em>Packages &amp; Data</em> menu of the GUI, in particular the sub-item <em>Package Installer</em>. Select the repository, package type (binary or source) and press <em>Get List</em>. This will connect to the repository through the Internet and a list all packages available for installation. The list tells you if a package is already installed on your system, the version of the package available on <acronym>CRAN</acronym> and the version of the same package if already installed.
 
@@ -1099,7 +1391,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 <p class="noindent">You can also download any other package from the Internet yourself and decide to install it from source. In such case select one of the local entries
 in the top left list and press the <em>Install</em> button (which is now enabled).
 
-<p class="noindent">Packages can also be installed from other repositories by selecting <em>Other Repository</em> source. Enter the repository URL in the adjacent field. Note that currently the Package Installer assumes that custom repositories maintain proper hierarchy for both source and binary packages the same way <acronym>CRAN</acronym> does when using <em>Other Repository</em>. If your custom repository is flat, select <em>Other Directory URL</em> in the installation type list.
+<p class="noindent">Packages can also be installed from other repositories by selecting <em>Other Repository</em> source. Enter the repository URL in the adjacent field. Note that currently the Package Installer assumes that custom repositories maintain proper hierarchy for both source and binary packages the same way CRAN does when using <em>Other Repository</em>. If your custom repository is flat, select <em>Other Directory URL</em> in the installation type list.
 
 <div class="node">
 <p><hr>
@@ -1112,34 +1404,20 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <h3 class="section">5.3 Installation of source packages</h3>
 
-<p>Usually it is much faster and easier to install binary packages, because
-they are immediately ready to use. On the other hand only packages that
-pass all tests are available in binary form from <acronym>CRAN</acronym>. If your
-desired package is not available in binary form, you will need to use
-its source form.  If you want to install a source package which contains
-code that needs compilation, you will need the same working setup for
-building R itself (see see <a href="#Building-R-from-sources">Building R from sources</a>), including Apple
-Xcode Tools and a working FORTRAN compiler (if the package requires
-it).
+<p>Usually it is much faster and easier to install binary packages, because they are immeditely ready to use. On the other hand only packages that pass all tests are available in binary form from <acronym>CRAN</acronym>. If your desired package is not available in binary form, you will need to use its source form. Source packages have to be compiled first before they can be used. If you want to install a source package, you will need the same working setup for building R itself (see see <a href="#Building-R-from-sources">Building R from sources</a>), including Apple Xcode Tools and a working FORTRAN compiler (if the package requires it).
 
-   <p><strong>Important:</strong> When using binary <acronym>R</acronym> installation from <acronym>CRAN</acronym>,
-you must use Xcode 3.1 or higher. Although <acronym>R</acronym> can be built using older
-tools, the way it is built depends on the version of the tools and
-therefore your must upgrade at least to Xcode 3.1 (or preferably the
-latest available) which is compatible with the <acronym>CRAN</acronym> build. Failing to
-do so will result in either of the following errors at compile time:
+   <p><strong>Important:</strong> When using binary <acronym>R</acronym> installation from <acronym>CRAN</acronym>, you must use Xcode 3.1 or higher (available from see <a href="#Apple-Developer-Connection">Apple Developer Connection</a>). Although <acronym>R</acronym> can be built using older tools, the way it is build depends on the version of the tools and therefore your must upgrade at least to Xcode 3.1 (or preferably the latest available) which is compatible with the <acronym>CRAN</acronym> build. Failing to do so will result in either of the following errors at compile time:
 
-<pre class="example">     make: gcc-4.2: Command not found
+<pre class="smallexample">     make: gcc-4.2: Command not found
      
      cc1: error: invalid option 'macosx-version-min=10.4'
      
      /usr/bin/libtool: unknown option character `m' in: -macosx_version_min
 </pre>
    <p>A sign of missing Xcode tools is when the installation fails with
-<pre class="example">     make: command not found
+<pre class="smallexample">     make: command not found
 </pre>
-   <p>In all such cases, please install the most recent Xcode version
-available and its `Command Line Tools'.
+   <p>In all such cases, please install the most recent Xcode Tools version available from see <a href="#Apple-Developer-Connection">Apple Developer Connection</a>.
 
 <div class="node">
 <p><hr>
@@ -1152,69 +1430,44 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <h3 class="section">5.4 Building universal packages</h3>
 
-<p>The same binary package can be used for both 32- and 64-bit <acronym>R</acronym> on
-Intel-based Macs. Such a package is called <em>universal</em>, because it
-works on either platform. Building universal packages requires special
-handling. First, <acronym>R</acronym> itself must be compiled as universal binary to
-support universal packages at all. The <acronym>CRAN</acronym> binary is built this
-way. Finally, a compiler supporting both platforms is necessary.
+<p>Starting with R 2.3.0 the same binary package can be used for both PowerPC and Intel based Macs. Such a package is called <em>universal</em>, because it works on either platform. Building universal packages requires special handling. First, <acronym>R</acronym> itself must be compiled as universal binary to support universal packages at all. The <acronym>CRAN</acronym> binary is built this way, see see <a href="#How-to-build-universal-R">How to build universal R</a> for details.
 
-   <p>Once all tools are in place it is considerably easy to build an
-universal binary. If the package does not contain a <em>configure</em>
-script then a regular package installation using either
-<code>install.packages</code> or <code>R CMD INSTALL</code> automatically creates an
-universal binary. If the package contains a <em>configure</em> script then
-it cannot be compiled in-place for multiple platforms, and the following
-process should be used. Assuming that you have a source package called
-<code>foo_1.0.tar.gz</code> that uses a <em>configure</em> script, it can be
-installed universally using the following two-step process:
+   <p>Further, universal binaries can be currently built on Intel Macs only. The main reason is that the default Mac OS X installation on PowerPC based Macs does not include system libraries for Intel Macs (experienced users can try to add corresponding <code>-isysroot</code> for 10.4u SDK to <code>CC</code>). If you happen to have a PowerPC machine with full system libraries it should work. Finally, a compiler supporting both platforms is necessary, see see <a href="#How-to-build-universal-R">How to build universal R</a>.
 
-<pre class="example">     # full 64-bit Intel install
-     R --arch=x86_64 CMD INSTALL foo_1.0.tar.gz
-     # 32-bit Intel library
-     R --arch=i386 CMD INSTALL --libs-only foo_1.0.tar.gz
+   <p>Once all tools are in place it is considerably easy to build an universal binary. If the package does not contain a <em>configure</em> script then a regular package installation using either <code>install.packages</code> or <code>R CMD INSTALL</code> automatically creates an universal binary. If the package contains a <em>configure</em> script then it cannot be compiled in-place for multiple platforms, and the following process should be used. Assuming that you have a source package called <code>foo_1.0.tar.gz</code> that uses a <em>configure</em> script, it can be installed universally using the following three-step process:
+
+<pre class="example">     # full 32-bit Intel install
+     R --arch=i386 CMD INSTALL foo_1.0.tar.gz
+     # 64-bit Intel library
+     R --arch=x86_64 CMD INSTALL --libs-only foo_1.0.tar.gz
+     # 32-bit PowerPC library (will require Rosetta to build and R with PowerPC support)
+     R --arch=ppc CMD INSTALL --libs-only foo_1.0.tar.gz
 </pre>
-   <p>In the first step a full package for the 64-bit Intel platform is built
-and installed. In the following steps a package for 32-bit Intel
-platform is built, but only the relevant binary libraries are
-installed. This way all platforms share the same set of files except for
-the package library.
+   <p>In the first step a full package for the Intel platform is built and installed. In the following steps a package for 64-bit Intel platform and PowerPC is built, but only the relevant binary libraries are installed. This way all platforms share the same set of files except for the package library.
 
-   <p>Alternatively, use
+   <p><code>R CMD INSTALL --build</code> does not support universal binaries of packages that contain <em>configure</em> scripts for reasons stated above. Therefore it is necessary to create the resulting tar-ball manually. The following is just one example how the process could be automated (replace first line with the real package name and version):
 
-<pre class="example">     R CMD INSTALL --merge-multiarch foo_1.0.tar.gz
+<pre class="example">     pkg=foo_1.0
+     rm -rf /tmp/pkg
+     mkdir /tmp/pkg
+     R --arch=i386 CMD INSTALL -l /tmp/pkg $pkg.tar.gz
+     R --arch=x86_64 CMD INSTALL -l /tmp/pkg --libs-only $pkg.tar.gz
+     R --arch=ppc CMD INSTALL -l /tmp/pkg --libs-only $pkg.tar.gz
+     tar fvcz $pkg.tgz -C /tmp/pkg `echo $pkg|awk -F_ '{print $1}'`
+     rm -rf /tmp/pkg
 </pre>
-   <p>Normally, building a package from sources produces a binary that is tied
-to the developer tools that you compiled it with, especially if FORTRAN
-is used, because it requires run-time libraries. Anything you compile
-with a Fortran requires that you have that Fortran installed at run
-time, because Fortran uses its own run-time libraries (if the Fortran
-you compiled with used dynamic libraries). This implies that if you
-distribute your package you have to tell users to install the same
-Fortran you used to compile it.
+   <p>Normally, building a package from sources produces a binary that is tied to the developer tools that you compiled it with, especially if FORTRAN is used, because it requires run-time libraries. Anything you compile with a Fortran requires that you have that Fortran installed at run time, because Fortran uses its own run-time libraries (if the Fortran you compiled with used dynamic libraries). This implies that if you distribute your package you have to tell users to install the same Fortran you used to compile it.
 
-   <p>However, unlike most other Unix-alikes, Mac users do not necessarily have
-development tools installed, so on <acronym>CRAN</acronym> we make an effort to modify
-the binaries such that they work even without the tools they have been
-compiled with. There are several possible approaches, but since R itself
-already uses the same Fortran, we ship a copy of the Fortran libraries
-inside R and modify packages such that they use it instead of the one
-from developer tools.
+   <p>However, unlike other unices Mac users do not necessarily have development tools installed, so on CRAN we make an effort to modify the binaries such that they work even without the tools they have been compiled with. There are several possible approaches, but since R itself already uses the same Fortran, we ship a copy of the Fortran libraries inside R and modify packages such that they use it instead of the one from developer tools.
 
-   <p>If you want to share a binary with multiple users and don't want to
-require them to install Xcode, you can use the same approach as <acronym>CRAN</acronym>
-but only if you use the same tools as we do on <acronym>CRAN</acronym>. It means to
-change the path of the FORTRAN dynamic library (<code>libgfortran</code>) to
-point inside the R version that you are compiling for. For example, if
-you have installed a universal package <code>FOO</code> for R 2.15.x, you can
-change the paths as follows:
+   <p>If you want to share a binary with multiple users and don't want to require them to install Xcode, you can use the same approach as CRAN but only if you use the same tools as we do on CRAN. It means to change the path of the FORTRAN dynamic library (libgfortran) to point inside the R version that you are compiling for. For example, if you have installed a universal package <code>FOO</code> for R 2.14.x, you can change the paths as follows:
 
 <pre class="example">     # change into the library where you installed FOO
      cd /Library/Frameworks/R.framework/Resources/library
-     # fix the Fortran paths in FOO to point to R 2.15 instead
+     # fix the Fortran paths in FOO to point to R 2.14 instead
      for lib in `ls FOO/libs/*/*.so`; do
       install_name_tool -change /usr/local/lib/libgfortran.2.dylib \
-        /Library/Frameworks/R.framework/Versions/2.15/Resources/lib/libgfortran.2.dylib \
+        /Library/Frameworks/R.framework/Versions/2.14/Resources/lib/libgfortran.2.dylib \
        $lib
      done
 </pre>
@@ -1230,16 +1483,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <h3 class="section">5.5 Can I install packages built for other platforms?</h3>
 
-<p>As a general rule the answer is <em>yes</em> if the package does not
-contain any C/C++/Fortran code in the sources, otherwise the answer is
-negative. Another condition is that the package and the installed
-version of <acronym>R</acronym> should be the same major release, i.e. you can install a
-package built for <acronym>R</acronym> 2.1.0 on <acronym>R</acronym> 2.1.1, but usually not the same
+<p>As a general rule the answer is <em>yes</em> if the package does not contain any C/C++/Fortran code in the sources, otherwise
+the answer is negative. Another condition is that the package and the installed version of <acronym>R</acronym> should be
+the same major release, i.e. you can install a package built for <acronym>R</acronym> 2.1.0 on <acronym>R</acronym> 2.1.1, but usually not the same
 package on <acronym>R</acronym> 2.2.0.
-
-   <p>However, packages without compiled code can be built from their sources
-without any additional tools, so simply use <code>install.packages</code> to
-install them.
 
 <p class="noindent">A Mac OS X specific requirements is that a prebuilt package is assumed to be named (and accordingly archived and compressed) as <samp><span class="file">package_name.tgz</span></samp>. The build script uses the more common extension <code>.tar.gz</code> and thus the resulting file must be renamed. On Windows, for example, packages come in a zipped format.
 
@@ -1254,23 +1501,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#How-to-install-packages">How to instal
 
 <h3 class="section">5.6 Where are the packages I've installed?</h3>
 
-<p>The main library of packages is the one located inside the R.framework
-(in <code>/Library/Frameworks/R.framework/Resources/library</code>). This
-library contains the packages (base and recommended ones) distributed
-along with <acronym>R</acronym>. Only administrators are allowed to install packages in
-this system-wide directory. Note that this directory is
-<acronym>R</acronym>-version-specific. Optionally users can install private packages in
-their <code>~/Library/R/x.y/library</code> directory where <code>x.y</code> denotes
-the R version without the patch level (such as 2.15) &ndash; see the startup
-preferences.
+<p>The main library of packages is the one located inside the R.framework (in <code>/Library/Frameworks/R.framework/Resources/library</code>). This library contains the packages (base and recommended ones) distributed along with <acronym>R</acronym>. Only administrators are allowed to install packages in this system-wide directory. Note that this directory is <acronym>R</acronym>-version-specific. Optionally users can install private packages in their <code>~/Library/R/x.y/library</code> directory where <code>x.y</code> denotes the R version without the patch level (such as 2.14) - see startup preferences.
 
 <p class="noindent">The Package Installer performs installation to either place depending on the installation target setting. The default for an admin users is to install packages system-wide, whereas the default for regular users is their private place.
 
-<p class="noindent">If you happen to use <code>install.packages</code> <acronym>R</acronym> function instead of the Package Installer, the regular Unix behavior applies (see help pages for details). For default setup this means that the packages are installed according to the startup preference setting. You can check the current defaults by issuing
+<p class="noindent">If you happen to use <code>install.packages</code> <acronym>R</acronym> function instead of the Package Installer, the regular unix behavior applies (see help pages for details). For default setup this means that the packages are installed according to the startup preference setting. You can check the current defaults by issuing
 <pre class="example">     .libPaths()
 </pre>
-   <!-- @noindent -->
-<!-- @strong{Note:} When upgrading to a next major release of @R{}, users should delete their @code{~/Library/R/library} directory, because packages are incompatible across major @R{} versions. When you experience problems loading packages or starting R after an upgrade, make sure you don't have packages for your old @R{} version floating around. More recent versions of @Rapp{} (1.19) include the version number in the path to prevent this from happening. -->
+   <p class="noindent"><strong>Note:</strong> When upgrading to a next major release of <acronym>R</acronym>, users should delete their <code>~/Library/R/library</code> directory, because packages are incompatible across major <acronym>R</acronym> versions. When you experience problems loading packages or starting R after an upgrade, make sure you don't have packages for your old <acronym>R</acronym> version floating around. More recent versions of <span class="sc">R.app</span> (1.19) include the version number in the path to prevent this from happening.
+
 <div class="node">
 <p><hr>
 <a name="R-and-external-applications"></a>
@@ -1299,11 +1538,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-and-external-applications">R and ext
 
 <h3 class="section">6.1 AppleScript support</h3>
 
-<p><acronym>R</acronym> has partial support for Apple-Scripts.  At the moment <acronym>R</acronym> can be
-invoked and asked to run commands from an AppleScript script.  What
-follows is an example of script that interacts with <acronym>R</acronym>. It first
-invokes <acronym>R</acronym> and then sends commands to <acronym>R</acronym> with the <samp><span class="command">cmd</span></samp>
-applescript command.
+<p><acronym>R</acronym> has partial support for Apple-Scripts. 
+At the moment R can be invoked and asked to run commands from an AppleScript script. 
+What follows is an example of script that interacts with <acronym>R</acronym>. It firstly  invokes <acronym>R</acronym> and then
+sends commands to <acronym>R</acronym> with the <samp><span class="command">cmd</span></samp> applescript command.
 
 <pre class="example">     set CommandLine to "R.Version()"
      try
@@ -1332,7 +1570,7 @@ of <acronym>R</acronym>. This could happen if you have an old version of <acrony
 System.
 
 <p class="noindent">As an example, we report here a small script that asks <acronym>R</acronym> to <samp><span class="command">source</span></samp> a file using a file dialog.
-<pre class="example">     set file_to_source to (choose file with prompt "Choose file to source") as alias
+<pre class="smallexample">     set file_to_source to (choose file with prompt "Choose file to source") as alias
      
      try
      	tell application "R"
@@ -1368,23 +1606,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-and-external-applications">R and ext
 
 <h3 class="section">6.3 Finder actions</h3>
 
-<p>Dragging a file on the <acronym>R</acronym> icon, causes <acronym>R</acronym> to source this file via
-the <samp><span class="command">source</span></samp> <acronym>R</acronym> command or, if the file is an <acronym>R</acronym> image data
-file RDX1 or RDX2 (normally files with extension <samp><span class="file">.rda</span></samp> or
-<samp><span class="file">.RData</span></samp>), the data is loaded in the workspace and every object
-with the same name in the workspace is overwritten without
-notice. Loading a data file is equivalent to the <acronym>R</acronym> command
-<samp><span class="command">load</span></samp>.  At the moment there is no control over the file types,
-i.e. dragging wrong files (i.e. files that are not <acronym>R</acronym> scripts or image
-data) simply gives an error. It is up to the user to <em>do the right
-thing</em>.
+<p>Dragging a file on the <acronym>R</acronym> icon, causes <acronym>R</acronym> to source this file via the <samp><span class="command">source</span></samp> <acronym>R</acronym> command or,
+if the file is an <acronym>R</acronym> image data file RDX1 or RDX2 (normally files with extension <samp><span class="file">.rda</span></samp> or <samp><span class="file">.Rdata</span></samp>), the data is loaded in the workspace and every object
+with the same name in the workspace is overwritten without notice. Loading a data file is equivalent to
+the <acronym>R</acronym> command <samp><span class="command">load</span></samp>. 
+At the moment there is no control over the file types, i.e. dragging wrong files (i.e. files that are
+not <acronym>R</acronym> scripts or image data) simply gives an error. It's up to the user to <em>do the right thing</em>.
 
 <p class="noindent">If <acronym>R</acronym> is not yet running this action causes <acronym>R</acronym> to startup.
 
 <div class="node">
 <p><hr>
 <a name="Quartz-device"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Tcl_002fTk-issues">Tcl/Tk issues</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#TclTk-issues">TclTk issues</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#R-and-external-applications">R and external applications</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
@@ -1392,23 +1626,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">7 Quartz device</h2>
 
-<p>The <code>quartz()</code> device is the native graphic device in R for Mac OS
-X. Its name derives from Apple's Quartz Technology which is essentially
-similar to PDF rendering.
-
-<!-- One of the most amazing features of Quartz is -->
-<!-- anti-aliasing which gives you @emph{very nice} plots and images -->
-<!-- (although the other standard screen devices for @R{} have also supported -->
-<!-- anti-aliasing for several years).  From its PDF nature it is also -->
-<!-- resolution independent. -->
-<p>The <code>quartz()</code> device can be used from <span class="sc">R.app</span> or a suitable build of <acronym>R</acronym>
-running at the Mac console.  Where supported it is the default graphics
-device.
+<p>The quartz device is the native graphic device in R for Mac OS X. It's name derives from Apple's Quartz Technology
+which is essentially similar to PDF rendering. One of the most amazing features of Quartz is antialiasing which gives you
+<em>very nice</em> plots and images. Try to compare  a quartz plot  with the same plot generated on
+any other interactive device. For its PDF nature it is also resolution independent.
 
 <ul class="menu">
 <li><a accesskey="1" href="#Interactive-mode">Interactive mode</a>
 <li><a accesskey="2" href="#Saving-the-image">Saving the image</a>
 <li><a accesskey="3" href="#Copying-the-image-into-the-clipboard">Copying the image into the clipboard</a>
+<li><a accesskey="4" href="#Known-bugs-and-missing-features">Known bugs and missing features</a>
 </ul>
 
 <div class="node">
@@ -1422,12 +1649,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Quartz-device">Quartz device</a>
 
 <h3 class="section">7.1 Interactive mode</h3>
 
-<p>The quartz device allows for interaction. You can use both
-<samp><span class="command">identify</span></samp> and <samp><span class="command">locator</span></samp> functions.  To break the
-sequence you should press the &lt;ESC&gt; key on your keyboard as Apple's
-mouse/touchpad has only one button.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> If you happen to have a multi-button mouse, you can use any
-of the additional buttons to break the loop, unless you redefined the
-function of the buttons.
+<p>The quartz device allows for interaction. You can use both <samp><span class="command">identify</span></samp> and <samp><span class="command">locator</span></samp> functions. 
+To break the sequence you should press the &lt;ESC&gt; key on your keyboard as Apple's mouse have ever had only one
+button. If you happen to have a multi-button mouse, you can use any of the additional buttons to break the loop, unless you re-defined the function of the buttons.
 
 <div class="node">
 <p><hr>
@@ -1440,16 +1664,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Quartz-device">Quartz device</a>
 
 <h3 class="section">7.2 Saving the image</h3>
 
-<p>You can save the content of the quartz device window into a PDF file,
-via the <acronym>R</acronym> menu when the device window has focus.  This is a simple
-way to export high quality graphics from <acronym>R</acronym> into other applications on
-Mac OS X as graphics is PDF-based (so are almost all applications
-available). For other solutions, see (see <a href="#Copying-the-image-into-the-clipboard">Copying the image into the clipboard</a>) and the <samp><span class="command">quartz.save</span></samp> function (only available in
-<span class="sc">R.app</span> in <acronym>R</acronym> &lt; 3.0.0).
+<p>You can can the content of the quartz device window into a PDF file. This is a very simple way to
+export high quality graphics from <acronym>R</acronym> into other applications on Mac OS X graphics is PDF based (so are almost all
+applications available). However, this process uses <acronym>R</acronym>'s PDF device and not Mac OS X PDF facilities and thus doesn't yeild an exact copy of the device contents. For Mac-native solution, see (see <a href="#Copying-the-image-into-the-clipboard">Copying the image into the clipboard</a>) and <samp><span class="command">quartz.save</span></samp> command.
 
 <div class="node">
 <p><hr>
 <a name="Copying-the-image-into-the-clipboard"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Known-bugs-and-missing-features">Known bugs and missing features</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Saving-the-image">Saving the image</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Quartz-device">Quartz device</a>
 
@@ -1457,71 +1679,61 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Quartz-device">Quartz device</a>
 
 <h3 class="section">7.3 Copying the image into the clipboard</h3>
 
-<p>You can copy the content of the quartz device window in the clipboard to
-make the resulting image available for pasting into other
-applications. The clipboard will contain both a PDF version and a bitmap
-version of the quartz device window. Which version will be used depends
-on the pasting applications, most modern application will prefer the PDF
-version which is of higher quality as it supports vector graphics.
+<p>You can copy the content of the quartz device window in the clipboard to make the resulting image available for
+pasting into other applications. The clipboard will contain both a PDF versiond and a bitmap version of the quartz device window. Which version will be used depends on the pasting applications, most modern application will prefer the PDF version which is of higher quality as it supports vector graphics. 
+Note that there is currently a difference between using the clipboard and saving to a PDF file (see <a href="#Saving-the-image">Saving the image</a>). The latter will use R's PDF device which will not yield WYSIWYG results. However, using <samp><span class="command">quartz.save</span></samp> command will produce the same result as the clipboard operation.
 
-<!-- Note that there is currently a difference between using the clipboard and -->
-<!-- saving to a PDF file (@pxref{Saving the image}). The latter will use R's -->
-<!-- PDF device which will not yield WYSIWYG results. -->
-<!-- @node Known bugs and missing features,  , Copying the image into the clipboard, Quartz device -->
-<!-- @section Known bugs and missing features -->
-<!-- When rendering text and/or mathematical symbols the style is ignored, i.e. only plain style is drawn. -->
-<!-- The printing function is not yet implemented. -->
 <div class="node">
 <p><hr>
-<a name="Tcl%2fTk-issues"></a>
-<a name="Tcl_002fTk-issues"></a>
+<a name="Known-bugs-and-missing-features"></a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Copying-the-image-into-the-clipboard">Copying the image into the clipboard</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Quartz-device">Quartz device</a>
+
+</div>
+
+<h3 class="section">7.4 Known bugs and missing features</h3>
+
+<p>When rendering text and/or mathematical symbols the style is ignored, i.e. only plain style is drawn. 
+The printing function is not yet implemented.
+
+<div class="node">
+<p><hr>
+<a name="TclTk-issues"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Internationalization-of-the-R_002eapp">Internationalization of the R.app</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Quartz-device">Quartz device</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">8 Tcl/Tk issues</h2>
+<h2 class="chapter">8 TclTk issues</h2>
 
-<p>Each binary distribution of <acronym>R</acronym> available through <acronym>CRAN</acronym> is built to
-use the X11 implementation of Tcl/Tk.  Of course a X windows server has
-to be started first: this should happen automatically on OS X, but can
-take quite a while to do so the first time it is used after a reboot.
+<p>Each binary distribution of <acronym>R</acronym> available through <acronym>CRAN</acronym> is built to use the X11 implementation of TclTk. 
+Of course a X windows server has to be started first. If you are not using the <span class="sc">R.app</span> you need to also
+define the environment variable DISPLAY before attempting to use X11 from inside <acronym>R</acronym> (Mac OS X 10.4 and earlier only!). You can do this as follows
+<pre class="example">     Sys.setenv(DISPLAY=":0")
+</pre>
+   <p>If you don't like the X11 GUI you would probably want to build R using the Aqua version of TclTk (see <a href="#Aqua-TclTk-headers-and-libraries-_0028optional_0029">Aqua TclTk headers and libraries (optional)</a>).
 
-   <p>If you don't like the X11 style of widgets you would probably want to
-build R using the Aqua version of Tcl/Tk (see the `R Installation and
-Administration Manual').
+   <p>Note: Mac OS X 10.5 (Leopard) now comes with a &ldquo;feature&rdquo; that changes the way X11 server is setup. As a consequence DISPLAY variable should not be touched or it will impede that mechnism. The good part is that it should start X11 automatically.
 
 <div class="node">
 <p><hr>
 <a name="Internationalization-of-the-R.app"></a>
 <a name="Internationalization-of-the-R_002eapp"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Additional-resources">Additional resources</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Tcl_002fTk-issues">Tcl/Tk issues</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#TclTk-issues">TclTk issues</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
 <h2 class="chapter">9 Internationalization of the R.app</h2>
 
-<p><acronym>R</acronym> and the <span class="sc">R.app</span> GUI introduced support for internationalization in
-R 2.1.0. Among other things this means that both messages and GUI
-elements can be translated into various languages. <span class="sc">R.app</span> automatically
-detects user's settings in the <em>International</em> section of the
-System Preferences and uses that information to offer translated
-messages and GUI if available. Please note that both <em>Language</em> and
-<em>Formats</em> information is used so they should be set up
-consistently.
+<p><acronym>R</acronym> and the <span class="sc">R.app</span> GUI introduced support for internationalization in R 2.1.0. Among other things this means that both messages and GUI elements can be translated into various languages. <span class="sc">R.app</span> automatically detects user's settings in the <em>International</em> section of the System Preferences and uses that information to offer translated messages and GUI if available. Please note that both <em>Language</em> and <em>Formats</em> information is used so they should be set up consistently.
 
-   <p>If you use a non-standard setup (e.g. different language than
-formats), you can override the auto-detection performed by setting
-`<samp><span class="samp">force.LANG</span></samp>' defaults setting, such as for example
+   <p>If you use a non-standard setup (e.g. different language than formats), you can override the auto-detection performed by setting `<samp><span class="samp">force.LANG</span></samp>' defaults setting, such as for example
 <pre class="example">     defaults write org.R-project.R force.LANG en_US.UTF-8
 </pre>
-   <p>when run in <em>Terminal</em> it will enforce US-english setting regardless of the system setting. If you don't know what <em>Terminal</em> is you can use this <acronym>R</acronym> command instead:
-<pre class="example">     system("defaults write org.R-project.R force.LANG en_US.UTF-8")
-</pre>
-   <p>but do not forget to quit <acronym>R</acronym> and start <span class="sc">R.app</span> again afterwards. Please note that you must always use `<samp><span class="samp">.UTF-8</span></samp>' version of the locale, otherwise <span class="sc">R.app</span> will not work properly.
+   <p>when run in <em>Terminal</em> it will enforce US-english setting regardless of the system setting. Please note that you must always use `<samp><span class="samp">.UTF-8</span></samp>' version of the locale, otherwise <span class="sc">R.app</span> will not work properly.
 
    <p>Another change from previous versions (R 2.0 and <span class="sc">R.app</span> 1.01) is the support for UTF-8 character encoding. By default <span class="sc">R.app</span> uses UTF-8 for newly created documents and for the console. When opening new documents <span class="sc">R.app</span> assumes UTF-8 and only if the document violates UTF-8 rules, it will try to fallback to legacy encoding, usually Mac Roman.
 
@@ -1556,12 +1768,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Additional-resources">Additional resou
 
 <h3 class="section">10.1 Apple Developer Connection</h3>
 
-<p>The Apple Developer Connection (can be reached at
-<a href="http://developer.apple.com">http://developer.apple.com</a>) is the main source of information for
-Apple products (OS, hardware, software) for developers. You can
-subscribe for free to ADC and get the latest up-to-date tools from Apple
-(compilers for example): however more recently these have been
-distributed through the App Store.
+<p>The Apple Developer Connection (can be reached at <a href="http://developer.apple.com">http://developer.apple.com</a>) is the main source
+of information for Apple products (OS, hardware, software) for developers. You can subscribe for free to
+ADC and get the latest up-to-date tools from Apple (compilers for example).
 
 <div class="node">
 <p><hr>
@@ -1580,7 +1789,7 @@ It contains latest nightly builds of <acronym>R</acronym> and <span class="sc">R
 <div class="node">
 <p><hr>
 <a name="Acknowledgments"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Miscellaneous-questions">Miscellaneous questions</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Sparse-questions">Sparse questions</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Additional-resources">Additional resources</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
@@ -1593,13 +1802,13 @@ in random order. Last but not least Apple for amazing OS and GUI.
 
 <div class="node">
 <p><hr>
-<a name="Miscellaneous-questions"></a>
+<a name="Sparse-questions"></a>
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Acknowledgments">Acknowledgments</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 </div>
 
-<h2 class="chapter">12 Miscellaneous questions</h2>
+<h2 class="chapter">12 Sparse questions</h2>
 
 <ul class="menu">
 <li><a accesskey="1" href="#How-can-I-have-a-per-session-_002eRprofile_003f">How can I have a per session .Rprofile?</a>
@@ -1608,9 +1817,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a accesskey="4" href="#I-see-spurious-error-messages-when-starting-R_0021">I see spurious error messages when starting R!</a>
 <li><a accesskey="5" href="#Which-BLAS-is-used-and-how-can-it-be-changed_003f">Which BLAS is used and how can it be changed?</a>
 <li><a accesskey="6" href="#I-don_0027t-see-a-thing-when-installing-packages_0021">I don't see a thing when installing packages!</a>
-<li><a accesskey="7" href="#Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f">Why is the Quartz much bigger than it used to be?</a>
-<li><a accesskey="8" href="#Why-is-Quartz-so-slow_003f">Why is Quartz so slow?</a>
-<li><a accesskey="9" href="#Why-are-there-faint-lines-in-image-plots_003f">Why are there faint lines in image plots?</a>
+<li><a accesskey="7" href="#Why-do-I-need-custom-compilers-for-the-CRAN-binary_003f">Why do I need custom compilers for the CRAN binary?</a>
+<li><a accesskey="8" href="#Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f">Why is the Quartz much bigger than it used to be?</a>
+<li><a accesskey="9" href="#Why-is-Quartz-so-slow_003f">Why is Quartz so slow?</a>
+<li><a href="#Why-are-there-faint-lines-in-image-plots_003f">Why are there faint lines in image plots?</a>
 <li><a href="#Why-doesn_0027t-x86_005f64-build-of-R-pass-make-check-on-Mac-OS-X-10_002e5_002e2_003f">Why doesn't x86_64 build of R pass make check on Mac OS X 10.5.2?</a>
 <li><a href="#Why-doesn_0027t-R-GUI-support-keyboard-shortcut-XYZ-_003f">Why doesn't R GUI support keyboard shortcut XYZ ?</a>
 <li><a href="#What-is-the-difference-between-the-Leopard-and-Tiger-builds_003f">What is the difference between the Leopard and Tiger builds?</a>
@@ -1619,7 +1829,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#R_002eapp-GUI-crashes-on-startup_0021">R.app GUI crashes on startup!</a>
 <li><a href="#R_002eapp-GUI-does-not-save-the-workspace_0021">R.app GUI does not save the workspace!</a>
 <li><a href="#Why-is-the-GUI-not-saving-my-history_003f">Why is the GUI not saving my history?</a>
-<li><a href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal -- why?</a>
+<li><a href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal - why?</a>
 <li><a href="#I-see-no-text-in-a-Quartz-plot_0021">I see no text in a Quartz plot!</a>
 </ul>
 
@@ -1628,8 +1838,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <a name="How-can-I-have-a-per-session-.Rprofile%3f"></a>
 <a name="How-can-I-have-a-per-session-_002eRprofile_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#What-happens-if-I-drag-a-file-on-the-R-icon_003f">What happens if I drag a file on the R icon?</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Miscellaneous-questions">Miscellaneous questions</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Sparse-questions">Sparse questions</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
@@ -1644,7 +1854,7 @@ session directory and change accordingly the startup working directory using the
 <a name="What-happens-if-I-drag-a-file-on-the-R-icon_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#How-can-I-interrupt-lengthy-operations-or-output_003f">How can I interrupt lengthy operations or output?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-can-I-have-a-per-session-_002eRprofile_003f">How can I have a per session .Rprofile?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
@@ -1659,7 +1869,7 @@ yet running it will be launched.
 <a name="How-can-I-interrupt-lengthy-operations-or-output_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#I-see-spurious-error-messages-when-starting-R_0021">I see spurious error messages when starting R!</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-happens-if-I-drag-a-file-on-the-R-icon_003f">What happens if I drag a file on the R icon?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
@@ -1668,7 +1878,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <p>In <span class="sc">R.app</span> you can use the the <em>Stop</em> toolbar button or the &lt;ESC&gt; (escape) key in the console window to interrupt a running calculation or output.
 
    <p>For the command line version the same is achieved by pressing <kbd>&lt;Ctrl&gt;-c</kbd>. Both applications honor the <code>INT</code> signal, i.e. you can type the following in a separate Terminal window to cancel all R computations:
-<pre class="example">     killall -INT R
+<pre class="smallexample">     killall -INT R
 </pre>
    <p>However, if the executed code does not check for interrupts (using `<samp><span class="samp">R_CheckUserInterrupt</span></samp>') there may be no way of stopping <acronym>R</acronym>. In that case it may be worth alerting the maintainer of the package to allow interruption (if appropriate).
 
@@ -1678,28 +1888,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="I-see-spurious-error-messages-when-starting-R_0021"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Which-BLAS-is-used-and-how-can-it-be-changed_003f">Which BLAS is used and how can it be changed?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#How-can-I-interrupt-lengthy-operations-or-output_003f">How can I interrupt lengthy operations or output?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
 <h3 class="section">12.4 I see spurious error messages when starting R!</h3>
 
-<p>If you see error messages upon start of the R GUI which contain
-<code>Library/InputManagers</code> anywhere in the text, then you have some
-broken haxxies installed in your system. Those messages do NOT come from
-<acronym>R</acronym>, so don't blame us. Bundles located in <code>Library/InputManagers</code>
-of your home (or system) are hacks that get loaded into every Mac
-application that you start. In most cases you don't see them crashing,
-because most applications don't show the console output, but <acronym>R</acronym> does,
-so all the errors those hacks are causing become visible. The easiest
-remedy is to delete all offending bundles (possibly the whole
-<code>Library/InputManagers</code> folder) and get a fixed version of the hack
-(if you need it). The most common cause for broken hacks is system
-updgrade (e.g. you get a new Mac and you transfer you settings which
-include those hacks that are incompatible with your new Mac).
+<p>If you see error messages upon start of the R GUI which contain <code>Library/InputManagers</code> anywhere in the text, then you have some broken haxxies installed in your system. Those messages do NOT come from <acronym>R</acronym>, so don't blame us. Bundles located in <code>Library/InputManagers</code> of your home (or system) are hacks that get loaded into every Mac application that you start. In most cases you don't see them crashing, because most applications don't show the console output, but <acronym>R</acronym> does, so all the errors those hacks are causing become visible. The easiest remedy is to delete all offending bundles (possibly the whole <code>Library/InputManagers</code> folder) and get a fixed version of the hack (if you need it). The most common cause for broken hacks is system updgrade (e.g. you get a new Mac and you transfer you settings which include those hacks that are incompatible with your new Mac).
 
    <p>If you want to disable all external error output in the GUI, use
-<pre class="example">     defaults write org.R-project.R 'Ignore stderr' YES
+<pre class="smallexample">     defaults write org.R-project.R 'Ignore stderr' YES
 </pre>
    <p>in the Terminal. Note, however, that this will disable <em>all</em> error output from external programs including package installation or the <code>system</code> command.
 
@@ -1709,28 +1907,17 @@ include those hacks that are incompatible with your new Mac).
 <a name="Which-BLAS-is-used-and-how-can-it-be-changed_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#I-don_0027t-see-a-thing-when-installing-packages_0021">I don't see a thing when installing packages!</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#I-see-spurious-error-messages-when-starting-R_0021">I see spurious error messages when starting R!</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
 <h3 class="section">12.5 Which BLAS is used and how can it be changed?</h3>
 
-<p>The BLAS library used by <acronym>R</acronym> depends on the way <acronym>R</acronym> was compiled (see
-`R Installation and Administration' manual for details). Current <acronym>R</acronym>
-binaries supplied from <acronym>CRAN</acronym> provide both vecLib-based BLAS and
-reference BLAS shipped with <acronym>R</acronym>. vecLib is a part of Apple's Accelerate
-framework which provides an optimized BLAS implementation for Mac
-hardware. Although fast, it is not under our control and may possibly
-deliver inaccurate results.
+<p>The BLAS library used by <acronym>R</acronym> depends on the way <acronym>R</acronym> was compiled (see `R Installation and Anministration' manual for details). Current <acronym>R</acronym> binaries supplied from CRAN provide both vecLib-based BLAS and reference BLAS shipped with <acronym>R</acronym>. vecLib is a part of Apple's Accelerate framework which provides an optimized BLAS implementation for Mac hardware. Although fast, it is not under our control and may possibly deliver inaccurate results.
 
-   <p>The <acronym>CRAN</acronym> binary uses <code>--enable-BLAS-shlib</code> option and two Rblas
-shared libraries are supplied: <samp><span class="file">libRblas.vecLib.dylib</span></samp> which uses
-vecLib BLAS and <samp><span class="file">libRblas.0.dylib</span></samp> which uses reference BLAS from
-<acronym>R</acronym>. A symbolic link <samp><span class="file">libRblas.dylib</span></samp> determines which one is
-used. Currently the default is to use the <acronym>R</acronym> BLAS is recommended for
-precision.
+   <p>The CRAN binary uses <code>--enable-BLAS-shlib</code> option and two Rblas shared libraries are supplied: <samp><span class="file">libRblas.vecLib.dylib</span></samp> which uses vecLib BLAS and <samp><span class="file">libRblas.0.dylib</span></samp> which uses reference BLAS from <acronym>R</acronym>. A symbolic link <samp><span class="file">libRblas.dylib</span></samp> determines which one is used. Currently the default is to use vecLib for speed, although <acronym>R</acronym> BLAS is recommended for precision.
 
-   <p>In order to change which BLAS is used, change the <samp><span class="file">libRblas.dylib</span></samp> symlink correspondingly &ndash; for example in Terminal:
+   <p>In order to change which BLAS is used, change the <samp><span class="file">libRblas.dylib</span></samp> symlink correspondingly - for example in Terminal:
 <pre class="example">     cd /Library/Frameworks/R.framework/Resources/lib
      
      # for vecLib use
@@ -1739,15 +1926,15 @@ precision.
      # for R reference BLAS use
      ln -sf libRblas.0.dylib libRblas.dylib
 </pre>
-   <p>This feature is only present in the <acronym>R</acronym> <acronym>CRAN</acronym> binary. Ordinarily compiled <acronym>R</acronym> from sources will only have one of the above BLAS libraries, corresponding to the configuration options used.
+   <p>This feature is only present in the <acronym>R</acronym> CRAN binary. Ordinarily compiled <acronym>R</acronym> from sources will only have one of the above BLAS libraries, corresponding to the configuration options used.
 
 <div class="node">
 <p><hr>
 <a name="I-don't-see-a-thing-when-installing-packages!"></a>
 <a name="I-don_0027t-see-a-thing-when-installing-packages_0021"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f">Why is the Quartz much bigger than it used to be?</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#Why-do-I-need-custom-compilers-for-the-CRAN-binary_003f">Why do I need custom compilers for the CRAN binary?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Which-BLAS-is-used-and-how-can-it-be-changed_003f">Which BLAS is used and how can it be changed?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
@@ -1759,37 +1946,35 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 
 <div class="node">
 <p><hr>
-<a name="Why-is-the-Quartz-much-bigger-than-it-used-to-be%3f"></a>
-<a name="Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-Quartz-so-slow_003f">Why is Quartz so slow?</a>,
+<a name="Why-do-I-need-custom-compilers-for-the-CRAN-binary%3f"></a>
+<a name="Why-do-I-need-custom-compilers-for-the-CRAN-binary_003f"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f">Why is the Quartz much bigger than it used to be?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#I-don_0027t-see-a-thing-when-installing-packages_0021">I don't see a thing when installing packages!</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.7 Why are Quartz plots much bigger than they used to be?</h3>
+<h3 class="section">12.7 Why do I need custom compilers for the CRAN binary?</h3>
 
-<p>R versions before 2.7.0 had a Quartz window that was smaller both in
-size and scale. This was caused by two &ldquo;bugs&rdquo;: all devices in R have a
-default size of 7 inches. Quartz used a default of 5 inches and that was
-now changed to match all other devices. In addition, Quartz was
-incorrectly assuming a resolution of 72dpi for all screens. This means
-that a plot was drawn at ca. 3/4 of its intended size (given that most
-modern monitors use 100 dpi or more). The new Quartz device correctly
-detects the resolution of a screen by default and thus the plots will
-appear larger than they used to be. The resolution can be set using the
-<code>dpi</code> parameter of Quartz, i.e. to obtain the old behavior use
-<code>quartz(width=5,height=5,dpi=72)</code> when creating a new Quartz
-device. If you want to make this your default, use
-<code>quartz.options(width=5, height=5, dpi=72)</code>. You can also set those
-options in the Quartz Preferences of the <span class="sc">R.app</span> GUI.
+<p>As of <acronym>R</acronym> 2.5.0 the custom compilers are no longer necessary (save for Fortran). <acronym>CRAN</acronym> binary is now built using Apple's gcc compiler from Xcode Developer Tools 3.1.4 and a GNU Fortran 4.2.4 compiler. Xcode doesn't contain a Fortran compiler, therefore we must supply our own. It is available from <a href="http://r.research.att.com/tools/">http://r.research.att.com/tools/</a>.
 
-   <p>Some other new features of Quartz in R 2.7.0 include a plot history (use
-&lt;Cmd&gt;&lt;Left&gt; and &lt;Cmd&gt;&lt;Right&gt; to browse), improved speed (uses Quartz
-Extreme) and the ability to create a variety of output formats (pdf,
-png, jpeg, tiff, gif, psd, bmp...) &ndash; see <code>?quartz</code> for
-details. Also <code>CarbonEL</code> is no longer needed, Quartz starts its own
-even loop when necessary.
+   <p><acronym>CRAN</acronym> binaries of <acronym>R</acronym> versions 2.3.0 to 2.4.1 supplied their own complier (gcc 4.0.3 in <code>/usr/local/gcc4.0</code>), overriding the Apple-supplied compiler. The system compiler was kept in place, but <acronym>R</acronym> used the new compiler for compiling packages instead. The main reason for this was that the compiler supplied by Apple contained several fatal bugs that lead to crashes of <acronym>R</acronym> due to incorrectly generated code, especially for the Intel Macs. This has been fixed in Xcode 2.4.0 so we switched back to Apple's compilers for <acronym>R</acronym> 2.5.0 and later.
+
+<div class="node">
+<p><hr>
+<a name="Why-is-the-Quartz-much-bigger-than-it-used-to-be%3f"></a>
+<a name="Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f"></a>
+Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-Quartz-so-slow_003f">Why is Quartz so slow?</a>,
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-do-I-need-custom-compilers-for-the-CRAN-binary_003f">Why do I need custom compilers for the CRAN binary?</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
+
+</div>
+
+<h3 class="section">12.8 Why are Quartz plots much bigger than they used to be?</h3>
+
+<p>R versions before 2.7.0 had a Quartz window that was smaller both in size and scale. This was caused by two &ldquo;bugs&rdquo;: all devices in R have a default size of 7 inches. Quartz used a default of 5 inches and that was now changed to match all other devices. In addition, Quartz was incorrectly assuming a resolution of 72dpi for all screens. This means that a plot was drawn at ca. 3/4 of its intended size (given that most modern monitors use 100 dpi or more). The new Quartz device correctly detects the resolution of a screen by default and thus the plots will appear larger than they used to be. The resolution can be set using the <code>dpi</code> parameter of Quartz, i.e. to obtain the old behavior use <code>quartz(width=5,height=5,dpi=72)</code> when creating a new Quartz device. If you want to make this your default, use <code>quartz.options(width=5, height=5, dpi=72)</code>. You can also set those options in the Quartz Preferences of the <span class="sc">R.app</span> GUI.
+
+   <p>Some other new features of Quartz in R 2.7.0 include a plot history (use &lt;Cmd&gt;&lt;Left&gt; and &lt;Cmd&gt;&lt;Right&gt; to browse), improved speed (uses Quartz Extreme) and the ability to create a variety of output formats (pdf, png, jpeg, tiff, gif, psd, bmp...) - see <code>?quartz</code> for details. Also <code>CarbonEL</code> is no longer needed, Quartz starts its own even loop when necessary.
 
 <div class="node">
 <p><hr>
@@ -1797,11 +1982,11 @@ even loop when necessary.
 <a name="Why-is-Quartz-so-slow_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Why-are-there-faint-lines-in-image-plots_003f">Why are there faint lines in image plots?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-is-the-Quartz-much-bigger-than-it-used-to-be_003f">Why is the Quartz much bigger than it used to be?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.8 Why is Quartz so slow?</h3>
+<h3 class="section">12.9 Why is Quartz so slow?</h3>
 
 <p>In <acronym>R</acronym> 2.7.0 a new Quartz device was introduced for greater flexibility and speed. It was designed to take advantage of Quartz Extreme and hardware rendering where supported. Nonetheless it turned out that the way lines are drawn can be very slow for certain back-ends if Quartz falls back to software rendering. This issue was addressed in R 2.7.0 patched (r45567 or later). If you experience extreme slowness drawing lines or glitches in drawing, please update to R 2.8.0 or later.
 
@@ -1811,17 +1996,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="Why-are-there-faint-lines-in-image-plots_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Why-doesn_0027t-x86_005f64-build-of-R-pass-make-check-on-Mac-OS-X-10_002e5_002e2_003f">Why doesn't x86_64 build of R pass make check on Mac OS X 10.5.2?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-is-Quartz-so-slow_003f">Why is Quartz so slow?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.9 Why are there faint lines in image plots?</h3>
+<h3 class="section">12.10 Why are there faint lines in image plots?</h3>
 
-<p>When plots based on the <code>image()</code> function are exported to PDF, Preview shows very faint grid lines at the edges of the rectangles that create the image. Those lines are a rendering artifact in Preview coming from the combination of anti-aliasing and sub-pixel rendering. They are not really a part of the PDF (zooming in will reveal that they are not a real object which would get larger with zoom) since the rectangles are defined as a gapless coverage of the area. The effect can be circumvented by disabling anti-aliasing in Preview.
+<p>When plots based on the <code>image()</code> function are exported to PDF, Preview shows very faint grid lines at the edges of the rectangles that create the image. Those lines are a rendering artifact in Preview coming from the combination of anti-aliasing and sub-pixel rendering. They are not really a part of the PDF (zooming in will reveal that they are not a real object which would get larger with zoom) since the recangles are defined as a gapless coverage of the area. The effect can be circumvented by disabling anti-aliasing in Preview.
 
-   <p>We correct for this effect in Quartz when rendering on-screen by snapping all rectangles to pixel boundaries of the screen, but Preview does not.
+   <p>We correct for this effect in Quartz when rendering on-screen by snapping all recangles to pixel boundaries of the screen, but Preview does not.
 
-   <p>The same effect occurs in any plot with adjacent, filled polygons without border.
+   <p>The samme effect occurs in any plot with adjacent, filled polygons without border.
 
 <div class="node">
 <p><hr>
@@ -1829,15 +2014,15 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="Why-doesn_0027t-x86_005f64-build-of-R-pass-make-check-on-Mac-OS-X-10_002e5_002e2_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Why-doesn_0027t-R-GUI-support-keyboard-shortcut-XYZ-_003f">Why doesn't R GUI support keyboard shortcut XYZ ?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-are-there-faint-lines-in-image-plots_003f">Why are there faint lines in image plots?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.10 Why doesn't x86_64 build of R pass make check on Mac OS X 10.5.2?</h3>
+<h3 class="section">12.11 Why doesn't x86_64 build of R pass make check on Mac OS X 10.5.2?</h3>
 
 <p>Mac OS X 10.5.2 contains a very serious bug that makes <code>log10</code> return incorrect results in 64-bit Intel programs (x86_64). The bug was fixed in Mac OS X 10.5.3 therefore you have to update to Mac OS X 10.5.3 if you want to use 64-bit Intel binaries.
 
-   <p>If you want to create a binary that works on all versions of Mac OS X 10.5, you have to replace <code>log10</code> by something like <code>#define log10(X) (log2(X) * 0x1.34413509F79FFp-2)</code> (see Apple SciTech mailing list for the corresponding discussion and different workarounds).
+   <p>If you want to create a binary that works on all versions of Mac OS X 10.5, you have to replace <code>log10</code> by something like <code>#define log10(X) (log2(X) * 0x1.34413509F79FFp-2)</code> (see Apple SciTech mailing list for the corresponding discussion and different work-arounds).
 
 <div class="node">
 <p><hr>
@@ -1845,13 +2030,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="Why-doesn_0027t-R-GUI-support-keyboard-shortcut-XYZ-_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#What-is-the-difference-between-the-Leopard-and-Tiger-builds_003f">What is the difference between the Leopard and Tiger builds?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-doesn_0027t-x86_005f64-build-of-R-pass-make-check-on-Mac-OS-X-10_002e5_002e2_003f">Why doesn't x86_64 build of R pass make check on Mac OS X 10.5.2?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.11 Why doesn't R GUI support keyboard shortcut XYZ ?</h3>
+<h3 class="section">12.12 Why doesn't R GUI support keyboard shortcut XYZ ?</h3>
 
-<p>The <span class="sc">R.app</span> GUI uses Apple frameworks for text editing and thus the behavior of text views (console, editor, etc.) is consistent with other applications and allows a very flexible customization. For example if you are not satisfied with the default Emacs-like key bindings that Mac OS X provides, Apple allows you to extend them arbitrarily. For more details see Apple's documentation on <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/chapter_9_section_2.html">Key Bindings</a>. There are also many 3rd-party pages on key bindings customization, search for <code>StandardKeyBinding.dict</code>.
+<p>The <span class="sc">R.app</span> GUI uses Apple frameworks for text editing and thus the behavior of text views (console, editor, etc.) is consistent with other applications and allows a very flexible customization. For example if you are not satistied with the default Emacs-like key bindings that Mac OS X provides, Apple allows you to extend them arbitrarily. For more details see Apple's documentaton on <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/chapter_9_section_2.html">Key Bindings</a>. There are also many 3rd-party pages on key bindings customization, search for <code>StandardKeyBinding.dict</code>.
 
 <div class="node">
 <p><hr>
@@ -1859,13 +2044,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="What-is-the-difference-between-the-Leopard-and-Tiger-builds_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#What-is-the-difference-between-the-CRAN-build-and-a-vanilla-build_003f">What is the difference between the CRAN build and a vanilla build?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-doesn_0027t-R-GUI-support-keyboard-shortcut-XYZ-_003f">Why doesn't R GUI support keyboard shortcut XYZ ?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.12 What is the difference between the Leopard and Tiger builds?</h3>
+<h3 class="section">12.13 What is the difference between the Leopard and Tiger builds?</h3>
 
-<p>Before R version 2.11.0 we provided two different binary builds on <acronym>CRAN</acronym>: Tiger (Mac OS X 10.4) and Leopard (Mac OS X 10.5) builds. The Tiger build was a 32-bit build for PowerPC and Intel and works on Mac OS X 10.4 or higher. It was built using the same setup as <acronym>R</acronym> prior to 2.8.0. It included two architectures <code>i386</code> and <code>ppc</code>. The default package type was <code>"mac.binary"</code> and packages in repositories were expected in <samp><span class="file">bin/macosx/universal/contrib/2.x</span></samp>.
+<p>Before R version 2.11.0 we provided two different binary builds on CRAN: Tiger (Mac OS X 10.4) and Leopard (Mac OS X 10.5) builds. The Tiger build was a 32-bit build for PowerPC and Intel and works on Mac OS X 10.4 or higher. It was built using the same setup as <acronym>R</acronym> prior to 2.8.0. It included two architectures <code>i386</code> and <code>ppc</code>. The default package type was <code>"mac.binary"</code> and packages in repositories were expected in <samp><span class="file">bin/macosx/universal/contrib/2.x</span></samp>.
 
    <p>In contrast the Leopard build requires Mac OS X 10.5 or higher and thus uses features that are new in Leopard. Also it includes both 32-bit and 64-bit architectures. On the console 64-bit version can be started using <code>R --arch=x86_64</code> for Intel Macs or <code>R --arch=ppc64</code> for PowerPC Macs (if included). There are two GUI binaries &ndash; one for 32-bit and one for 64-bit. The Leopard build uses Apple's gcc-4.2 compilers, the default package type is <code>"mac.binary.leopard"</code> and consequently packages are expected in <samp><span class="file">bin/macosx/leopard/contrib/2.x</span></samp>. Note that some packages may not be available in 64-bit (e.g. if dependent libraries are not available in 64-bit).
 
@@ -1875,20 +2060,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous
 <a name="What-is-the-difference-between-the-CRAN-build-and-a-vanilla-build_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-R_002ehome_0028_0029-not-versioned_003f">Why is R.home() not versioned?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-is-the-difference-between-the-Leopard-and-Tiger-builds_003f">What is the difference between the Leopard and Tiger builds?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.13 What is the difference between the CRAN build and a vanilla build?</h3>
+<h3 class="section">12.14 What is the difference between the CRAN build and a vanilla build?</h3>
 
-<p>The <acronym>CRAN</acronym> build of R is slightly different from a vanilla build of R, i.e., a simple <code>./configure &amp;&amp; make &amp;&amp; make install</code>. The default package type for all builds compiled from sources is <code>"source"</code> wheres <acronym>CRAN</acronym> uses <code>"mac.binary"</code> or <code>"mac.binary.leopard"</code> (see above). Only the <acronym>CRAN</acronym> build is guaranteed to be compatible with the package binaries on <acronym>CRAN</acronym>.
+<p>The CRAN build of R is silghtly different from a vanilla build of R, i.e., a simple <code>./configure &amp;&amp; make &amp;&amp; make install</code>. The default package type for all builds compiled from sources is <code>"source"</code> wheres CRAN uses <code>"mac.binary"</code> or <code>"mac.binary.leopard"</code> (see above). Only the CRAN build is guaranteed to be compatible with the package binaries on CRAN.
 
-   <p>In addition, the <acronym>CRAN</acronym> build contains multiple architectures (two, three or four) and thus corresponds to setting <code>r_arch</code> at configure time and installing each architecture. This poses some challenges for package installation, since packages with a <code>configure</code> script need to be installed several times (see package installation FAQ above). Therefore it is recommended for users to install binary packages instead.
+   <p>In addition, the CRAN build contains multiple architectures (two, three or four) and thus corresponds to setting <code>r_arch</code> at configure time and installing each architecture. This poses some challenges for package installation, since packages with a <code>configure</code> script need to be installed several times (see package installation FAQ above). Therefore it is recommended for users to install binary packages instead.
 
-   <p>Further, the start script for the <acronym>CRAN</acronym> build is modified to launch
-the current architecture instead of the most recently installed one.
+   <p>Further, the start script for the CRAN build is modified to launch the current architecture instead of the most recently installed one. Also PowerPC machines don't attempt to install other architectures due to missing universal files (this can be also (ab)used by setting <code>NATIVE_ARCH=/ppc</code> on any architecture to force analogous behavior).
 
-   <p>Since R 2.8.0 the <acronym>CRAN</acronym> binary also contains (statically) the most recent FontConfig with configuration and cache located inside R. See the <code>tools</code> directory in <acronym>CRAN</acronym> for the corresponding libraries and details.
+   <p>Since R 2.8.0 the CRAN binary also contains (statically) the most recent FontConfig with configuration and cache located inside R. See the <code>tools</code> directory in CRAN for the corresponding libraries and details.
 
 <div class="node">
 <p><hr>
@@ -1896,41 +2080,17 @@ the current architecture instead of the most recently installed one.
 <a name="Why-is-R_002ehome_0028_0029-not-versioned_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#R_002eapp-GUI-crashes-on-startup_0021">R.app GUI crashes on startup!</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#What-is-the-difference-between-the-CRAN-build-and-a-vanilla-build_003f">What is the difference between the CRAN build and a vanilla build?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.14 Why is R.home() in the R framework not versioned?</h3>
+<h3 class="section">12.15 Why is R.home() in the R framework not versioned?</h3>
 
-<p>In the command line version of R, <code>R.home()</code> always points to the
-<code>Resources</code> directory symbolic link inside the R framework which
-points to <code>Versions/Current/Resource</code> which is turn points to the
-actual home &ndash; a versioned directory such as for example
-<code>Versions/2.15/Resources</code>. This is how framework versioning works
-in Mac OS X and is defined by Apple (see
-<a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/FrameworkAnatomy.html">Framework Anatomy</a>).
+<p>In the command line version of R <code>R.home()</code> always points to the <code>Resources</code> directory symbolic link inside the R framework which points to <code>Versions/Current/Resource</code> which is turn points to the actual home &ndash; a versioned directory such as for example <code>Versions/2.11/Resources</code>. This is how framework versioning works in Mac OS X and is defined by Apple (see <a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/FrameworkAnatomy.html">Framework Anatomy</a>).
 
-   <p>The advantage of this setup is that it is possible to install multiple R
-versions in parallel and they all will be fully functional as long as
-the <code>Current</code> symbolic link points to the currently used
-version. There is even a small GUI utility <code>RSwitch</code> available from
-the <a href="http://r.research.att.com/">R for Mac devel page</a> that allows
-you to select the desired version. In addition, any application
-embedding R can choose to use a specific R version (in most cases) or
-any version.  Note that <span class="sc">R.app</span> is compiled against a particular version
-of <acronym>R</acronym> and it may crash if <code>RSwitch</code> is used to change the version
-of <acronym>R</acronym> in use.
+   <p>The advanatage of this setup is that it is possible to install multiple R versions in parallel and they all will be fully functional as long as the <code>Current</code> symbolic link points to the currently used version. There is even a small GUI utility <code>RSwitch</code> available form the <a href="http://r.research.att.com/">R for Mac devel page</a> that allows you to select the desired version. In addition, any application embedding R (such as the R GUI) can choose to use a specific R version (in most cases) or any version.
 
-   <p>Although it is possible to set <code>R_HOME</code> directly to the versioned
-path in the R shell scripts (and thus be able to run different version
-in parallel without changing the symbolic link), there are several
-dangers lurking there so we don't recommend it. One problem is that
-building packages from source won't work. The linker is always linking
-against the current version of the framework and therefore only the
-currently active version of R can compile packages. Further, packages
-may have used the value of <code>R.home()</code> at install time and thus may
-not work with incorrect setting.  Finally, if such an R start script
-happens to get copied and the R version changes, it will stop working.
+   <p>Although it is possible to set <code>R_HOME</code> directly to the versioned path in the R shell scripts (and thus be able to run different version in parallel without changing the symbolic link), there are several dangers lurking there so we don't recommend it. One problem is that building packages from source won't work. The linker is always linking against the current version of the framework and therefore only the currently active version of R can compile packages. Further, packages may have used the value of <code>R.home()</code> at install time and thus may not work with incorrect setting. Similar problem may arise with help pages. Finally, if such an R start script happens to get copied and the R version changes, it will stop working.
 
 <div class="node">
 <p><hr>
@@ -1938,41 +2098,27 @@ happens to get copied and the R version changes, it will stop working.
 <a name="R_002eapp-GUI-crashes-on-startup_0021"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#R_002eapp-GUI-does-not-save-the-workspace_0021">R.app GUI does not save the workspace!</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-is-R_002ehome_0028_0029-not-versioned_003f">Why is R.home() not versioned?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.15 R.app GUI crashes on startup!</h3>
+<h3 class="section">12.16 R.app GUI crashes on startup!</h3>
 
-<p>If your <span class="sc">R.app</span> GUI crashes on startup, there are two common causes for
-this: a saved workspace or a corrupted history file.  (Another is a
-mismatch between <span class="sc">R.app</span> and <acronym>R</acronym> if either has been updated or
-<samp><span class="command">RSwitch</span></samp> has been used.)
+<p>If your R.app GUI crashes on startup, there are usually two major causes for this: saved workspace or corrupted history
 
-   <p>Saved workspaces can contain commands that implicitly load packages
-which in turn can trigger bugs in packages or feed R with incorrect
-starting values (especially if it was saved using another R). Try
-removing or renaming your workspace &ndash; it's called <code>.RData</code>. If you
-did not change your startup settings, you can e.g. use
+   <p>Saved workspaces can contain commands that implicitly load packages which in turn can trigger bugs in packages or feed R with incorrect starting values (especially if it was saved using another R). Try removing or renaming your workspace &ndash; it's called <code>.RData</code>. If you did not change your startup settings, you can e.g. use
 
 <pre class="example">     mv ~/.RData ~/workspace.RData
 </pre>
    <p>to move it aside and load later manually for inspection using <code>load("~/workspace.RData")</code>.
 
-   <p>Second most common cause of crashes on startup is a history file that
-was not created using the <span class="sc">R.app</span> GUI. Again, move it aside to see if
-that's the issue: for the default file this could be done by
+   <p>Second most common cause of crashes on startup is a history file that was not created using the <span class="sc">R.app</span> GUI. Again, move it aside to see if that's the issue:
 
-<pre class="example">     mv ~/.Rapp.history ~/history.txt
+<pre class="example">     mv ~/.Rhistory ~/history.txt
 </pre>
-   <p>Although we are trying to recover from invalid history files, they can
-still crash <span class="sc">R.app</span> due to issues in the internal handling of strings in
-Mac OS X. We are currently working on preventing this issue.
+   <p>Although we are trying to recover from invalid history files, they can still crash <span class="sc">R.app</span> due to issues in the internal handling of strings in Mac OS X. We are currently working on preventing this issue.
 
-   <p>If you did both of the above and <span class="sc">R.app</span> still crashes, please select
-`1' in the menu after the crash (if you get the crash menu in the
-console) and send us the resulting crash report (see see <a href="#R_002eapp-Bugs">R.app Bugs</a>
-above).
+   <p>If you did both of the above and <span class="sc">R.app</span> still crashes, please select `1' in the menu after the crash (if you get the crash menu in the console) and send us the resulting crash report (see see <a href="#R_002eapp-Bugs">R.app Bugs</a> above).
 
 <div class="node">
 <p><hr>
@@ -1980,91 +2126,58 @@ above).
 <a name="R_002eapp-GUI-does-not-save-the-workspace_0021"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#Why-is-the-GUI-not-saving-my-history_003f">Why is the GUI not saving my history?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#R_002eapp-GUI-crashes-on-startup_0021">R.app GUI crashes on startup!</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.16 R.app GUI does not save the workspace!</h3>
+<h3 class="section">12.17 R.app GUI does not save the workspace!</h3>
 
-<p>When you quit the R.app GUI it asks you whether to save the workspace or
-not. There was a bug in R.app GUI 1.32 (shipped with the initial release
-of R 2.11.0) that did not save the workspace even if told to. If you use
-R.app GUI version 1.32 please make sure you upgrade to 1.33 (or higher)
-to avoid this bug. The current R on <acronym>CRAN</acronym> ships with the more recent
-R.app GUI version that does not exhibit the problem.
+<p>When you quit the R.app GUI it asks you whether to save the workspace or not. There was a bug in R.app GUI 1.32 (shipped with the initial release of R 2.11.0) that did not save the workspace even if told to. If you use R.app GUI version 1.32 please make sure you upgrade to 1.33 (or higher) to avoid this bug. The current R on CRAN ships with the more recent R.app GUI version that does not exhibit the problem.
 
 <div class="node">
 <p><hr>
 <a name="Why-is-the-GUI-not-saving-my-history%3f"></a>
 <a name="Why-is-the-GUI-not-saving-my-history_003f"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal -- why?</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal - why?</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#R_002eapp-GUI-does-not-save-the-workspace_0021">R.app GUI does not save the workspace!</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.17 Why is the GUI not saving my history?</h3>
+<h3 class="section">12.18 Why is the GUI not saving my history?</h3>
 
-<p>In some older versions of R there was a conflict between the history of
-R itself and the GUI such that the history file will be always empty. In
-R 2.11.1 the default has been changed such that the GUI will by default
-use a <code>.Rapp.history</code> file whereas command line <acronym>R</acronym> will use
-<code>.Rhistory</code>. If you have old preferences, go to Preferences -&gt;
-Startup in the GUI and click on the Default button next to the R history
-file text box and close the preferences.
-
-   <p>Note that calling <code>savehistory()</code> in <span class="sc">R.app</span> does not currently
-save the history of the <span class="sc">R.app</span> session: this means that
-<code>history()</code> will usually show an empty window.
+<p>In some recent versions of R there is a conflict between the history of R itself and the GUI such that the history file will be always empty. In R 2.11.1 the default has been changed such that the GUI will use <code>.Rapp.history</code> file whereas command line R will use <code>.Rhistory</code> so that they will not collide. If you have old preferences, go to Preferences -&gt; Startup in the GUI and click on the Default button next to the R history file text box and close the preferences. This is a work-around until the internal R history and the history of the GUI are synchronized properly.
 
 <div class="node">
 <p><hr>
-<a name="I-get-%60%60command-not-found''-in-the-GUI-yet-it-works-in-the-Terminal----why%3f"></a>
-<a name="I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d_002d-why_003f"></a>
+<a name="I-get-%60%60command-not-found''-in-the-GUI-yet-it-works-in-the-Terminal---why%3f"></a>
+<a name="I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d-why_003f"></a>
 Next:&nbsp;<a rel="next" accesskey="n" href="#I-see-no-text-in-a-Quartz-plot_0021">I see no text in a Quartz plot!</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="#Why-is-the-GUI-not-saving-my-history_003f">Why is the GUI not saving my history?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.18 I get &ldquo;command not found&rdquo; in the GUI yet it works in the Terminal &ndash; why?</h3>
+<h3 class="section">12.19 I get &ldquo;command not found&rdquo; in the GUI yet it works in the Terminal - why?</h3>
 
 <p>When executing system commands (for example directly via <code>system</code> or indirectly via functions that call other programs such as <code>install.packages</code>) the locations in which the shell is looking for programs is governed by the <code>PATH</code> environment variable. That variable may be set differently for R started from an interactive shell and for R started in the GUI. You can use <code>Sys.getenv("PATH")</code> to verify the current setting.
 
-   <p>When R is started from a shell (e.g., on the command line of the Terminal), it will inherit settings from that shell. Those are typically modified by shell-specific configuration files, such as <code>.profile</code> or <code>.bashrc</code>. Those apply only to the shell, not to the system as a whole. In addition, some installers (such as MacTeX) will modify global shell settings to make user's life more comfortable on the command line, but, again, those do not apply to programs not started from the shell &ndash; such as GUIs. See <a href="http://developer.apple.com/library/mac/#qa/qa1067">Apple Technical Q&amp;A QA1067</a> for what Apple says about the topic.
+   <p>When R is started from a shell (e.g., on the command line of the Terminal), it will inherit settings from that shell. Those are typically modified by shell-specific configuration files, such as <code>.profile</code> or <code>.bashrc</code>. Those apply only to the shell, not to the system as a whole. In addition, some installers (such as MacTeX) will modify global shell settings to make user's life more comfortable on the command line, but, again, those do not apply to programs not started from the shell - such as GUIs. See <a href="http://developer.apple.com/library/mac/#qa/qa1067">Apple Technical Q&amp;A QA1067</a> for what Apple says about the topic.
 
-   <p>In order to standardize your <code>PATH</code> setting in R, you can set it in
-your <code>.Renviron</code> file (in your home directory &ndash; see <code>?Startup</code>
-in R for details on how R uses configuration files on startup). This
-setting will apply to R regardless of how it is started. You can also
-add more elaborate constructs to <code>.Rprofile</code> instead if you wish to
-selectively modify the existing <code>PATH</code> variable via
-<code>Sys.getenv</code> and <code>Sys.setenv</code>.
+   <p>In order to standardize your <code>PATH</code> setting in R, you can set it in your <code>.Renviron</code> file (in your home - see <code>?Startup</code> in R for details on how R uses configuration files on startup). This setting will apply to R regardless of how it is started. You can also add more elaborate constructs to <code>.Rprofile</code> instead if you wish to selectively modify the existing <code>PATH</code> variable via <code>Sys.getenv</code> and <code>Sys.setenv</code>.
 
 <div class="node">
 <p><hr>
 <a name="I-see-no-text-in-a-Quartz-plot!"></a>
 <a name="I-see-no-text-in-a-Quartz-plot_0021"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal -- why?</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Miscellaneous-questions">Miscellaneous questions</a>
+Previous:&nbsp;<a rel="previous" accesskey="p" href="#I-get-_0060_0060command-not-found_0027_0027-in-the-GUI-yet-it-works-in-the-Terminal-_002d-why_003f">I get ``command not found'' in the GUI yet it works in the Terminal - why?</a>,
+Up:&nbsp;<a rel="up" accesskey="u" href="#Sparse-questions">Sparse questions</a>
 
 </div>
 
-<h3 class="section">12.19 I see no text in a Quartz plot!</h3>
+<h3 class="section">12.20 I see no text in a Quartz plot!</h3>
 
-<p>Typically this means that you have corrupted fonts in your system. Open
-the <code>Font Book</code> application (in <code>Applications</code>) and check the
-fonts that you are using (for example the default font in Quartz is
-&ldquo;Helvetica&rdquo;). Corrupted fonts will have no glyphs (text will not
-appear as it should), remove such fonts.
-
-   <div class="footnote">
-<hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> Right-clicking via a
-gesture (default, two-finger click) or Control-click will also
-terminate.</p>
-
-   <p><hr></div>
+<p>Typically this means that you have corrupted fonts in your system. Open the <code>Font Book</code> application (in <code>Applications</code>) and check the fonts that you are using (for example the default font in Quartz is &ldquo;Helvetica&rdquo;). Corrupted fonts will have no glyphs (text will nto appear as it should), remove such fonts.
 
 </body></html>
 

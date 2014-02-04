@@ -6,7 +6,6 @@
 .Machine                Numerical Characteristics of the Machine
 .Platform               Platform Specific Variables
 .Primitive              Look Up a Primitive Function
-.bincode                Bin a Numeric Vector
 .deparseOpts            Options for Expression Deparsing
 .onLoad                 Hooks for Namespace Events
 .packages               Listing of Packages
@@ -329,6 +328,7 @@ readLines               Read Text Lines from a Connection
 readRDS                 Serialization Interface for Single Objects
 readRenviron            Set Environment Variables from a File
 readline                Read a Line from the Terminal
+real                    Real Vectors
 reg.finalizer           Finalization of Objects
 regex                   Regular Expressions as used in R
 regmatches              Extract or Replace Matched Substrings
@@ -374,8 +374,7 @@ strptime                Date-time Conversion Functions to and from
                         Character
 strsplit                Split the Elements of a Character Vector
 strtoi                  Convert Strings to Integers
-strtrim                 Trim Character Strings to Specified Display
-                        Widths
+strtrim                 Trim Character Strings to Specified Widths
 structure               Attribute Specification
 strwrap                 Wrap Character Strings to Format Paragraphs
 subset                  Subsetting Vectors, Matrices and Data Frames

@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <title>An Introduction to R</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="description" content="An Introduction to R">
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="top" href="#Top">
@@ -182,7 +182,7 @@ p {
 <li><a href="#Simple-examples">10.1 Simple examples</a>
 <li><a href="#Defining-new-binary-operators">10.2 Defining new binary operators</a>
 <li><a href="#Named-arguments-and-defaults">10.3 Named arguments and defaults</a>
-<li><a href="#The-three-dots-argument">10.4 The ‘<samp><span class="samp">...</span></samp>’ argument</a>
+<li><a href="#The-three-dots-argument">10.4 The `<samp><span class="samp">...</span></samp>' argument</a>
 <li><a href="#Assignment-within-functions">10.5 Assignments within functions</a>
 <li><a href="#More-advanced-examples">10.6 More advanced examples</a>
 <ul>
@@ -303,30 +303,9 @@ analysis, classification, clustering, ...).
    <p>This manual provides information on data types, programming elements,
 statistical modelling and graphics.
 
-   <p>The current version of this document is 2.15.3 (2013-03-01).
+   <p>The current version of this document is 2.15.1 (2012-06-22).
 
    <p>ISBN 3-900051-12-7
-
-   <p>Copyright &copy; 1990 W. N. Venables<br>
-Copyright &copy; 1992 W. N. Venables &amp; D. M. Smith<br>
-Copyright &copy; 1997 R. Gentleman &amp; R. Ihaka<br>
-Copyright &copy; 1997, 1998 M. Maechler<br>
-Copyright &copy; 1997&ndash; R Core Team<br>
-Copyright &copy; 1999&ndash;2012 R Core Team
-
-   <p>Permission is granted to make and distribute verbatim copies of this
-manual provided the copyright notice and this permission notice are
-preserved on all copies.
-
-   <p>Permission is granted to copy and distribute modified versions of this
-manual under the conditions for verbatim copying, provided that the
-entire resulting derived work is distributed under the terms of a
-permission notice identical to this one.
-
-   <p>Permission is granted to copy and distribute translations of this manual
-into another language, under the above conditions for modified versions,
-except that this permission notice may be stated in a translation
-approved by the R Core Team.
 
 <ul class="menu">
 <li><a accesskey="1" href="#Preface">Preface</a>
@@ -436,7 +415,7 @@ has
 analysis,
 <li>graphical facilities for data analysis and display either directly at
 the computer or on hardcopy, and
-<li>a well developed, simple and effective programming language (called ‘S’)
+<li>a well developed, simple and effective programming language (called `S')
 which includes conditionals, loops, user defined recursive functions and
 input and output facilities.  (Indeed most of the system supplied
 functions are themselves written in the S language.) 
@@ -560,11 +539,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Introduction-and-preliminaries">Introd
 <h3 class="section">1.5 Using R interactively</h3>
 
 <p>When you use the R program it issues a prompt when it expects input
-commands.  The default prompt is ‘<samp><code>&gt;</code></samp>’, which on UNIX might be
+commands.  The default prompt is `<samp><code>&gt;</code></samp>', which on UNIX might be
 the same as the shell prompt, and so it may appear that nothing is
 happening.  However, as we shall see, it is easy to change to a
 different R prompt if you wish.  We will assume that the UNIX shell
-prompt is ‘<samp><code>$</code></samp>’.
+prompt is `<samp><code>$</code></samp>'.
 
    <p>In using R under UNIX the suggested procedure for the first occasion
 is as follows:
@@ -665,7 +644,7 @@ running
    <p><a name="index-help_002estart-5"></a>
 which will launch a Web browser that allows the help pages to be browsed
 with hyperlinks.  On UNIX, subsequent help requests are sent to the
-<acronym>HTML</acronym>-based help system.  The ‘Search Engine and Keywords’ link in the
+<acronym>HTML</acronym>-based help system.  The `Search Engine and Keywords' link in the
 page loaded by <code>help.start()</code> is particularly useful as it is
 contains a high-level concept list which searches though available
 functions.  It can be a great way to get your bearings quickly and to
@@ -710,9 +689,9 @@ variables.  The set of symbols which can be used in R names depends
 on the operating system and country within which R is being run
 (technically on the <em>locale</em> in use).  Normally all alphanumeric
 symbols are allowed<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> (and in
-some countries this includes accented letters) plus ‘<samp><code>.</code></samp>’ and
-‘<samp><code>_</code></samp>’, with the restriction that a name must start with
-‘<samp><code>.</code></samp>’ or a letter, and if it starts with ‘<samp><code>.</code></samp>’ the
+some countries this includes accented letters) plus `<samp><code>.</code></samp>' and
+`<samp><code>_</code></samp>', with the restriction that a name must start with
+`<samp><code>.</code></samp>' or a letter, and if it starts with `<samp><code>.</code></samp>' the
 second character must not be a digit.  Names are currently effectively
 unlimited, but were limited to 256 bytes prior to R 2.13.0
 
@@ -722,11 +701,11 @@ evaluated, printed (unless specifically made invisible), and the value
 is lost.  An assignment also evaluates an expression and passes the
 value to a variable but the result is not automatically printed.
 
-   <p>Commands are separated either by a semi-colon (‘<samp><code>;</code></samp>’), or by a
+   <p>Commands are separated either by a semi-colon (`<samp><code>;</code></samp>'), or by a
 newline.  Elementary commands can be grouped together into one compound
-expression by braces (‘<samp><code>{</code></samp>’ and ‘<samp><code>}</code></samp>’). 
+expression by braces (`<samp><code>{</code></samp>' and `<samp><code>}</code></samp>'). 
 <em>Comments</em> can be put almost<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a> anywhere,
-starting with a hashmark (‘<samp><code>#</code></samp>’), everything to the end of the
+starting with a hashmark (`<samp><code>#</code></samp>'), everything to the end of the
 line is a comment.
 
    <p>If a command is not complete at the end of a line, R will
@@ -899,13 +878,13 @@ arguments end to end.<a rel="footnote" href="#fn-6" name="fnd-6"><sup>6</sup></a
    <p>A number occurring by itself in an expression is taken as a vector of
 length one.
 
-   <p>Notice that the assignment operator (‘<samp><code>&lt;-</code></samp>’), which consists
-of the two characters ‘<samp><code>&lt;</code></samp>’ (&ldquo;less than&rdquo;) and
-‘<samp><code>-</code></samp>’ (&ldquo;minus&rdquo;) occurring strictly side-by-side and it
-‘points’ to the object receiving the value of the expression. 
-In most contexts the ‘<samp><code>=</code></samp>’ operator can be used as an alternative. 
+   <p>Notice that the assignment operator (`<samp><code>&lt;-</code></samp>'), which consists
+of the two characters `<samp><code>&lt;</code></samp>' (&ldquo;less than&rdquo;) and
+`<samp><code>-</code></samp>' (&ldquo;minus&rdquo;) occurring strictly side-by-side and it
+`points' to the object receiving the value of the expression. 
+In most contexts the `<samp><code>=</code></samp>' operator can be used as an alternative. 
 <!-- In this text, the assignment operator is printed as @samp{<-}, rather -->
-<!-- than `‘@code{<-}’'. -->
+<!-- than ``@code{<-}''. -->
 <a name="index-Assignment-18"></a>
 Assignment can also be made using the function <code>assign()</code>.  An
 equivalent way of making the same assignment as above is with:
@@ -1036,7 +1015,7 @@ R has a number of facilities for generating commonly used sequences
 of numbers.  For example <code>1:30</code> is the vector <code>c(1, 2,
 ..., 29, 30)</code>. 
 <!-- <NOTE> -->
-<!-- Info cannot handle ‘:’ as an index entry. -->
+<!-- Info cannot handle ':' as an index entry. -->
 <a name="index-g_t_003a-45"></a><!-- </NOTE> -->
 The colon operator has high priority within an expression, so, for
 example <code>2*1:15</code> is the vector <code>c(2, 4, ..., 28, 30)</code>. 
@@ -1371,7 +1350,7 @@ Lists provide a convenient way to return the results of a statistical
 computation.  See <a href="#Lists">Lists</a>.
 
      <li><em>data frames</em> are matrix-like structures, in which the columns can
-be of different types.  Think of data frames as ‘data matrices’ with one
+be of different types.  Think of data frames as `data matrices' with one
 row per observational unit but with (possibly) both numerical and
 categorical variables.  Many experiments are best described by data
 frames: the treatments are categorical but the response is numeric. 
@@ -1399,7 +1378,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <!-- This needs to be re-written for R.  We really have data types (as -->
 <!-- returned by typeof()) and that functions mode() and storage.mode() -->
 <!-- are for S compatibility mostly.  Hence in particular, there is no -->
-<!-- intrinsic attribute ‘mode’. -->
+<!-- intrinsic attribute `mode'. -->
 
 <ul class="menu">
 <li><a accesskey="1" href="#The-intrinsic-attributes-mode-and-length">The intrinsic attributes mode and length</a>
@@ -2388,7 +2367,7 @@ Consider the following assignments
 <code>X</code> in <code>fit</code>, the projection onto the orthogonal complement in
 <code>res</code> and the coefficient vector for the projection in <code>b</code>,
 that is, <code>b</code> is essentially the result of the <span class="sc">Matlab</span>
-‘backslash’ operator.
+`backslash' operator.
 
    <p>It is not assumed that <code>X</code> has full column rank.  Redundancies will
 be discovered and removed as they are found.
@@ -2609,8 +2588,8 @@ component to be extracted is stored in another variable as in
 <pre class="example">     &gt; x &lt;- "name"; Lst[[x]]
 </pre>
    <p>It is very important to distinguish <code>Lst[[1]]</code> from <code>Lst[1]</code>. 
-‘<samp><code>[[</code><var><small class="dots">...</small></var><code>]]</code></samp>’ is the operator used to select a single
-element, whereas ‘<samp><code>[</code><var><small class="dots">...</small></var><code>]</code></samp>’ is a general subscripting
+`<samp><code>[[</code><var><small class="dots">...</small></var><code>]]</code></samp>' is the operator used to select a single
+element, whereas `<samp><code>[</code><var><small class="dots">...</small></var><code>]</code></samp>' is a general subscripting
 operator.  Thus the former is the <em>first object in the list</em>
 <code>Lst</code>, and if it is a named list the name is <em>not</em> included. 
 The latter is a <em>sublist of the list </em><code>Lst</code><em> consisting of the
@@ -2764,7 +2743,7 @@ somehow to make the components of a list or data frame temporarily
 visible as variables under their component name, without the need to
 quote the list name explicitly each time.
 
-   <p>The <code>attach()</code> function takes a ‘database’ such as a list or data
+   <p>The <code>attach()</code> function takes a `database' such as a list or data
 frame as its argument.  Thus suppose <code>lentils</code> is a
 data frame with three variables <code>lentils$u</code>, <code>lentils$v</code>,
 <code>lentils$w</code>.  The attach
@@ -3197,8 +3176,8 @@ and to simulate from the distribution.
         <br></td></tr></table>
 </blockquote>
 
-<p class="noindent">Prefix the name given here by ‘<samp><span class="samp">d</span></samp>’ for the density, ‘<samp><span class="samp">p</span></samp>’ for the
-CDF, ‘<samp><span class="samp">q</span></samp>’ for the quantile function and ‘<samp><span class="samp">r</span></samp>’ for simulation
+<p class="noindent">Prefix the name given here by `<samp><span class="samp">d</span></samp>' for the density, `<samp><span class="samp">p</span></samp>' for the
+CDF, `<samp><span class="samp">q</span></samp>' for the quantile function and `<samp><span class="samp">r</span></samp>' for simulation
 (<em>r</em>andom deviates).  The first argument is <code>x</code> for
 <code>d</code><var>xxx</var>, <code>q</code> for <code>p</code><var>xxx</var>, <code>p</code> for
 <code>q</code><var>xxx</var> and <code>n</code> for <code>r</code><var>xxx</var> (except for
@@ -3621,7 +3600,7 @@ with boxplots.  See the <code>help</code> facility for further details.)
 
    <blockquote>
 <strong>Warning</strong>: <code>for()</code> loops are used in R code much less
-often than in compiled languages.  Code that takes a ‘whole object’ view
+often than in compiled languages.  Code that takes a `whole object' view
 is likely to be both clearer and faster in R. 
 </blockquote>
 
@@ -3854,7 +3833,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Writing-your-own-functions">Writing yo
 
 </div>
 
-<h3 class="section">10.4 The ‘<samp><span class="samp">...</span></samp>’ argument</h3>
+<h3 class="section">10.4 The `<samp><span class="samp">...</span></samp>' argument</h3>
 
 <p>Another frequent requirement is to allow one function to pass on
 argument settings to another.  For example many graphics functions use
@@ -3862,7 +3841,7 @@ the function <code>par()</code> and functions like <code>plot()</code> allow the
 user to pass on graphical parameters to <code>par()</code> to control the
 graphical output.  (See <a href="#The-par_0028_0029-function">The par() function</a>, for more details on the
 <code>par()</code> function.)  This can be done by including an extra
-argument, literally ‘<samp><span class="samp">...</span></samp>’, of the function, which may then be
+argument, literally `<samp><span class="samp">...</span></samp>', of the function, which may then be
 passed on.  An outline example is given below.
 
 <pre class="example">     fun1 &lt;- function(data, data.frame, graph=TRUE, limit=20, ...) {
@@ -4037,7 +4016,7 @@ very difficult to evaluate.
 
 <pre class="example">     area &lt;- function(f, a, b, eps = 1.0e-06, lim = 10) {
        fun1 &lt;- function(f, a, b, fa, fb, a0, eps, lim, fun) {
-         ## <span class="roman">function ‘fun1’ is only visible inside ‘area’</span>
+         ## <span class="roman">function `fun1' is only visible inside `area'</span>
          d &lt;- (a + b)/2
          h &lt;- (b - a)/4
          fd &lt;- f(d)
@@ -4310,7 +4289,7 @@ typing its name.  We can read these by either of
 
    <p><a name="index-getAnywhere-199"></a><a name="index-getS3method-200"></a>
 <pre class="example">     &gt; getAnywhere("coef.aov")
-     A single object matching ‘coef.aov’ was found
+     A single object matching 'coef.aov' was found
      It was found in the following places
        registered S3 method for coef from namespace stats
        namespace:stats
@@ -4480,8 +4459,8 @@ explicitly removed.
 
    <p>The <em>formula operators</em> are similar in effect to the Wilkinson and
 Rogers notation used by such programs as Glim and Genstat.  One
-inevitable change is that the operator ‘<samp><code>.</code></samp>’ becomes
-‘<samp><code>:</code></samp>’ since the period is a valid name character in R.
+inevitable change is that the operator `<samp><code>.</code></samp>' becomes
+`<samp><code>:</code></samp>' since the period is a valid name character in R.
 
    <p>The notation is summarized below (based on Chambers &amp; Hastie, 1992,
 p.29):
@@ -4772,7 +4751,7 @@ usually by just a few additional or removed terms.  Its form is
 <pre class="example">     &gt; <var>new.model</var> &lt;- update(<var>old.model</var>, <var>new.formula</var>)
 </pre>
    <p>In the <var>new.formula</var> the special name consisting of a period,
-‘<samp><code>.</code></samp>’,
+`<samp><code>.</code></samp>',
 <a name="index-g_t_002e-230"></a>only, can be used to stand for &ldquo;the corresponding part of the old model
 formula&rdquo;.  For example,
 
@@ -4789,7 +4768,7 @@ response had a square root transform applied.
 original call to the model fitting function, this information is passed on
 through the fitted model object to <code>update()</code> and its allies.
 
-   <p>The name ‘<samp><span class="samp">.</span></samp>’ can also be used in other contexts, but with slightly
+   <p>The name `<samp><span class="samp">.</span></samp>' can also be used in other contexts, but with slightly
 different meaning.  For example
 
 <pre class="example">     &gt; fmfull &lt;- lm(y ~ . , data = production)
@@ -5004,7 +4983,7 @@ first column holds the number of successes for the trial and the second
 holds the number of failures.
 
      <li>If the response is a <em>factor</em>, its first level is taken as failure
-(0) and all other levels as ‘success’ (1). 
+(0) and all other levels as `success' (1). 
 </ul>
 
    <p>Here we need the second of these conventions, so we add a matrix to our
@@ -5353,7 +5332,7 @@ pointing device such as a mouse.
    <p>In addition, R maintains a list of <em>graphical parameters</em> which
 can be manipulated to customize your plots.
 
-   <p>This manual only describes what are known as ‘base’ graphics.  A
+   <p>This manual only describes what are known as `base' graphics.  A
 separate graphics sub-system in package <strong>grid</strong> coexists with base &ndash;
 it is more powerful but harder to use.  There is a recommended package
 <a href="http://CRAN.R-project.org/package=lattice"><strong>lattice</strong></a> which builds on <strong>grid</strong> and provides ways to produce
@@ -5429,7 +5408,7 @@ generates a bar plot of <var>f</var>; the second form produces boxplots of
 <var>y</var> for each level of <var>f</var>.
 
      <br><dt><code>plot(</code><var>df</var><code>)</code><dt><code>plot(~ </code><var>expr</var><code>)</code><dt><code>plot(</code><var>y</var><code> ~ </code><var>expr</var><code>)</code><dd><var>df</var> is a data frame, <var>y</var> is any object, <var>expr</var> is a list
-of object names separated by ‘<code>+</code>’ (e.g., <code>a + b + c</code>).  The
+of object names separated by `<code>+</code>' (e.g., <code>a + b + c</code>).  The
 first two forms produce distributional plots of the variables in a data
 frame (first form) or of a number of named objects (second form).  The
 third form plots <var>y</var> against every object named in <var>expr</var>. 
@@ -5818,7 +5797,7 @@ required.  You can, however, customize almost every aspect of the
 display using <em>graphics parameters</em>.  R maintains a list of a
 large number of graphics parameters which control things such as line
 style, colors, figure arrangement and text justification among many
-others.  Every graphics parameter has a name (such as ‘<code>col</code>’,
+others.  Every graphics parameter has a name (such as `<code>col</code>',
 which controls colors,) and a value (a color number, for example.)
 
    <p>A separate list of graphics parameters is maintained for each active
@@ -6309,7 +6288,7 @@ depending on how the device was initiated.
 
      <br><dt><code>dev.copy(device, ..., which=</code><var>k</var><code>)</code><dt><code>dev.print(device, ..., which=</code><var>k</var><code>)</code><dd>Make a copy of the device <var>k</var>.  Here <code>device</code> is a device
 function, such as <code>postscript</code>, with extra arguments, if needed,
-specified by ‘<samp><span class="samp">...</span></samp>’.  <code>dev.print</code> is similar, but the
+specified by `<samp><span class="samp">...</span></samp>'.  <code>dev.print</code> is similar, but the
 copied device is immediately closed, so that end actions, such as
 printing hardcopies, are immediately performed.
 
@@ -6528,7 +6507,7 @@ y-coordinates.
 
      <br><dt><code>x &lt;- 1:20</code><dd>Make x = (1, 2, <small class="dots">...</small>, 20).
 
-     <br><dt><code>w &lt;- 1 + sqrt(x)/2</code><dd>A ‘weight’ vector of standard deviations.
+     <br><dt><code>w &lt;- 1 + sqrt(x)/2</code><dd>A `weight' vector of standard deviations.
 
      <br><dt><code>dummy &lt;- data.frame(x=x, y= x + rnorm(x)*w)</code><dt><code>dummy</code><dd>Make a <em>data frame</em> of two columns, x and y, and look
 at it.
@@ -6585,9 +6564,9 @@ suitably coded.
 
      <br><dt><code>plot(Expt, Speed, main="Speed of Light Data", xlab="Experiment No.")</code><dd>Compare the five experiments with simple boxplots.
 
-     <br><dt><code>fm &lt;- aov(Speed ~ Run + Expt, data=mm)</code><dt><code>summary(fm)</code><dd>Analyze as a randomized block, with ‘runs’ and ‘experiments’ as factors.
+     <br><dt><code>fm &lt;- aov(Speed ~ Run + Expt, data=mm)</code><dt><code>summary(fm)</code><dd>Analyze as a randomized block, with `runs' and `experiments' as factors.
 
-     <br><dt><code>fm0 &lt;- update(fm, . ~ . - Run)</code><dt><code>anova(fm0, fm)</code><dd>Fit the sub-model omitting ‘runs’, and compare using a formal analysis
+     <br><dt><code>fm0 &lt;- update(fm, . ~ . - Run)</code><dt><code>anova(fm0, fm)</code><dd>Fit the sub-model omitting `runs', and compare using a formal analysis
 of variance.
 
      <br><dt><code>detach()</code><dt><code>rm(fm, fm0)</code><dd>Clean up before moving on.
@@ -6681,7 +6660,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Invoking-R">Invoking R</a>
 
 <h3 class="appendixsec">B.1 Invoking R from the command line</h3>
 
-<p>When working at a command line on UNIX or Windows, the command ‘<samp><span class="samp">R</span></samp>’
+<p>When working at a command line on UNIX or Windows, the command `<samp><span class="samp">R</span></samp>'
 can be used both for starting the main R program in the form
 
 <pre class="display">     <code>R</code> [<var>options</var>] [<code>&lt;</code><var>infile</var>] [<code>&gt;</code><var>outfile</var>],
@@ -6699,7 +6678,7 @@ directories.
 
    <p>Most options control what happens at the beginning and at the end of an
 R session.  The startup mechanism is as follows (see also the on-line
-help for topic ‘<samp><span class="samp">Startup</span></samp>’ for more information, and the section below
+help for topic `<samp><span class="samp">Startup</span></samp>' for more information, and the section below
 for some Windows-specific details).
 
      <ul>
@@ -6711,7 +6690,7 @@ is used (if it exists).  The user file is the one pointed to by the
 environment variable <samp><span class="env">R_ENVIRON_USER</span></samp> if this is set; otherwise,
 files <samp><span class="file">.Renviron</span></samp> in the current or in the user's home directory
 (in that order) are searched for.  These files should contain lines of
-the form ‘<samp><var>name</var><span class="samp">=</span><var>value</var></samp>’.  (See <code>help("Startup")</code> for
+the form `<samp><var>name</var><span class="samp">=</span><var>value</var></samp>'.  (See <code>help("Startup")</code> for
 a precise description.)  Variables you might want to set include
 <samp><span class="env">R_PAPERSIZE</span></samp> (the default paper size), <samp><span class="env">R_PRINTCMD</span></samp> (the
 default print command) and <samp><span class="env">R_LIBS</span></samp> (specifies the list of R
@@ -6740,7 +6719,7 @@ reside in <samp><span class="file">.RData</span></samp>.
 </ul>
 
    <p>In addition, there are options for controlling the memory available to
-the R process (see the on-line help for topic ‘<samp><span class="samp">Memory</span></samp>’ for more
+the R process (see the on-line help for topic `<samp><span class="samp">Memory</span></samp>' for more
 information).  Users will not normally need to use these unless they
 are trying to limit the amount of memory used by R.
 
@@ -6789,7 +6768,7 @@ default is to restore.
 <samp><span class="option">--no-restore</span></samp>.  Under Windows, this also includes
 <samp><span class="option">--no-Rconsole</span></samp>.
 
-     <br><dt><samp><span class="option">-f </span><var>file</var></samp><dt><samp><span class="option">--file=</span><var>file</var></samp><dd>(not <samp><span class="command">Rgui.exe</span></samp>) Take input from <var>file</var>: ‘<samp><span class="samp">-</span></samp>’ means
+     <br><dt><samp><span class="option">-f </span><var>file</var></samp><dt><samp><span class="option">--file=</span><var>file</var></samp><dd>(not <samp><span class="command">Rgui.exe</span></samp>) Take input from <var>file</var>: `<samp><span class="samp">-</span></samp>' means
 <code>stdin</code>.  Implies <samp><span class="option">--no-save</span></samp> unless <samp><span class="option">--save</span></samp> has
 been set.  On a Unix-alike, shell metacharacters should be avoided in
 <var>file</var> (but as from R 2.14.0 spaces are allowed).
@@ -6810,7 +6789,7 @@ tilde-expansion: see the help for <code>path.expand</code>.
 
      <br><dt><samp><span class="option">--min-vsize=</span><var>N</var></samp><dt><samp><span class="option">--min-nsize=</span><var>N</var></samp><dd>For expert use only: set the initial trigger sizes for garbage
 collection of vector heap (in bytes) and <em>cons cells</em> (number)
-respectively.  Suffix ‘<samp><span class="samp">M</span></samp>’ specifies megabytes or millions of cells
+respectively.  Suffix `<samp><span class="samp">M</span></samp>' specifies megabytes or millions of cells
 respectively.  The defaults are 6Mb and 350k respectively.
 
      <br><dt><samp><span class="option">--max-ppsize=</span><var>N</var></samp><dd>Specify the maximum size of the pointer protection stack as <var>N</var>
@@ -6854,13 +6833,13 @@ debugger.
 
      <br><dt><samp><span class="option">--gui=</span><var>type</var></samp><dt><samp><span class="option">-g </span><var>type</var></samp><dd>(UNIX only) Use <var>type</var> as graphical user interface (note that this
 also includes interactive graphics).  Currently, possible values for
-<var>type</var> are ‘<samp><span class="samp">X11</span></samp>’ (the default) and, provided that ‘<samp><span class="samp">Tcl/Tk</span></samp>’
-support is available, ‘<samp><span class="samp">Tk</span></samp>’. (For back-compatibility, ‘<samp><span class="samp">x11</span></samp>’ and
-‘<samp><span class="samp">tk</span></samp>’ are accepted.)
+<var>type</var> are `<samp><span class="samp">X11</span></samp>' (the default) and, provided that `<samp><span class="samp">Tcl/Tk</span></samp>'
+support is available, `<samp><span class="samp">Tk</span></samp>'. (For back-compatibility, `<samp><span class="samp">x11</span></samp>' and
+`<samp><span class="samp">tk</span></samp>' are accepted.)
 
      <br><dt><samp><span class="option">--arch=</span><var>name</var></samp><dd>(UNIX only) Run the specified sub-architecture.  Most commonly used on
-Mac OS X, where the possible values are ‘<samp><span class="samp">i386</span></samp>’, ‘<samp><span class="samp">x86_64</span></samp>’ and
-‘<samp><span class="samp">ppc</span></samp>’.
+Mac OS X, where the possible values are `<samp><span class="samp">i386</span></samp>', `<samp><span class="samp">x86_64</span></samp>' and
+`<samp><span class="samp">ppc</span></samp>'.
 
      <br><dt><samp><span class="option">--args</span></samp><dd>This flag does nothing except cause the rest of the command line to be
 skipped: this can be useful to retrieve values from it with
@@ -6868,7 +6847,7 @@ skipped: this can be useful to retrieve values from it with
 </dl>
 
    <p>Note that input and output can be redirected in the usual way (using
-‘<samp><span class="samp">&lt;</span></samp>’ and ‘<samp><span class="samp">&gt;</span></samp>’), but the line length limit of 4095 bytes still
+`<samp><span class="samp">&lt;</span></samp>' and `<samp><span class="samp">&gt;</span></samp>'), but the line length limit of 4095 bytes still
 applies.  Warning and error messages are sent to the error channel
 (<code>stderr</code>).
 
@@ -6955,7 +6934,7 @@ directly by <code>Rterm.exe</code>.  For interactive use, there is a
 console-based GUI (<code>Rgui.exe</code>).
 
    <p>The startup procedure under Windows is very similar to that under
-UNIX, but references to the ‘home directory’ need to be clarified, as
+UNIX, but references to the `home directory' need to be clarified, as
 this is not always defined on Windows.  If the environment variable
 <samp><span class="env">R_USER</span></samp> is defined, that gives the home directory.  Next, if the
 environment variable <samp><span class="env">HOME</span></samp> is defined, that gives the home
@@ -6971,7 +6950,7 @@ those, the home directory is taken to be the starting directory.
 <samp><span class="env">TMP</span></samp> and <samp><span class="env">TEMP</span></samp> are either unset or one of them points to a
 valid place to create temporary files and directories.
 
-   <p>Environment variables can be supplied as ‘<samp><var>name</var><span class="samp">=</span><var>value</var></samp>’
+   <p>Environment variables can be supplied as `<samp><var>name</var><span class="samp">=</span><var>value</var></samp>'
 pairs on the command line.
 
    <p>If there is an argument ending <samp><span class="file">.RData</span></samp> (in any case) it is
@@ -7027,7 +7006,7 @@ default is installed in the <code>Applications</code> folder on your
 system.  It is a standard double-clickable Mac OS X application.
 
    <p>The startup procedure under Mac OS X is very similar to that under UNIX. 
-The ‘home directory’ is the one inside the R.framework, but the startup
+The `home directory' is the one inside the R.framework, but the startup
 and current working directory are set as the user's home directory
 unless a different startup directory is given in the Preferences window
 accessible from within the GUI.
@@ -7149,7 +7128,7 @@ used by the inbuilt command line editor: this used to happen on Mac OS X.
 <samp><span class="option">--no-readline</span></samp>.
 
    <p>Windows versions of R have somewhat simpler command-line editing: see
-‘<samp><span class="samp">Console</span></samp>’ under the ‘<samp><span class="samp">Help</span></samp>’ menu of the <acronym>GUI</acronym>, and the
+`<samp><span class="samp">Console</span></samp>' under the `<samp><span class="samp">Help</span></samp>' menu of the <acronym>GUI</acronym>, and the
 file <samp><span class="file">README.Rterm</span></samp> for command-line editing under
 <code>Rterm.exe</code>.
 
@@ -7646,7 +7625,7 @@ from numeric to character and back again will not be exactly reversible,
 because of roundoff errors in the character representation.</p>
 
    <p class="footnote"><small>[<a name="fn-12" href="#fnd-12">12</a>]</small> A different style using
-‘formal’ or ‘S4’ classes is provided in package <code>methods</code>.</p>
+`formal' or `S4' classes is provided in package <code>methods</code>.</p>
 
    <p class="footnote"><small>[<a name="fn-13" href="#fnd-13">13</a>]</small> Readers should note
 that there are eight states and territories in Australia, namely the
@@ -7655,7 +7634,7 @@ Queensland, South Australia, Tasmania, Victoria and Western Australia.</p>
 
    <p class="footnote"><small>[<a name="fn-14" href="#fnd-14">14</a>]</small> Note that <code>tapply()</code> also works in this case
 when its second argument is not a factor, e.g.,
-‘<samp><code>tapply(incomes, state)</code></samp>’, and this is true for quite a few
+`<samp><code>tapply(incomes, state)</code></samp>', and this is true for quite a few
 other functions, since arguments are <em>coerced</em> to factors when
 necessary (using <code>as.factor()</code>).</p>
 
@@ -7703,11 +7682,11 @@ on some 64-bit versions of Windows.</p>
    <p class="footnote"><small>[<a name="fn-25" href="#fnd-25">25</a>]</small> as from R 2.13.0.</p>
 
    <p class="footnote"><small>[<a name="fn-26" href="#fnd-26">26</a>]</small> The
-‘Emacs Speaks Statistics’ package; see the <acronym>URL</acronym>
+`Emacs Speaks Statistics' package; see the <acronym>URL</acronym>
 <a href="http://ESS.R-project.org">http://ESS.R-project.org</a></p>
 
    <p class="footnote"><small>[<a name="fn-27" href="#fnd-27">27</a>]</small> On a PC keyboard this is usually the
-Alt key, occasionally the ‘Windows’ key.  On a Mac keyboard normally no
+Alt key, occasionally the `Windows' key.  On a Mac keyboard normally no
 meta key is available.</p>
 
    <p><hr></div>

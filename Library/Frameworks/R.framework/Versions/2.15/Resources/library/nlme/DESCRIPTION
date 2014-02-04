@@ -10,14 +10,12 @@ Authors@R: c(person("José", "Pinheiro", role = "aut", comment = "S
         comment = "up to 2005"), person("R-core", email =
         "R-core@R-project.org", role = c("aut", "cre")),
         person("EISPACK authors", role = "ctb"))
-Author: José Pinheiro [aut] (S version),
-  Douglas Bates [aut] (up to 2007),
-  Saikat DebRoy [ctb] (up to 2002),
-  Deepayan Sarkar [ctb] (up to 2005),
-  EISPACK authors [ctb],
-  R-core [aut, cre]
+Author: José Pinheiro [aut] (S version), Douglas Bates [aut] (up to
+        2007), Saikat DebRoy [ctb] (up to 2002), Deepayan Sarkar [ctb]
+        (up to 2005), EISPACK authors [ctb], R-core [aut, cre]
 Maintainer: R-core <R-core@R-project.org>
-Description: Fit and compare Gaussian linear and nonlinear mixed-effects models.
+Description: Fit and compare Gaussian linear and nonlinear
+        mixed-effects models.
 Depends: graphics, stats, R (>= 2.14.0), R (< 3.0.0)
 Imports: lattice
 Suggests: Hmisc, MASS
@@ -27,5 +25,7 @@ Encoding: UTF-8
 License: GPL (>= 2)
 BugReports: http://bugs.r-project.org
 Packaged: 2013-01-27 09:38:51 UTC; ripley
-Built: R 2.15.3; universal-apple-darwin9.8.0; 2013-03-04 21:22:24 UTC; unix
-Archs: i386
+Repository: CRAN
+Date/Publication: 2013-01-27 11:57:19
+Built: R 2.15.2; universal-apple-darwin9.8.0; 2013-01-30 19:29:35 UTC; unix
+Archs: i386, x86_64

@@ -1,5 +1,3 @@
-#  Copyright (C) 2003-2009 The R Core Team
-
 #### --- Hershey Vector Fonts ---
 
 require(grDevices); require(graphics)

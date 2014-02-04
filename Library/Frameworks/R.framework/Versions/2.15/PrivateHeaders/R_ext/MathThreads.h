@@ -17,10 +17,6 @@
  *  http://www.r-project.org/Licenses/
  */
 
-/*
-  Experimental: included by src/library/stats/src/distance.c
-*/
-
 #ifndef R_EXT_MATHTHREADS_H_
 #define R_EXT_MATHTHREADS_H_
 

@@ -18,8 +18,6 @@
  *  http://www.r-project.org/Licenses/
  */
 
-/* Included by R.h: API */
-
 #ifndef R_ARITH_H_
 #define R_ARITH_H_
 

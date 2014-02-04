@@ -24,9 +24,6 @@
    ``#include <Rmath.h> ''
 
    and nothing else.
-
-   It is part of the API and supports 'standalone Rmath'.
-
 */
 #ifndef RMATH_H
 #define RMATH_H
@@ -40,7 +37,7 @@
 /*-- Mathlib as part of R --  define this for standalone : */
 /* #undef MATHLIB_STANDALONE */
 
-#define R_VERSION_STRING "2.15.3"
+#define R_VERSION_STRING "2.15.1"
 
 #ifndef HAVE_EXPM1
 # define HAVE_EXPM1 1

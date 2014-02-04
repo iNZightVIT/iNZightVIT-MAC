@@ -39,7 +39,6 @@ $<-.data.frame	Extract.data.frame
 .Autoloaded	autoload
 .AutoloadEnv	autoload
 .BaseNamespaceEnv	environment
-.bincode	bincode
 .C	Foreign
 .cache_class	base-internal
 .Call	CallExternal
@@ -71,7 +70,6 @@ $<-.data.frame	Extract.data.frame
 .Fortran	Foreign
 .Generic	UseMethod
 .GenericArgsEnv	base-internal
-.getNamespace	ns-internal
 .getRequiredPackages	base-internal
 .getRequiredPackages2	base-internal
 .GlobalEnv	environment
@@ -84,7 +82,6 @@ $<-.data.frame	Extract.data.frame
 .Internal	Internal
 .isMethodsDispatchOn	base-internal
 .isOpen	srcfile
-.kappa_tri	kappa
 .knownS3Generics	ns-internal
 .kronecker	kronecker
 .Last	quit
@@ -300,7 +297,7 @@ as.POSIXlt.numeric	as.POSIXlt
 as.POSIXlt.POSIXct	as.POSIXlt
 as.qr	qr
 as.raw	raw
-as.real	base-deprecated
+as.real	real
 as.single	double
 as.single.default	double
 as.symbol	name
@@ -711,7 +708,7 @@ is.primitive	is.function
 is.qr	qr
 is.R	isR
 is.raw	raw
-is.real	base-deprecated
+is.real	real
 is.recursive	is.recursive
 is.single	is.single
 is.symbol	name
@@ -740,6 +737,7 @@ kappa	kappa
 kappa.default	kappa
 kappa.lm	kappa
 kappa.qr	kappa
+kappa.tri	kappa
 kronecker	kronecker
 l10n_info	l10n_info
 La.chol	base-defunct
@@ -1063,7 +1061,7 @@ readline	readline
 readLines	readLines
 readRDS	readRDS
 readRenviron	readRenviron
-real	base-deprecated
+real	real
 Recall	Recall
 Reduce	funprog
 reg.finalizer	reg.finalizer

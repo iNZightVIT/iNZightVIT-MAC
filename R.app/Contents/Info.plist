@@ -144,17 +144,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>R 2.15.3 GUI 1.53 Leopard build 32-bit</string>
+	<string>R 2.15.1 GUI 1.52 Leopard build 32-bit</string>
 	<key>CFBundleSignature</key>
 	<string>Rgui</string>
 	<key>CFBundleVersion</key>
-	<string>6451</string>
+	<string>6188</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>MIN_VERSION</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>R.app GUI 1.53 (6451 Leopard build 32-bit), S. Urbanek &amp; H.-J. Bibiko, © R Foundation for Statistical Computing, 2012</string>
+	<string>R.app GUI 1.52 (6188 Leopard build 32-bit), S. Urbanek &amp; H.-J. Bibiko, © R Foundation for Statistical Computing, 2012</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

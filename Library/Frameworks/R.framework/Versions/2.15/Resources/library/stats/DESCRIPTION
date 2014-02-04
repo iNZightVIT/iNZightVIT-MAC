@@ -1,9 +1,9 @@
 Package: stats
-Version: 2.15.3
+Version: 2.15.1
 Priority: base
 Title: The R Stats Package
 Author: R Core Team and contributors worldwide
 Maintainer: R Core Team <R-core@r-project.org>
 Description: R statistical functions
-License: Part of R 2.15.3
-Built: R 2.15.3; universal-apple-darwin9.8.0; 2013-03-04 21:20:12 UTC; unix
+License: Part of R 2.15.1
+Built: R 2.15.1; universal-apple-darwin9.8.0; 2012-06-22 19:10:14 UTC; unix

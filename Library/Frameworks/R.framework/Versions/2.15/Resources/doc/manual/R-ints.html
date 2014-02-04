@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <title>R Internals</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="description" content="R Internals">
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="top" href="#Top">
@@ -80,7 +80,7 @@ p {
 <ul>
 <li><a href="#SEXPTYPEs">1.1.1 SEXPTYPEs</a>
 <li><a href="#Rest-of-header">1.1.2 Rest of header</a>
-<li><a href="#The-_0027data_0027">1.1.3 The ‘data’</a>
+<li><a href="#The-_0027data_0027">1.1.3 The `data'</a>
 <li><a href="#Allocation-classes">1.1.4 Allocation classes</a>
 </li></ul>
 <li><a href="#Environments-and-variable-lookup">1.2 Environments and variable lookup</a>
@@ -154,7 +154,7 @@ p {
 <li><a href="#Device-capabilities">6.1.2 Device capabilities</a>
 <li><a href="#Handling-text">6.1.3 Handling text</a>
 <li><a href="#Conventions">6.1.4 Conventions</a>
-<li><a href="#_0027Mode_0027">6.1.5 ‘Mode’</a>
+<li><a href="#_0027Mode_0027">6.1.5 `Mode'</a>
 <li><a href="#Graphics-events">6.1.6 Graphics events</a>
 <li><a href="#Specific-devices">6.1.7 Specific devices</a>
 <ul>
@@ -193,26 +193,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <p>This is a guide to the internal structures of R and coding standards for
 the core team working on R itself.
 
-   <p>The current version of this document is 2.15.3 (2013-03-01).
+   <p>The current version of this document is 2.15.1 (2012-06-22).
 
    <p>ISBN 3-900051-14-3
-
-   <p>Copyright &copy; 1999&ndash;2012 R Core Team
-
-   <p>Permission is granted to make and distribute verbatim copies of this
-manual provided the copyright notice and this permission notice are
-preserved on all copies.
-
-   <p>Permission is granted to copy and distribute modified versions of this
-manual under the conditions for verbatim copying, provided that the
-entire resulting derived work is distributed under the terms of a
-permission notice identical to this one.
-
-   <p>Permission is granted to copy and distribute translations of this manual
-into another language, under the above conditions for modified versions,
-except that this permission notice may be stated in a translation
-approved by the R Core Team. 
-<!--  ^- read that -->
 
 <ul class="menu">
 <li><a accesskey="1" href="#R-Internal-Structures">R Internal Structures</a>
@@ -400,7 +383,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#SEXPs">SEXPs</a>
          unsigned int obj   :  1;  /* <span class="roman">is this an object with a class attribute?</span> */
          unsigned int named :  2;  /* <span class="roman">used to control copying</span> */
          unsigned int gp    : 16;  /* <span class="roman">general purpose, see below</span> */
-         unsigned int mark  :  1;  /* <span class="roman">mark object as ‘in use’ in GC</span> */
+         unsigned int mark  :  1;  /* <span class="roman">mark object as `in use' in GC</span> */
          unsigned int debug :  1;
          unsigned int trace :  1;
          unsigned int spare :  1;  /* <span class="roman">unused</span> */
@@ -419,7 +402,7 @@ other objects when tracing duplications (see <code>tracemem</code>).
 
    <p><a name="index-named-bit-14"></a><a name="index-NAMED-15"></a><a name="index-SET_005fNAMED-16"></a><a name="index-copying-semantics-17"></a>The <code>named</code> field is set and accessed by the <code>SET_NAMED</code> and
 <code>NAMED</code> macros, and take values <code>0</code>, <code>1</code> and <code>2</code>. 
-R has a ‘call by value’ illusion, so an assignment like
+R has a `call by value' illusion, so an assignment like
 <pre class="example">     b &lt;- a
 </pre>
    <p class="noindent">appears to make a copy of <code>a</code> and refer to it as <code>b</code>. 
@@ -445,7 +428,7 @@ computation as (in principle)
    <p class="noindent">but for no longer, and so some primitive functions can be optimized to
 avoid a copy in this case.
 
-   <p>The <code>gp</code> bits are by definition ‘general purpose’.  We label these
+   <p>The <code>gp</code> bits are by definition `general purpose'.  We label these
 from 0 to 15.  Bits 0&ndash;5 and bits 14&ndash;15 have been used as described below
 (mainly from detective work on the sources).
 
@@ -456,9 +439,9 @@ code.  The <code>gp</code> field is serialized/unserialized for the
 <code>SEXPTYPE</code>s other than <code>NILSXP</code>, <code>SYMSXP</code> and
 <code>ENVSXP</code>.
 
-   <p>Bits 14 and 15 of <code>gp</code> are used for ‘fancy bindings’.  Bit 14 is
+   <p>Bits 14 and 15 of <code>gp</code> are used for `fancy bindings'.  Bit 14 is
 used to lock a binding or an environment, and bit 15 is used to indicate
-an active binding.  (For the definition of an ‘active binding’ see the
+an active binding.  (For the definition of an `active binding' see the
 header comments in file <samp><span class="file">src/main/envir.c</span></samp>.)  Bit 15 is used for an
 environment to indicate if it participates in the global cache.
 
@@ -486,7 +469,7 @@ recursive loops).
 for <code>CHARSXP</code> objects.)
 
    <p>Bits 0 and 1 are used for weak references (to indicate `ready to
-finalize', ‘finalize on exit’).
+finalize', `finalize on exit').
 
    <p>Bit 0 is used by the condition handling system (on a <code>VECSXP</code>) to
 indicate a calling handler.
@@ -514,7 +497,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#SEXPs">SEXPs</a>
 
 </div>
 
-<h4 class="subsection">1.1.3 The ‘data’</h4>
+<h4 class="subsection">1.1.3 The `data'</h4>
 
 <p>A <code>SEXPREC</code> is a C structure containing the 32-bit header as
 described above, three pointers (to the attributes, previous and next
@@ -537,14 +520,14 @@ pointers, so the union occupies three words.
 <code>VECSXP</code>, <code>EXPRSXP</code> and <code>WEAKREFSXP</code>.  Remember that such
 types are a <code>VECTOR_SEXPREC</code>, which again consists of the header
 and the same three pointers, but followed by two integers giving the
-length and ‘true length’<a rel="footnote" href="#fn-3" name="fnd-3"><sup>3</sup></a> of the vector, and then followed by the data (aligned as
+length and `true length'<a rel="footnote" href="#fn-3" name="fnd-3"><sup>3</sup></a> of the vector, and then followed by the data (aligned as
 required: on most 32-bit systems with a 24-byte <code>VECTOR_SEXPREC</code>
 node the data can follow immediately after the node).  The data are a
-block of memory of the appropriate length to store ‘true length’
+block of memory of the appropriate length to store `true length'
 elements (rounded up to a multiple of 8 bytes, with the 8-byte blocks
-being the ‘Vcells’ referred in the documentation for <code>gc()</code>).
+being the `Vcells' referred in the documentation for <code>gc()</code>).
 
-   <p>The ‘data’ for the various types are given in the table below.  A lot of
+   <p>The `data' for the various types are given in the table below.  A lot of
 this is interpretation, i.e. the types are not checked.
 
      <dl>
@@ -573,7 +556,7 @@ set to <code>NULL</code>.
      <br><dt><code>LANGSXP</code><dd>A special type of <code>LISTSXP</code> used for function calls.  (The CAR
 references the function (perhaps via a symbol or language object), and
 the CDR the argument list with tags for named arguments.)  R-level
-documentation references to ‘expressions’ / ‘language objects’ are
+documentation references to `expressions' / `language objects' are
 mainly <code>LANGSXP</code>s, but can be symbols (<code>SYMSXP</code>s) or
 expression vectors (<code>EXPRSXP</code>s).
 
@@ -604,15 +587,15 @@ of this type.
 are internally identical (and identical to <code>STRSXP</code>) but differ in
 the interpretations placed on the elements.
 
-     <br><dt><code>BCODESXP</code><dd>For the ‘byte-code’ objects generated by the compiler.
+     <br><dt><code>BCODESXP</code><dd>For the `byte-code' objects generated by the compiler.
 
      <br><dt><code>EXTPTRSXP</code><dd>Has three pointers, to the pointer, the protection value (an R object
 which if alive protects this object) and a tag (a <code>SYMSXP</code>?).
 
      <br><dt><code>WEAKREFSXP</code><dd>A <code>WEAKREFSXP</code> is a special <code>VECSXP</code> of length 4, with
-elements ‘<samp><span class="samp">key</span></samp>’, ‘<samp><span class="samp">value</span></samp>’, ‘<samp><span class="samp">finalizer</span></samp>’ and ‘<samp><span class="samp">next</span></samp>’. 
-The ‘<samp><span class="samp">key</span></samp>’ is <code>NULL</code>, an environment or an external pointer,
-and the ‘<samp><span class="samp">finalizer</span></samp>’ is a function or <code>NULL</code>.
+elements `<samp><span class="samp">key</span></samp>', `<samp><span class="samp">value</span></samp>', `<samp><span class="samp">finalizer</span></samp>' and `<samp><span class="samp">next</span></samp>'. 
+The `<samp><span class="samp">key</span></samp>' is <code>NULL</code>, an environment or an external pointer,
+and the `<samp><span class="samp">finalizer</span></samp>' is a function or <code>NULL</code>.
 
      <br><dt><code>RAWSXP</code><dd><code>length</code>, <code>truelength</code> followed by a block of bytes.
 
@@ -631,10 +614,10 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#SEXPs">SEXPs</a>
 
 <p><a name="index-allocation-classes-31"></a>As we have seen, the field <code>gccls</code> in the header is three bits to
 label up to 8 classes of nodes.  Non-vector nodes are of class 0, and
-‘small’ vector nodes are of classes 1 to 6, with ‘large’ vector nodes
-being of class 7.  The ‘small’ vector nodes are able to store vector
+`small' vector nodes are of classes 1 to 6, with `large' vector nodes
+being of class 7.  The `small' vector nodes are able to store vector
 data of up to 8, 16, 32, 48, 64 and 128 bytes: larger vectors are
-<code>malloc</code>-ed individually whereas the ‘small’ nodes are allocated
+<code>malloc</code>-ed individually whereas the `small' nodes are allocated
 from pages of about 2000 bytes.
 
 <div class="node">
@@ -648,14 +631,14 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-Internal-Structures">R Internal Stru
 
 <h3 class="section">1.2 Environments and variable lookup</h3>
 
-<p><a name="index-environment-32"></a><a name="index-variable-lookup-33"></a>What users think of as ‘variables’ are symbols which are bound to
-objects in ‘environments’.  The word ‘environment’ is used ambiguously
+<p><a name="index-environment-32"></a><a name="index-variable-lookup-33"></a>What users think of as `variables' are symbols which are bound to
+objects in `environments'.  The word `environment' is used ambiguously
 in R to mean <em>either</em> the frame of an <code>ENVSXP</code> (a pairlist
 of symbol-value pairs) <em>or</em> an <code>ENVSXP</code>, a frame plus an
 enclosure.
 
-   <p><a name="index-user-databases-34"></a>There are additional places that ‘variables’ can be looked up, called
-‘user databases’ in comments in the code.  These seem undocumented in
+   <p><a name="index-user-databases-34"></a>There are additional places that `variables' can be looked up, called
+`user databases' in comments in the code.  These seem undocumented in
 the R sources, but apparently refer to the <strong>RObjectTable</strong> package
 at <a href="http://www.omegahat.org/RObjectTables/">http://www.omegahat.org/RObjectTables/</a>.
 
@@ -674,7 +657,7 @@ profile.
    <p>The frames of environments (and the symbol table) are normally hashed
 for faster access (including insertion and deletion).
 
-   <p>By default R maintains a (hashed) global cache of ‘variables’ (that
+   <p>By default R maintains a (hashed) global cache of `variables' (that
 is symbols and their bindings) which have been found, and this refers
 only to environments which have been marked to participate, which
 consists of the global environment (aka the user workspace), the base
@@ -700,9 +683,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Environments-and-variable-lookup">Envi
 
 <h4 class="subsection">1.2.1 Search paths</h4>
 
-<p><a name="index-search-path-37"></a>S has the notion of a ‘search path’: the lookup for a ‘variable’
-leads (possibly through a series of frames) to the ‘session frame’ the
-‘working directory’ and then along the search path.  The search path is
+<p><a name="index-search-path-37"></a>S has the notion of a `search path': the lookup for a `variable'
+leads (possibly through a series of frames) to the `session frame' the
+`working directory' and then along the search path.  The search path is
 a series of databases (as returned by <code>search()</code>) which contain the
 system functions (but not necessarily at the end of the path, as by
 default the equivalent of packages are added at the end).
@@ -722,7 +705,7 @@ are not allowed, this process will eventually terminate: it can
 terminate at either the base environment or the empty environment.  (It
 can be conceptually simpler to think of the search always terminating at
 the empty environment, but with an optimization to stop at the base
-environment.)  So the ‘search path’ describes the chain of environments
+environment.)  So the `search path' describes the chain of environments
 which is traversed once the search reaches the global environment.
 
 <div class="node">
@@ -753,7 +736,7 @@ explicit imports from other namespaces, and the enclosure of
 imports being in the namespace environment is created via the
 environment tree.)  The enclosure of the base namespace is the global
 environment, so the search from a package namespace goes via the
-(explicit and implicit) imports to the standard ‘search path’.
+(explicit and implicit) imports to the standard `search path'.
 
    <p><a name="index-base-namespace-39"></a><a name="index-namespace_002c-base-40"></a><a name="index-R_005fBaseNamespace-41"></a>The base namespace environment <code>R_BaseNamespace</code> is another
 <code>ENVSXP</code> that is special-cased.  It is effectively the same thing
@@ -817,7 +800,7 @@ you copy attributes from one object to another you may (un)set the
 well.  There is a macro/function <code>DUPLICATE_ATTRIB</code> to automate
 this.
 
-   <p>Note that the ‘attributes’ of a <code>CHARSXP</code> are used as part of the
+   <p>Note that the `attributes' of a <code>CHARSXP</code> are used as part of the
 management of the <code>CHARSXP</code> cache: of course <code>CHARSXP</code>'s are
 not user-visible but C-level code might look at their attributes.
 
@@ -864,7 +847,7 @@ perhaps class, and if they do preserve class they need to preserve the
 <code>OBJECT</code> and S4 bits).  Binary operations normally call
 <a name="index-copyMostAttributes-49"></a><code>copyMostAttributes</code> to copy most attributes from the longer
 argument (and if they are of the same length from both, preferring the
-values on the first).  Here ‘most’ means all except the <code>names</code>,
+values on the first).  Here `most' means all except the <code>names</code>,
 <code>dim</code> and <code>dimnames</code> which are set appropriately by the code
 for the operator.
 
@@ -917,7 +900,7 @@ functions).
 
 <pre class="example">     typedef struct RCNTXT {
          struct RCNTXT *nextcontext; /* <span class="roman">The next context up the chain</span> */
-         int callflag;               /* <span class="roman">The context ‘type’</span> */
+         int callflag;               /* <span class="roman">The context `type'</span> */
          JMP_BUF cjmpbuf;            /* <span class="roman">C stack and register information</span> */
          int cstacktop;              /* <span class="roman">Top of the pointer protection stack</span> */
          int evaldepth;              /* <span class="roman">Evaluation depth at inception</span> */
@@ -936,7 +919,7 @@ functions).
          struct RPRSTACK *prstack;   /* <span class="roman">Stack of pending promises</span> */
      } RCNTXT, *context;
 </pre>
-   <p class="noindent">plus additional fields for the byte-code compiler.  The ‘types’
+   <p class="noindent">plus additional fields for the byte-code compiler.  The `types'
 are from
 
 <pre class="example">     enum {
@@ -960,7 +943,7 @@ involved.
 call to <code>endcontext</code>: code can search up the stack for a
 particular type of context via <code>findcontext</code> (and jump there) or
 jump to a specific context via <code>R_JumpToContext</code>. 
-<code>R_ToplevelContext</code> is the ‘idle’ state (normally the command
+<code>R_ToplevelContext</code> is the `idle' state (normally the command
 prompt), and <code>R_GlobalContext</code> is the top of the stack.
 
    <p>Note that whilst calls to closures and builtins set a context, those to special
@@ -1183,7 +1166,7 @@ change the visibility flag: examples<a rel="footnote" href="#fn-6" name="fnd-6">
 <code>if</code>, <code>NextMethod</code>, <code>Recall</code>, <code>recordGraphics</code>,
 <code>standardGeneric</code>, <code>switch</code> and <code>UseMethod</code>.
 
-   <p>‘Special’ primitive and internal functions evaluate their arguments
+   <p>`Special' primitive and internal functions evaluate their arguments
 internally <em>after</em> <code>R_Visible</code> has been set, and evaluation of
 the arguments (e.g. an assignment as in PR#9263)) can change the value
 of the flag.  Prior to R 2.5.0, known instances of such functions
@@ -1237,7 +1220,7 @@ Further, if a level-<var>n</var> collection fails to provide 20% free space
 level <var>n+1</var>.  (The R-level function <code>gc()</code> performs a
 level-2 collection.)
 
-   <p>A generational collector needs to efficiently ‘age’ the objects,
+   <p>A generational collector needs to efficiently `age' the objects,
 especially list-like objects (including <code>STRSXP</code>s).  This is done
 by ensuring that the elements of a list are regarded as at least as old
 as the list <em>when they are assigned</em>.  This is handled by the
@@ -1249,11 +1232,11 @@ be used as lvalues in assignments in C).
 
    <p>All code in R extensions is by default behind the write barrier.  The
 only way to obtain direct access to the internals of the <code>SEXPREC</code>s
-is to define ‘<samp><span class="samp">USE_RINTERNALS</span></samp>’ before including header file
+is to define `<samp><span class="samp">USE_RINTERNALS</span></samp>' before including header file
 <samp><span class="file">Rinternals.h</span></samp>, which is normally defined in <samp><span class="file">Defn.h</span></samp>.  To
 enable a check on the way that the access is used, R can be compiled
 with flag <samp><span class="option">--enable-strict-barrier</span></samp> which ensures that header
-<samp><span class="file">Defn.h</span></samp> does not define ‘<samp><span class="samp">USE_RINTERNALS</span></samp>’ and hence that
+<samp><span class="file">Defn.h</span></samp> does not define `<samp><span class="samp">USE_RINTERNALS</span></samp>' and hence that
 <code>SEXP</code> is opaque in most of R itself.  (There are some necessary
 exceptions: foremost in file <samp><span class="file">memory.c</span></samp> where the accessor
 functions are defined and also in file <samp><span class="file">size.c</span></samp> which needs access
@@ -1276,7 +1259,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-Internal-Structures">R Internal Stru
 
 <p><a name="index-serialization-73"></a>Serialized versions of R objects are used by <code>load</code>/<code>save</code>
 and also at a slightly lower level by <code>saveRDS</code>/<code>readRDS</code> (and
-their earlier ‘internal’ dot-name versions) and
+their earlier `internal' dot-name versions) and
 <code>serialize</code>/<code>unserialize</code>.  These differ in what they
 serialize to (a file, a connection, a raw vector) and whether they are
 intended to serialize a single object or a collection of objects
@@ -1296,7 +1279,7 @@ and <code>readRDS</code> can read <samp><span class="command">gzip</span></samp>
    <p>R has used the same serialization format since R 1.4.0 in December
 2001.  Earlier formats are still supported via <code>load</code> and
 <code>save</code> but such formats are not described here. The current
-serialization format is called ‘version 2’, and has been expanded in
+serialization format is called `version 2', and has been expanded in
 back-compatible ways since R 1.4.0, for example to support additional
 <code>SEXPTYPE</code>s.
 
@@ -1310,14 +1293,14 @@ specified environment.  The header line serves two purposes in R: it
 identifies the serialization format so <code>load</code> can switch to the
 appropriate reader code, and the linefeed allows the detection of files
 which have been subjected to a non-binary transfer which re-mapped line
-endings.  It can also be thought of as a ‘magic number’ in the sense
+endings.  It can also be thought of as a `magic number' in the sense
 used by the <samp><span class="command">file</span></samp> program (although R save files are not yet
 by default known to that program).
 
    <p>Serialization in R needs to take into account that objects may
 contain references to environments, which then have enclosing
 environments and so on.  (Environments recognized as package or name
-space environments are saved by name.)  There are ‘reference objects’
+space environments are saved by name.)  There are `reference objects'
 which are not duplicated on copy and should remain shared on
 unserialization.  These are weak references, external pointers and
 environments other than those associated with packages, namespaces and
@@ -1326,8 +1309,8 @@ references after the first are written out as a reference marker indexed
 by the table entry.
 
    <p>Version-2 serialization first writes a header indicating the format
-(normally ‘<samp><span class="samp">X\n</span></samp>’ for an XDR format binary save, but ‘<samp><span class="samp">A\n</span></samp>’,
-ASCII, and ‘<samp><span class="samp">B\n</span></samp>’, native word-order binary, can also occur) and
+(normally `<samp><span class="samp">X\n</span></samp>' for an XDR format binary save, but `<samp><span class="samp">A\n</span></samp>',
+ASCII, and `<samp><span class="samp">B\n</span></samp>', native word-order binary, can also occur) and
 then three integers giving the version of the format and two R
 versions (packed by the <code>R_Version</code> macro from <samp><span class="file">Rversion.h</span></samp>). 
 (Unserialization interprets the two versions as the version of R
@@ -1357,16 +1340,16 @@ length <code>-1</code> with no data.
    <p>Environments are treated in several ways: as we have seen, some are
 written as specific pseudo-<code>SEXPTYPE</code>s.  Package and namespace
 environments are written with pseudo-<code>SEXPTYPE</code>s followed by the
-name.  ‘Normal’ environments are written out as <code>ENVSXP</code>s with an
+name.  `Normal' environments are written out as <code>ENVSXP</code>s with an
 integer indicating if the environment is locked followed by the
-enclosure, frame, ‘tag’ (the hash table) and attributes.
+enclosure, frame, `tag' (the hash table) and attributes.
 
-   <p>In the ‘XDR’ format integers and doubles are written in bigendian order:
+   <p>In the `XDR' format integers and doubles are written in bigendian order:
 however the format is not fully XDR (as defined in RFC 1832) as byte
 quantities (such as the contents of <code>CHARSXP</code> and <code>RAWSXP</code>
 types) are written as-is and not padded to a multiple of four bytes.
 
-   <p>The ‘ASCII’ format writes 7-bit characters.  Integers are formatted with
+   <p>The `ASCII' format writes 7-bit characters.  Integers are formatted with
 <code>%d</code> (except that <code>NA_integer_</code> is written as <code>NA</code>),
 doubles formatted with <code>%.16g</code> (plus <code>NA</code>, <code>Inf</code> and
 <code>-Inf</code>) and bytes with <code>%02x</code>.  Strings are written using
@@ -1400,7 +1383,7 @@ read in other locales (and they would be able to be displayed in a
 French UTF-8 locale, if not in non-UTF-8 Japanese locales).
 
    <p>R 2.5.0 introduced a limited means to indicate the encoding of a
-<code>CHARSXP</code> via two of the ‘general purpose’ bits which are used to
+<code>CHARSXP</code> via two of the `general purpose' bits which are used to
 declare the encoding to be either Latin-1 or UTF-8.  (Note that it is
 possible for a character vector to contain elements in different
 encodings.)  Both printing and plotting notice the declaration and
@@ -1432,11 +1415,11 @@ lacking a powerful enough <code>iconv</code>), it is likely that they work in
 Latin-1, the old R assumption.
 
    <p>This was taken further in R 2.7.0.  There the parser can return a
-UTF-8-encoded string if it encounters a ‘<samp><span class="samp">\uxxx</span></samp>’ escape for a
+UTF-8-encoded string if it encounters a `<samp><span class="samp">\uxxx</span></samp>' escape for a
 Unicode point that cannot be represented in the current charset.  (This
 needs MBCS support, and was only enabled<a rel="footnote" href="#fn-9" name="fnd-9"><sup>9</sup></a> on
 Windows.)  From R 2.10.0 it is enabled for all platforms with MBCS
-support, and a ‘<samp><span class="samp">\uxxx</span></samp>’ or ‘<samp><span class="samp">\Uxxxxxxxx</span></samp>’ escape ensures that the
+support, and a `<samp><span class="samp">\uxxx</span></samp>' or `<samp><span class="samp">\Uxxxxxxxx</span></samp>' escape ensures that the
 parsed string will be marked as UTF-8.
 
    <p>Most of the character manipulation functions now preserve UTF-8
@@ -1446,11 +1429,11 @@ encodings: there are some notes as to which at the top of file
 
    <p>Graphics devices are offered the possibility of handing UTF-8-encoded
 strings without re-encoding to the native character set, by setting
-<code>hasTextUTF8</code> to be ‘<samp><span class="samp">TRUE</span></samp>’ and supplying functions
+<code>hasTextUTF8</code> to be `<samp><span class="samp">TRUE</span></samp>' and supplying functions
 <code>textUTF8</code> and <code>strWidthUTF8</code> that expect UTF-8-encoded
 inputs.  Normally the symbol font is encoded in Adobe Symbol encoding,
 but that can be re-encoded to UTF-8 by setting <code>wantSymbolUTF8</code> to
-‘<samp><span class="samp">TRUE</span></samp>’.  The Windows' port of cairographics has a rather peculiar
+`<samp><span class="samp">TRUE</span></samp>'.  The Windows' port of cairographics has a rather peculiar
 assumption: it wants the symbol font to be encoded in UTF-8 as if it
 were encoded in Latin-1 rather than Adobe Symbol: this is selected by
 <code>wantSymbolUTF8 = NA_LOGICAL</code> (as from R 2.13.1).
@@ -1464,7 +1447,7 @@ UTF-8 in <samp><span class="file">Rgui.exe</span></samp>, an escape convention i
 <samp><span class="file">rgui_UTF8.h</span></samp>) which is used by <code>cat</code>, <code>print</code> and
 autoprinting.
 
-   <p>‘Unicode’ (UCS-2LE) files are common in the Windows world, and
+   <p>`Unicode' (UCS-2LE) files are common in the Windows world, and
 <code>readLines</code> and <code>scan</code> will read them into UTF-8 strings on
 Windows if the encoding is declared explicitly on an unopened
 connection passed to those functions.
@@ -1482,9 +1465,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-Internal-Structures">R Internal Stru
 
 <p><a name="index-mkChar-74"></a>A global cache for <code>CHARSXP</code>s created by <code>mkChar</code> was
 introduced in R 2.6.0 &ndash; the cache ensures that most <code>CHARSXP</code>s
-with the same contents share storage (‘contents’ including any declared
+with the same contents share storage (`contents' including any declared
 encoding).  Not all <code>CHARSXP</code>s are part of the cache &ndash; notably
-‘<samp><span class="samp">NA_STRING</span></samp>’ is not. <code>CHARSXP</code>s reloaded from the <code>save</code>
+`<samp><span class="samp">NA_STRING</span></samp>' is not. <code>CHARSXP</code>s reloaded from the <code>save</code>
 formats of R prior to 0.99.0 are not cached (since the code used is
 frozen and few examples still exist).
 
@@ -1578,8 +1561,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#S4-objects">S4 objects</a>
 
 <p>S4 objects can be of any <code>SEXPTYPE</code>.  They are either an object of
 a simple type (such as an atomic vector or function) with S4 class
-information or of type <code>S4SXP</code>.  In all cases, the ‘S4 bit’ (bit 4
-of the ‘general purpose’ field) is set, and can be tested by the
+information or of type <code>S4SXP</code>.  In all cases, the `S4 bit' (bit 4
+of the `general purpose' field) is set, and can be tested by the
 macro/function <code>IS_S4_OBJECT</code>.
 
    <p>S4 objects are created via <code>new()</code><a rel="footnote" href="#fn-12" name="fnd-12"><sup>12</sup></a> and thence via the C
@@ -1615,7 +1598,7 @@ is defined in the <strong>methods</strong> package.
 rules and can be imported and exported from namespaces like other
 objects.  The directives <code>importClassesFrom</code> and
 <code>exportClasses</code> are merely convenient ways to refer to class
-objects without needing to know their internal ‘metaname’ (although
+objects without needing to know their internal `metaname' (although
 <code>exportClasses</code> does a little sanity checking via <code>isClass</code>).
 
 <div class="node">
@@ -1740,7 +1723,7 @@ refers to generics by name and partly by function, and maps
 the name used by packages exporting methods for it).
 
    <p>Some elements of the language are implemented as primitives, for example
-<code>}</code>.  This includes the subset and subassignment ‘functions’ and
+<code>}</code>.  This includes the subset and subassignment `functions' and
 they are S4 generic, again piggybacking on S3 dispatch.
 
    <p><code>.BasicFunsList</code> is generated when <strong>methods</strong> is installed, by
@@ -1785,7 +1768,7 @@ recommended in
 <a href="R-exts.html#Memory-allocation">Memory allocation</a>
 <a name="index-R_005falloc-80"></a><a name="index-Calloc-81"></a><a name="index-Realloc-82"></a><a name="index-Free-83"></a>for use in R packages, namely the use of <code>R_alloc</code>,
 <code>Calloc</code>, <code>Realloc</code> and <code>Free</code>.  Memory allocated by
-<code>R_alloc</code> is freed by the garbage collector once the ‘watermark’
+<code>R_alloc</code> is freed by the garbage collector once the `watermark'
 has been reset by calling
 <a name="index-vmaxset-84"></a><code>vmaxset</code>.  This is done automatically by the wrapper code calling
 primitives and <code>.Internal</code> functions (and also by the wrapper code
@@ -1867,7 +1850,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Memory-allocators">Memory allocators</
 <h4 class="subsection">1.13.1 Internals of R_alloc</h4>
 
 <p>The memory used by <code>R_alloc</code> is allocated as R vectors, of type
-<code>RAWSXP</code> for ‘small’ allocations (less than 2^31 - 1 bytes) and of
+<code>RAWSXP</code> for `small' allocations (less than 2^31 - 1 bytes) and of
 type <code>REALSXP</code> for allocations up to 2^34 - 1 bytes on 64-bit
 machines.  Thus the allocation is in units of 8 bytes, and is rounded
 up.  A request for zero bytes currently returns <code>NULL</code> (but
@@ -1880,7 +1863,7 @@ as the garbage collector marks everything that can be reached from that
 location.  When a vector is <code>R_alloc</code>ated, its <code>ATTRIB</code>
 pointer is set to the current <code>R_VStack</code>, and <code>R_VStack</code> is
 set to the latest allocation.  Thus <code>R_VStack</code> is a single-linked
-chain of the vectors currently allocated via <code>R_alloc</code>.  Function
+chain of vectors currently allocated via <code>R_alloc</code>.  Function
 <code>vmaxset</code> resets the location <code>R_VStack</code>, and should be to a
 value that has previously be obtained <em>via</em> <code>vmaxget</code>:
 allocations after the value was obtained will no longer be protected and
@@ -1965,7 +1948,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#R-Internal-Structures">R Internal Stru
 
 <p><a name="index-modules-104"></a>R makes use of a number of shared objects/DLLs stored in the
 <samp><span class="file">modules</span></samp> directory.  These are parts of the code which have been
-chosen to be loaded ‘on demand’ rather than linked as dynamic libraries
+chosen to be loaded `on demand' rather than linked as dynamic libraries
 or incorporated into the main executable/dynamic library.
 
    <p>For a few of these (e.g. <code>vfonts</code>) the issue is size: the
@@ -2060,7 +2043,7 @@ included in header file <samp><span class="file">Rinternals.h</span></samp>.  A 
 entry points on shared-R-library build on a reasonably standard
 Unix-alike can be made by something like
 
-<pre class="example">     nm -g libR.so | grep ‘ [BCDT] ’ | cut -b20-
+<pre class="example">     nm -g libR.so | grep ' [BCDT] ' | cut -b20-
 </pre>
    <div class="node">
 <p><hr>
@@ -2074,8 +2057,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Visibility">Visibility</a>
 
 <p>Windows is unique in that it conventionally treats importing variables
 differently from functions: variables that are imported from a DLL need
-to be specified  by a prefix (often ‘<samp><span class="samp">_imp_</span></samp>’) when being linked to
-(‘imported’) but not when being linked from (‘exported’).  The details
+to be specified  by a prefix (often `<samp><span class="samp">_imp_</span></samp>') when being linked to
+(`imported') but not when being linked from (`exported').  The details
 depend on the compiler system, and have changed for MinGW during the
 lifetime of that port.  They are in the main hidden behind some macros
 defined in header file <samp><span class="file">R_ext/libextern.h</span></samp>.
@@ -2086,7 +2069,7 @@ such as <samp><span class="file">Rgraphapp.dll</span></samp>) should be declared
 <code>LibExtern</code>.  The main use is in <samp><span class="file">Rinternals.h</span></samp>, but it needs
 to be considered for any public header and also <samp><span class="file">Defn.h</span></samp>.
 
-   <p>It would nowadays be possible to make use of the ‘auto-import’ feature
+   <p>It would nowadays be possible to make use of the `auto-import' feature
 of the MinGW port of <samp><span class="command">ld</span></samp> to fix up imports from DLLs (and if
 R is built for the Cygwin platform this is what happens).  However,
 this was not possible when the MinGW build of R was first constructed
@@ -2124,7 +2107,7 @@ and read by a call to the primitive <code>lazyLoadDBfetch</code>.  (Note that
 this makes lazy-loading unsuitable for really large objects: the
 unserialized length of an R object can exceed 4GB.)
 
-   <p>The index or ‘map’ file <samp><var>name</var><span class="file">.rdx</span></samp> is a compressed serialized
+   <p>The index or `map' file <samp><var>name</var><span class="file">.rdx</span></samp> is a compressed serialized
 R object to be read by <code>readRDS</code>.  It is a list with three
 elements <code>variables</code>, <code>references</code> and <code>compressed</code>.  The
 first two are named lists of integer vectors of length 2 giving the
@@ -2175,10 +2158,10 @@ are termed <em>primitives</em> or via the <code>.Internal</code> interface,
 which is very similar to the <code>.External</code> interface except in
 syntax.  More precisely, R maintains a table of R function names and
 corresponding C functions to call, which by convention all start with
-‘<samp><span class="samp">do_</span></samp>’ and return a <code>SEXP</code>.  This table (<code>R_FunTab</code> in
+`<samp><span class="samp">do_</span></samp>' and return a <code>SEXP</code>.  This table (<code>R_FunTab</code> in
 file <samp><span class="file">src/main/names.c</span></samp>) also specifies how many arguments to a
 function are required or allowed, whether or not the arguments are to be
-evaluated before calling, and whether the function is ‘internal’ in
+evaluated before calling, and whether the function is `internal' in
 the sense that it must be accessed via the <code>.Internal</code> interface,
 or directly accessible in which case it is printed in R as
 <code>.Primitive</code>.
@@ -2187,17 +2170,8 @@ or directly accessible in which case it is printed in R as
 preferred as this ensures standard handling of named and default
 arguments.  For example, <code>axis</code> is defined as
 
-<pre class="example">     axis &lt;- function (side, at = NULL, labels = TRUE, tick = TRUE, line = NA,
-         pos = NA, outer = FALSE, font = NA, lty = "solid", lwd = 1,
-         lwd.ticks = lwd, col = NULL, col.ticks = NULL, hadj = NA,
-         padj = NA, ...)
-     {
-         if (is.null(col) &amp;&amp; length(list(...)) &amp;&amp; !is.null(fg &lt;- list(...)$fg))
-             col &lt;- fg
-         .Internal(axis(side, at, as.graphicsAnnot(labels), tick,
-             line, pos, outer, font, lty, lwd, lwd.ticks, col, col.ticks,
-             hadj, padj, ...))
-     }
+<pre class="example">     axis &lt;- function(side, at = NULL, labels = NULL, ...)
+         .Internal(axis(side, at, labels, ...))
 </pre>
    <p>However, for reasons of convenience and also efficiency (as there is
 some overhead in using the <code>.Internal</code> interface wrapped in a
@@ -2417,8 +2391,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#g_t_002eInternal-vs-_002ePrimitive">.I
 these are used for printing, <code>args</code> and package checking (e.g. by
 <code>tools::checkS3methods</code> and by package <a href="http://CRAN.R-project.org/package=codetools"><strong>codetools</strong></a>).  There are
 two environments in the <strong>base</strong> package (and namespace),
-‘<samp><span class="samp">.GenericArgsEnv</span></samp>’ for those primitives which are internal S3
-generics, and ‘<samp><span class="samp">.ArgsEnv</span></samp>’ for the rest.  Those environments contain
+`<samp><span class="samp">.GenericArgsEnv</span></samp>' for those primitives which are internal S3
+generics, and `<samp><span class="samp">.ArgsEnv</span></samp>' for the rest.  Those environments contain
 closures with the same names as the primitives, formal arguments derived
 (manually) from the help pages, a body which is a suitable call to
 <code>UseMethod</code> or <code>NULL</code> and environment the base namespace.
@@ -2530,7 +2504,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Internationalization-in-the-R-sources"
 
 <p>The main C code (e.g. that in files <samp><span class="file">src/*/*.c</span></samp> and in
 the modules) is where R is closest to the sort of application for
-which ‘<samp><span class="samp">gettext</span></samp>’ was written.  Messages in the main C code are in
+which `<samp><span class="samp">gettext</span></samp>' was written.  Messages in the main C code are in
 domain <code>R</code> and stored in the top-level directory <samp><span class="file">po</span></samp> with
 compiled translations under <samp><span class="file">share/locale</span></samp>.
 
@@ -2561,7 +2535,7 @@ approach has been to conditionalize (on <code>ENABLE_NLS</code>) code using
 <code>ngettext</code>.
 
    <p>The macro <code>_("msg")</code> can safely be used in directory
-<samp><span class="file">src/appl</span></samp>; the header for standalone ‘<samp><span class="samp">nmath</span></samp>’ skips possible
+<samp><span class="file">src/appl</span></samp>; the header for standalone `<samp><span class="samp">nmath</span></samp>' skips possible
 translation.  (This does not apply to <code>N_</code> or <code>P_</code>).
 
 <div class="node">
@@ -2576,7 +2550,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Internationalization-in-the-R-sources"
 
 <h3 class="section">3.3 Windows-GUI-specific code</h3>
 
-<p>Messages for the Windows GUI are in a separate domain ‘<samp><span class="samp">RGui</span></samp>’.  This
+<p>Messages for the Windows GUI are in a separate domain `<samp><span class="samp">RGui</span></samp>'.  This
 was done for two reasons:
 
      <ul>
@@ -2589,7 +2563,7 @@ Windows-specific.  (It transpires that as the <code>iconv</code> we ported
 works well under Windows, this is less important than anticipated.) 
 </ul>
 
-   <p>Messages for the ‘<samp><span class="samp">RGui</span></samp>’ domain are marked by <code>G_("msg")</code>, a
+   <p>Messages for the `<samp><span class="samp">RGui</span></samp>' domain are marked by <code>G_("msg")</code>, a
 macro that is defined in header file <samp><span class="file">src/gnuwin32/win-nls.h</span></samp>.  The
 list of files that are considered is hardcoded in the
 <code>RGui.pot-update</code> target of file <samp><span class="file">po/Makefile.in.in</span></samp>: note
@@ -2597,7 +2571,7 @@ that this includes <samp><span class="file">devWindows.c</span></samp> as the me
 <code>windows</code> device are considered to be part of the GUI.  (There is
 also <code>GN_("msg")</code>, the analogue of <code>N_("msg")</code>.)
 
-   <p>The template and message catalogs for the ‘<samp><span class="samp">RGui</span></samp>’ domain are in the
+   <p>The template and message catalogs for the `<samp><span class="samp">RGui</span></samp>' domain are in the
 top-level <samp><span class="file">po</span></samp> directory.
 
 <div class="node">
@@ -2646,7 +2620,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 chapter is concerned with the structure of <em>installed</em> packages.
 
    <p>An installed package has a top-level file <samp><span class="file">DESCRIPTION</span></samp>, a copy of
-the file of that name in the package sources with a ‘<samp><span class="samp">Built</span></samp>’ field
+the file of that name in the package sources with a `<samp><span class="samp">Built</span></samp>' field
 appended, and file <samp><span class="file">INDEX</span></samp>, usually describing the objects on which
 help is available, a file <samp><span class="file">NAMESPACE</span></samp> if the package has a name
 space, optional files such as <samp><span class="file">CITATION</span></samp>, <samp><span class="file">LICENCE</span></samp> and
@@ -2666,12 +2640,13 @@ into the package's environment, then lazy-loads a database
 the contents of  <samp><span class="file">R/</span><var>pkgname</var></samp>: a standard template to load
 lazy-load databases are provided in <samp><span class="file">share/R/nspackloader.R</span></samp>.
 
-   <p>Compiled code is usually loaded when the package's namespace is loaded
-by a <code>useDynlib</code> directive in a <samp><span class="file">NAMESPACE</span></samp> file or by the
-package's <code>.onLoad</code> function.  Conventionally compiled code is
-loaded by a call to <code>library.dynam</code> and this looks in directory
-<samp><span class="file">libs</span></samp> (and in an appropriate sub-directory if sub-architectures
-are in use) for a shared object (Unix-alike) or DLL (Windows).
+   <p>How (and if) compiled code is loaded is down to the package's startup
+code such as <code>.First.lib</code> or <code>.onLoad</code>, although a
+<code>useDynlib</code> directive in a namespace provides an alternative. 
+Conventionally compiled code is loaded by a call to <code>library.dynam</code>
+and this looks in directory <samp><span class="file">libs</span></samp> (and in an appropriate
+sub-directory if sub-architectures are in use) for a shared object
+(Unix-alike) or DLL (Windows).
 
    <p>Subdirectory <samp><span class="file">data</span></samp> serves two purposes. In a package using
 lazy-loading of data, it contains a lazy-load database <samp><span class="file">Rdata</span></samp>,
@@ -2714,18 +2689,18 @@ packages.
 
    <p>File <samp><span class="file">package.rds</span></samp> is a dump of information extracted from the
 <samp><span class="file">DESCRIPTION</span></samp> file.  It is a list of several components.  The
-first, ‘<samp><span class="samp">DESCRIPTION</span></samp>’, is a character vector, the <samp><span class="file">DESCRIPTION</span></samp>
-file as read by <code>read.dcf</code>.  Further elements ‘<samp><span class="samp">Depends</span></samp>’,
-‘<samp><span class="samp">Suggests</span></samp>’, ‘<samp><span class="samp">Imports</span></samp>’, ‘<samp><span class="samp">Rdepends</span></samp>’ and ‘<samp><span class="samp">Rdepends2</span></samp>’
-record the ‘<samp><span class="samp">Depends</span></samp>’, ‘<samp><span class="samp">Suggests</span></samp>’ and ‘<samp><span class="samp">Imports</span></samp>’ fields. 
+first, `<samp><span class="samp">DESCRIPTION</span></samp>', is a character vector, the <samp><span class="file">DESCRIPTION</span></samp>
+file as read by <code>read.dcf</code>.  Further elements `<samp><span class="samp">Depends</span></samp>',
+`<samp><span class="samp">Suggests</span></samp>', `<samp><span class="samp">Imports</span></samp>', `<samp><span class="samp">Rdepends</span></samp>' and `<samp><span class="samp">Rdepends2</span></samp>'
+record the `<samp><span class="samp">Depends</span></samp>', `<samp><span class="samp">Suggests</span></samp>' and `<samp><span class="samp">Imports</span></samp>' fields. 
 These are all lists, and can be empty.  The first three have an entry
 for each package named, each entry being a list of length 1 or 3, which
-element ‘<samp><span class="samp">name</span></samp>’ (the package name) and optional elements ‘<samp><span class="samp">op</span></samp>’
-(a character string) and ‘<samp><span class="samp">version</span></samp>’ (an object of class
-‘<samp><span class="samp">"package_version"</span></samp>’).  Element ‘<samp><span class="samp">Rdepends</span></samp>’ is used for the
-first version dependency on R, and ‘<samp><span class="samp">Rdepends2</span></samp>’ is a list of zero
+element `<samp><span class="samp">name</span></samp>' (the package name) and optional elements `<samp><span class="samp">op</span></samp>'
+(a character string) and `<samp><span class="samp">version</span></samp>' (an object of class
+`<samp><span class="samp">"package_version"</span></samp>').  Element `<samp><span class="samp">Rdepends</span></samp>' is used for the
+first version dependency on R, and `<samp><span class="samp">Rdepends2</span></samp>' is a list of zero
 or more R version dependencies&mdash;each is a three-element list of the
-form described for packages.  Element ‘<samp><span class="samp">Rdepends</span></samp>’ is no longer used,
+form described for packages.  Element `<samp><span class="samp">Rdepends</span></samp>' is no longer used,
 but it is still potentially needed so R &lt; 2.7.0 can detect that the
 package was not installed for it.
 
@@ -2733,21 +2708,21 @@ package was not installed for it.
 <samp><span class="file">NAMESPACE</span></samp> file.
 
    <p>File <samp><span class="file">Rd.rds</span></samp> records a data frame with one row for each help file. 
-The (character) columns are ‘<samp><span class="samp">File</span></samp>’ (the file name with extension),
-‘<samp><span class="samp">Name</span></samp>’ (the ‘<samp><span class="samp">\name</span></samp>’ section), ‘<samp><span class="samp">Type</span></samp>’ (from the optional
-‘<samp><span class="samp">\docType</span></samp>’ section), ‘<samp><span class="samp">Title</span></samp>’, ‘<samp><span class="samp">Encoding</span></samp>’, ‘<samp><span class="samp">Aliases</span></samp>’,
-‘<samp><span class="samp">Concepts</span></samp>’ and ‘<samp><span class="samp">Keywords</span></samp>’.  The last three are character
-strings with zero or more entries separated by ‘<samp><span class="samp">, </span></samp>’.
+The (character) columns are `<samp><span class="samp">File</span></samp>' (the file name with extension),
+`<samp><span class="samp">Name</span></samp>' (the `<samp><span class="samp">\name</span></samp>' section), `<samp><span class="samp">Type</span></samp>' (from the optional
+`<samp><span class="samp">\docType</span></samp>' section), `<samp><span class="samp">Title</span></samp>', `<samp><span class="samp">Encoding</span></samp>', `<samp><span class="samp">Aliases</span></samp>',
+`<samp><span class="samp">Concepts</span></samp>' and `<samp><span class="samp">Keywords</span></samp>'.  The last three are character
+strings with zero or more entries separated by `<samp><span class="samp">, </span></samp>'.
 
    <p>File <samp><span class="file">hsearch.rds</span></samp> records the information to be used by
-‘<samp><span class="samp">help.search</span></samp>’.  This is a list of four unnamed elements which are
+`<samp><span class="samp">help.search</span></samp>'.  This is a list of four unnamed elements which are
 character vectors for help files, aliases, keywords and concepts.  All
-the matrices have columns ‘<samp><span class="samp">ID</span></samp>’ and ‘<samp><span class="samp">Package</span></samp>’ which are used to
+the matrices have columns `<samp><span class="samp">ID</span></samp>' and `<samp><span class="samp">Package</span></samp>' which are used to
 tie the aliases, keywords and concepts (the remaining column of the last
 three elements) to a particular help file.  The first element has
-further columns ‘<samp><span class="samp">LibPath</span></samp>’ (empty since R 2.3.0), ‘<samp><span class="samp">name</span></samp>’,
-‘<samp><span class="samp">title</span></samp>’, ‘<samp><span class="samp">topic</span></samp>’ (the first alias, used when presenting the
-results as ‘<samp><var>pkgname</var><span class="samp">::</span><var>topic</var></samp>’) and ‘<samp><span class="samp">Encoding</span></samp>’.
+further columns `<samp><span class="samp">LibPath</span></samp>' (empty since R 2.3.0), `<samp><span class="samp">name</span></samp>',
+`<samp><span class="samp">title</span></samp>', `<samp><span class="samp">topic</span></samp>' (the first alias, used when presenting the
+results as `<samp><var>pkgname</var><span class="samp">::</span><var>topic</var></samp>') and `<samp><span class="samp">Encoding</span></samp>'.
 
    <p>File <samp><span class="file">links.rds</span></samp> records a named character vector, the names being
 aliases and the values character strings of the form
@@ -2758,10 +2733,10 @@ of dataset names and titles from the corresponding help file.  File
 <samp><span class="file">demo.rds</span></samp> has the same structure for package demos.
 
    <p>File <samp><span class="file">vignette.rds</span></samp> records a dataframe with one row for each
-‘vignette’ (<samp><span class="file">.[RS]nw</span></samp> file in <samp><span class="file">inst/doc</span></samp>) and with columns
-‘<samp><span class="samp">File</span></samp>’ (the full file path in the sources), ‘<samp><span class="samp">Title</span></samp>’,
-‘<samp><span class="samp">PDF</span></samp>’ (the pathless file name of the installed PDF version, if
-present), ‘<samp><span class="samp">Depends</span></samp>’, ‘<samp><span class="samp">Keywords</span></samp>’ and ‘<samp><span class="samp">R</span></samp>’ (the pathless
+`vignette' (<samp><span class="file">.[RS]nw</span></samp> file in <samp><span class="file">inst/doc</span></samp>) and with columns
+`<samp><span class="samp">File</span></samp>' (the full file path in the sources), `<samp><span class="samp">Title</span></samp>',
+`<samp><span class="samp">PDF</span></samp>' (the pathless file name of the installed PDF version, if
+present), `<samp><span class="samp">Depends</span></samp>', `<samp><span class="samp">Keywords</span></samp>' and `<samp><span class="samp">R</span></samp>' (the pathless
 file name of the installed R code, if present).
 
 <div class="node">
@@ -2821,7 +2796,7 @@ translate filenames to UTF-8 in other locales.  So using a UTF-8 locale
 gives transparent access to the whole file system.
 
    <p>Windows is another story.  There the internal view of filenames is in
-UTF-16LE (so-called ‘Unicode’), and standard C library calls can only
+UTF-16LE (so-called `Unicode'), and standard C library calls can only
 access files whose names can be expressed in the current codepage.  To
 circumvent that restriction, there is a parallel set of Windows-specific
 calls which take wide-character arguments for filepaths.  Much of the
@@ -2851,7 +2826,7 @@ process, e.g. by a <code>system</code> call.
    <p>Windows has another couple of peculiarities.  Whereas a POSIX file
 system has a single root directory (and other physical file systems are
 mounted onto logical directories under that root), Windows has separate
-roots for each physical or logical file system (‘volume’), organized
+roots for each physical or logical file system (`volume'), organized
 under <em>drives</em> (with file paths starting <code>D:</code> for an ASCII
 letter, case-insensitively) and <em>network shares</em> (with paths like
 <code>\netname\topdir\myfiles\a file</code>.  There is a current drive, and
@@ -2902,8 +2877,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <p>R's graphics internals were revised for version 1.4.0 (and tidied up
 for 2.7.0).  This was to enable multiple graphics systems to be
-installed on top on the graphics ‘engine’ &ndash; currently there are two
-such systems, one supporting ‘base’ graphics (based on that in S and
+installed on top on the graphics `engine' &ndash; currently there are two
+such systems, one supporting `base' graphics (based on that in S and
 whose R code<a rel="footnote" href="#fn-15" name="fnd-15"><sup>15</sup></a> is in package <strong>graphics</strong>) and one
 implemented in package <strong>grid</strong>.
 
@@ -2913,7 +2888,7 @@ implemented in package <strong>grid</strong>.
 
    <p>At the lowest level is a graphics device, which manages a plotting
 surface (a screen window or a representation to be written to a file). 
-This implements a set of graphics primitives, to ‘draw’
+This implements a set of graphics primitives, to `draw'
 
      <ul>
 <li>a circle, optionally filled
@@ -2938,7 +2913,7 @@ This implements a set of graphics primitives, to ‘draw’
 <p class="noindent">and requests/opportunities to take action such as
 
      <ul>
-<li>start a new ‘page’, possibly after responding to a request to ask
+<li>start a new `page', possibly after responding to a request to ask
 the user for confirmation. 
 <li>return the position of the device pointer (if any). 
 <li>when a device become the current device or stops being the current
@@ -2947,24 +2922,24 @@ device).
 <li>when drawing starts or finishes (e.g. used to flush graphics to
 the screen when drawing stops). 
 <li>wait for an event, for example a mouse click or keypress. 
-<li>an ‘onexit’ action, to clean up if plotting is interrupted (by an
+<li>an `onexit' action, to clean up if plotting is interrupted (by an
 error or by the user). 
 <li>capture the current contents of the device as a raster image. 
 <li>close the device. 
 </ul>
 
    <p>The device also sets a number of variables, mainly Boolean flags
-indicating its capabilities.  Devices work entirely in ‘device units’
+indicating its capabilities.  Devices work entirely in `device units'
 which are up to its developer: they can be in pixels, big points (1/72
-inch), twips, <small class="dots">...</small>, and can differ<a rel="footnote" href="#fn-16" name="fnd-16"><sup>16</sup></a> in the ‘<samp><span class="samp">x</span></samp>’ and ‘<samp><span class="samp">y</span></samp>’ directions.
+inch), twips, <small class="dots">...</small>, and can differ<a rel="footnote" href="#fn-16" name="fnd-16"><sup>16</sup></a> in the `<samp><span class="samp">x</span></samp>' and `<samp><span class="samp">y</span></samp>' directions.
 
 <!-- think of the engine as colors.c, devices.c, engine.c, plotmath.c, vfonts.c -->
-<p>The next layer up is the graphics ‘engine’ that is the main interface to
+<p>The next layer up is the graphics `engine' that is the main interface to
 the device (although the graphics subsystems do talk directly to
 devices).  This is responsible for clipping lines, rectangles and
 polygons, converting the <code>pch</code> values <code>0...26</code> to sets of
 lines/circles, centring (and otherwise adjusting) text, rendering
-mathematical expressions (‘plotmath’) and mapping colour descriptions
+mathematical expressions (`plotmath') and mapping colour descriptions
 such as names to the internal representation.
 
 <!-- graphics.c looks at device dimensions, locator, metricinfo -->
@@ -2973,7 +2948,7 @@ such as names to the internal representation.
 <!-- grid looks at size, clipping, locator, ipr -->
 <p>Another function of the engine is to manage display lists and snapshots. 
 Some but not all instances of graphics devices maintain display lists, a
-‘list’ of operations that have been performed on the device to produce
+`list' of operations that have been performed on the device to produce
 the current plot (since the device was opened or the plot was last
 cleared, e.g. by <code>plot.new</code>).  Screen devices generally maintain
 a display list to handle repaint and resize events whereas file-based
@@ -2988,15 +2963,15 @@ from the part which records the operation if successful.
 <code>GEcreateSnapshot</code> and replayed later in the session by
 <code>GEplaySnapshot</code>.  These are used by <code>recordPlot()</code>,
 <code>replayPlot()</code> and the GUI menus of the <code>windows()</code> device. 
-The ‘state’ includes the display list.
+The `state' includes the display list.
 
    <p>The top layer comprises the graphics subsystems. Although there is
-provision for 24 subsystems, after 6 years only two exist, ‘base’ and
-‘grid’.  The base subsystem is registered with the engine when R is
+provision for 24 subsystems, after 6 years only two exist, `base' and
+`grid'.  The base subsystem is registered with the engine when R is
 initialized, and unregistered (via <code>KillAllDevices</code>) when an R
 session is shut down.  The grid subsystem is registered in its
 <code>.onLoad</code> function and unregistered in the <code>.onUnload</code>
-function.  The graphics subsystem may also have ‘state’ information
+function.  The graphics subsystem may also have `state' information
 saved in a snapshot (currently base does and grid does not).
 
    <p>Package <strong>grDevices</strong> was originally created to contain the basic
@@ -3073,7 +3048,7 @@ engine: <code>activate</code>, <code>cap</code>, <code>deactivate</code>, <code>
 <code>path</code>, <code>raster</code> and <code>size</code>.
 
    <p>The relationship of device units to physical dimensions is set by the
-element <code>ipr</code> of the <code>DevDesc</code> structure: a ‘<samp><span class="samp">double</span></samp>’
+element <code>ipr</code> of the <code>DevDesc</code> structure: a `<samp><span class="samp">double</span></samp>'
 array of length 2.
 
    <p>The <code>GEDevDesc</code> type is a structure defined in
@@ -3101,9 +3076,9 @@ type.
 <code>GEDevDesc</code> structures.  The array is of size 64 but the first
 element is always occupied by the <code>"null device"</code> and the final
 element is kept as NULL as a sentinel.<a rel="footnote" href="#fn-18" name="fnd-18"><sup>18</sup></a>  This array is reflected in the R variable
-‘<samp><span class="samp">.Devices</span></samp>’.  Once a device is killed its element becomes available
+`<samp><span class="samp">.Devices</span></samp>'.  Once a device is killed its element becomes available
 for reallocation (and its name will appear as <code>""</code> in
-‘<samp><span class="samp">.Devices</span></samp>’).  Exactly one of the devices is ‘active’: this is the
+`<samp><span class="samp">.Devices</span></samp>').  Exactly one of the devices is `active': this is the
 the null device if no other device has been opened and not killed.
 
    <p>Each instance of a graphics device needs to set up a <code>GEDevDesc</code>
@@ -3118,20 +3093,20 @@ structure by code very similar to
              /* Allocate and initialize the device driver data */
              if (!(dev = (pDevDesc) calloc(1, sizeof(DevDesc))))
                  return 0; /* or error() */
-             /* set up device driver or free ‘dev’ and error() */
+             /* set up device driver or free 'dev' and error() */
              gdd = GEcreateDevDesc(dev);
              GEaddDevice2(gdd, "dev_name");
          } END_SUSPEND_INTERRUPTS;
 </pre>
    <p>The <code>DevDesc</code> structure contains a <code>void *</code> pointer
-‘<samp><span class="samp">deviceSpecific</span></samp>’ which is used to store data specific to the
+`<samp><span class="samp">deviceSpecific</span></samp>' which is used to store data specific to the
 device.  Setting up the device driver includes initializing all the
 non-zero elements of the <code>DevDesc</code> structure.
 
    <p>Note that the device structure is zeroed when allocated: this provides
 some protection against future expansion of the structure since the
 graphics engine can add elements that need to be non-NULL/non-zero to be
-‘on’ (and the structure ends with 64 reserved bytes which will be zeroed
+`on' (and the structure ends with 64 reserved bytes which will be zeroed
 and allow for future expansion).
 
    <p>Rather more protection is provided by the version number of the
@@ -3156,7 +3131,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Graphics-devices">Graphics devices</a>
 
 <h4 class="subsection">6.1.2 Device capabilities</h4>
 
-<p>The following ‘capabilities’ can be defined for the device's
+<p>The following `capabilities' can be defined for the device's
 <code>DevDesc</code> structure.
 
      <ul>
@@ -3234,13 +3209,13 @@ declarations
                     double* ascent, double* descent, double* width,
                     pDevDesc dd);
 </pre>
-   <p class="noindent">The ‘<samp><span class="samp">gc</span></samp>’ parameter provides the graphics context, most importantly
-the current font and fontsize, and ‘<samp><span class="samp">dd</span></samp>’ is a pointer to the active
+   <p class="noindent">The `<samp><span class="samp">gc</span></samp>' parameter provides the graphics context, most importantly
+the current font and fontsize, and `<samp><span class="samp">dd</span></samp>' is a pointer to the active
 device's structure.
 
-   <p>The <code>text</code> callback should plot ‘<samp><span class="samp">str</span></samp>’ at `<samp><span class="samp">(x,
+   <p>The <code>text</code> callback should plot `<samp><span class="samp">str</span></samp>' at `<samp><span class="samp">(x,
 y)</span></samp>'<a rel="footnote" href="#fn-19" name="fnd-19"><sup>19</sup></a> with an anti-clockwise rotation of
-‘<samp><span class="samp">rot</span></samp>’ degrees.  (For ‘<samp><span class="samp">hadj</span></samp>’ see below.)  The interpretation
+`<samp><span class="samp">rot</span></samp>' degrees.  (For `<samp><span class="samp">hadj</span></samp>' see below.)  The interpretation
 for horizontal text is that the baseline is at <code>y</code> and the start is
 a <code>x</code>, so any left bearing for the first character will start at
 <code>x</code>.
@@ -3255,17 +3230,17 @@ character: <code>ascent</code> is the distance it extends above the baseline
 and <code>descent</code> how far it extends below the baseline. 
 <code>width</code> is the amount by which the cursor should be advanced when
 the character is placed.  For <code>ascent</code> and <code>descent</code> this is
-intended to be the bounding box of the ‘ink’ put down by the glyph and
+intended to be the bounding box of the `ink' put down by the glyph and
 not the box which might be used when assembling a line of conventional
 text (it needs to be for e.g. <code>hat(beta)</code> to work correctly). 
 However, the <code>width</code> is used in plotmath to advance to the next
 character, and so needs to include left and right bearings.
 
-   <p>The <em>interpretation</em> of ‘<samp><span class="samp">c</span></samp>’ depends on the locale.  In a
+   <p>The <em>interpretation</em> of `<samp><span class="samp">c</span></samp>' depends on the locale.  In a
 single-byte locale values <code>32...255</code> indicate the corresponding
 character in the locale (if present).  For the symbol font (as used by
-‘<samp><span class="samp">graphics::par(font=5)</span></samp>’, ‘<samp><span class="samp">grid::gpar(fontface=5</span></samp>’) and by
-‘plotmath’), values <code>32...126, 161...239, 241...254</code> indicate
+`<samp><span class="samp">graphics::par(font=5)</span></samp>', `<samp><span class="samp">grid::gpar(fontface=5</span></samp>') and by
+`plotmath'), values <code>32...126, 161...239, 241...254</code> indicate
 glyphs in the Adobe Symbol encoding.  In a multibyte locale, <code>c</code>
 represents a Unicode point (except in the symbol font).  So the function
 needs to include code like
@@ -3288,7 +3263,7 @@ region).
 
    <p>The device structure has an integer element <code>canHadj</code>, which
 indicates if the device can do horizontal alignment of text.  If this is
-one, argument ‘<samp><span class="samp">hadj</span></samp>’ to <code>text</code> will be called as <code>0 ,0.5,
+one, argument `<samp><span class="samp">hadj</span></samp>' to <code>text</code> will be called as <code>0 ,0.5,
 1</code> to indicate left-, centre- and right-alignment at the indicated
 position.  If it is two, continuous values in the range <code>[0, 1]</code>
 are assumed to be supported.
@@ -3297,7 +3272,7 @@ are assumed to be supported.
 <code>hasTextUTF8</code>.  If this is true, it has two consequences.  First,
 there are callbacks <code>textUTF8</code> and <code>strWidthUTF8</code> that should
 behave identically to <code>text</code> and <code>strWidth</code> except that
-‘<samp><span class="samp">str</span></samp>’ is assumed to be in UTF-8 rather than the current locale's
+`<samp><span class="samp">str</span></samp>' is assumed to be in UTF-8 rather than the current locale's
 encoding.  The graphics engine will call these for all text except in
 the symbol font.  Second, Unicode points will be passed to the
 <code>metricInfo</code> callback as negative integers.  If your device would
@@ -3319,20 +3294,20 @@ graphics engine:
 </pre>
    <p class="noindent">These are more than a little mysterious.  Element <code>cra</code> provides an
 indication of the character size, <code>par("cra")</code> in base graphics, in
-device units.  The mystery is what is meant by ‘character size’: which
+device units.  The mystery is what is meant by `character size': which
 character, which font at which size?  Some help can be obtained by
-looking at what this is used for.  The first element, ‘width’, is not
+looking at what this is used for.  The first element, `width', is not
 used by R except to set the graphical parameters.  The second,
-‘height’, is use to set the line spacing, that is the relationship
+`height', is use to set the line spacing, that is the relationship
 between <code>par("mai")</code> and <code>par("mai")</code> and so on.  It is
 suggested that a good choice is
 
 <pre class="example">     dd-&gt;cra[0] = 0.9 * fnsize;
      dd-&gt;cra[1] = 1.2 * fnsize;
 </pre>
-   <p class="noindent">where ‘<samp><span class="samp">fnsize</span></samp>’ is the ‘size’ of the standard font (<code>cex=1</code>)
+   <p class="noindent">where `<samp><span class="samp">fnsize</span></samp>' is the `size' of the standard font (<code>cex=1</code>)
 on the device, in device units.  So for a 12-point font (the usual
-default for graphics devices), ‘<samp><span class="samp">fnsize</span></samp>’ should be 12 points in
+default for graphics devices), `<samp><span class="samp">fnsize</span></samp>' should be 12 points in
 device units.
 
    <p>The remaining elements are yet more mysterious.  The <code>postscript()</code>
@@ -3357,7 +3332,7 @@ only used when precise character metric information is not available or
 for multi-line strings.
 
    <p><code>yLineBias</code> is used in the base graphics system in <code>axis()</code> and
-<code>mtext()</code> to provide a default for their ‘<samp><span class="samp">padj</span></samp>’ argument.
+<code>mtext()</code> to provide a default for their `<samp><span class="samp">padj</span></samp>' argument.
 
 <div class="node">
 <p><hr>
@@ -3379,7 +3354,7 @@ and <code>pdf</code> devices (which share most of their internal code).
      <ul>
 <li>The default size of a device should be 7 inches square.
 
-     <li>There should be a ‘<samp><span class="samp">pointsize</span></samp>’ argument which defaults to 12, and it
+     <li>There should be a `<samp><span class="samp">pointsize</span></samp>' argument which defaults to 12, and it
 should give the pointsize in big points (1/72 inch).  How exactly this
 is interpreted is font-specific, but it should use a font which works
 with lines packed 1/6 inch apart, and looks good with lines 1/5 inch
@@ -3410,7 +3385,7 @@ where the bitmap format does not have a design resolution.
 
    <p>The interpretation of the line texture (<code>par("lty"</code>) is described
 in the header <samp><span class="file">GraphicsEngine.h</span></samp> and in the help for <code>par</code>: note that the
-‘scale’ of the pattern should be proportional to the line width (at
+`scale' of the pattern should be proportional to the line width (at
 least for widths above the default).
 
 <div class="node">
@@ -3423,7 +3398,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Graphics-devices">Graphics devices</a>
 
 </div>
 
-<h4 class="subsection">6.1.5 ‘Mode’</h4>
+<h4 class="subsection">6.1.5 `Mode'</h4>
 
 <p>One of the device callbacks is a function <code>mode</code>, documented in
 the header as
@@ -3445,7 +3420,7 @@ back for each point whilst annotation is being done.)
    <p>Many devices do indeed do nothing on this call, but some screen devices
 ensure that drawing is flushed to the screen when called with <code>mode
 = 0</code>.  It is tempting to use it for some sort of buffering, but note
-that ‘drawing’ is interpreted at quite a low level and a typical single
+that `drawing' is interpreted at quite a low level and a typical single
 figure will stop and start drawing many times.  The buffering introduced
 in the <code>X11()</code> device makes use of <code>mode = 0</code> to indicate
 activity: it updates the screen after <em>ca</em> 100ms of inactivity.
@@ -3590,7 +3565,7 @@ to plot to <code>xd-&gt;bm</code>, and if buffering is off, also to
 <code>xd-&gt;gawin</code>.  For all other device, <code>xd-&gt;gawin</code> is the canvas,
 a bitmap for the <code>jpeg()</code> and <code>png()</code> device, and an internal
 representation of a Windows metafile for the <code>win.metafile()</code> and
-<code>win.print</code> device.  Since ‘plotting’ is done by Windows GDI calls
+<code>win.print</code> device.  Since `plotting' is done by Windows GDI calls
 to the appropriate canvas, its precise nature is hidden by the GDI
 system.
 
@@ -3605,7 +3580,7 @@ Resizes are handled by replaying the display list: this might not be
 necessary if a fixed canvas with scrollbars is being used, but that is
 the least popular of the three forms of resizing.
 
-   <p>Text on the device has moved to ‘Unicode’ (UCS-2) in recent years.  As
+   <p>Text on the device has moved to `Unicode' (UCS-2) in recent years.  As
 from  R 2.7.0, UTF-8 is requested (<code>hasTextUTF8 = TRUE</code>) for
 standard text, and converted to UCS-2 in the plotting functions in file
 <samp><span class="file">src/extra/graphapp/gdraw.c</span></samp>.  However, GDI has no support for
@@ -3628,7 +3603,7 @@ acceptable.
 alpha-channel support in <code>libpng</code> (let alone in PNG viewers), so
 makes use of the limited transparency support in earlier versions of
 PNG.  Where 24-bit colour is used, this is done by marking a single
-colour to be rendered as transparent.  R chose ‘<samp><span class="samp">#fdfefd</span></samp>’, and
+colour to be rendered as transparent.  R chose `<samp><span class="samp">#fdfefd</span></samp>', and
 uses this as the background colour (in <code>GA_NewPage</code> if the
 specified background colour is transparent (and all non-opaque
 background colours are treated as transparent).  So this works by
@@ -3668,40 +3643,22 @@ various components.
    <p>Colours in the base graphics system were originally adopted from S (and
 before that the GRZ library from Bell Labs), with the concept of a
 (variable-sized) palette of colours referenced by numbers
-‘<samp><span class="samp">1...</span><var>N</var></samp>’ plus ‘<samp><span class="samp">0</span></samp>’ (the background colour of the current
-device).  R introduced the idea of referring to colours by character
-strings, either in the forms ‘<samp><span class="samp">#RRGGBB</span></samp>’ or ‘<samp><span class="samp">#RRGGBBAA</span></samp>’
-(representing the bytes in hex) as given by function <code>rgb()</code> or via
-names: the 657 known names are given in the character vector
-<code>colors</code> and in a table in file <samp><span class="file">colors.c</span></samp>.  Note that
-semi-transparent colours are not ‘premultiplied’, so 50% transparent
-white is ‘<samp><span class="samp">#ffffff80</span></samp>’.
+`<samp><span class="samp">1...</span><var>N</var></samp>' plus `<samp><span class="samp">0</span></samp>' (the background colour).  R
+introduced the idea of referring to colours by character strings, either
+in the forms `<samp><span class="samp">#RRGGBB</span></samp>' or `<samp><span class="samp">#RRGGBBAA</span></samp>' (representing the bytes
+in hex) as given by function <code>rgb()</code> or via names: the 657 known
+names are given in the character vector <code>colors</code> and in a table in
+file <samp><span class="file">colors.c</span></samp>.  Note that semi-transparent colours are not
+`premultiplied', so 50% transparent white is `<samp><span class="samp">#ffffff80</span></samp>'.
 
-   <p>The handling of negative colour numbers is undefined (and inconsistent):
-they will in future be made an error.  Colours greater than
-‘<samp><var>N</var></samp>’ are wrapped around, so that for example with the default
-palette of size 8, colour ‘<samp><span class="samp">10</span></samp>’ is colour ‘<samp><span class="samp">2</span></samp>’ in the palette.
-
-   <p>Integer colours have been used more widely than the base graphics
-sub-system, as they are supported by package <strong>grid</strong> and hence by
-<strong>lattice</strong> and <strong>ggplot2</strong>.  (They are also used by package
-<strong>rgl</strong>.)  <strong>grid</strong> re-defines colour ‘<samp><span class="samp">0</span></samp>’ to be transparent
-white, but <strong>rgl</strong> uses <code>col2rgb</code> and hence the background colour
-of base graphics.
-
-   <p>Note that positive integer colours refer to the current palette (which
-is per-session, not per-device) and colour ‘<samp><span class="samp">0</span></samp>’ to the current
-device (and a device is opened if needs be).  These are mapped to type
-<code>rcolor</code> at the time of use: this matters when re-playing the
-display list, e.g. when a device is resized or <code>dev.copy</code> is
-used.
-
-   <p>What was for a long time unclear was how the RGB values were to be
-mapped to display colours in the graphics device.  R 2.13.0 adopted
-the colorspace ‘sRGB’. This is an industry standard: it is used by Web
-browsers and JPEGs from all but high-end digital cameras.  The
-interpretation is a matter for graphics devices and for code that
-manipulates colours, but not for the graphics engine or subsystems.
+   <p>What is not clear is how the RGB values are to be mapped to display
+colours in the graphics device.  There was a proposal
+(<a href="http://developer.r-project.org/sRGB-RFC.html">http://developer.r-project.org/sRGB-RFC.html</a>) to regard the
+mapping as the colorspace `sRGB', which was adopted in R 2.13.0.  The
+sRGB colorspace is an industry standard: it is used by Web browsers and
+JPEGs from all but high-end digital cameras.  The interpretation is a
+matter for graphics devices and for code that manipulates colours, but
+not for the graphics engine or subsystems.
 
    <p>R uses a painting model similar to PostScript and PDF.  This means
 that where shapes (circles, rectangles and polygons) can both be filled
@@ -3728,8 +3685,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Graphics-Devices">Graphics Devices</a>
 
 <h3 class="section">6.3 Base graphics</h3>
 
-<p>The base graphics system will move to package <strong>graphics</strong> in R
-3.0.0, but is currently implemented in files in <samp><span class="file">src/main</span></samp>.
+<p>The base graphics system is likely to move to package <strong>graphics</strong> at
+some stage, but it currently implemented in files in <samp><span class="file">src/main</span></samp>.
 
    <p>For historical reasons it is largely implemented in two layers. 
 Files <samp><span class="file">plot.c</span></samp>, <code>plot3d.c</code> and <code>par.c</code> contain the code
@@ -3753,16 +3710,16 @@ structures and a Boolean variable used to record if <code>plot.new()</code>
 (or <code>persp</code>) has been used successfully on the device.
 
    <p>The three copies of the <code>GPar</code> structure are used to store the
-current parameters (accessed via <code>gpptr</code>), the ‘device copy’
+current parameters (accessed via <code>gpptr</code>), the `device copy'
 (accessed via <code>dpptr</code>) and space for a saved copy of the `device
 copy' parameters.  The current parameters are, clearly, those currently
-in use and are copied from the ‘device copy’ whenever <code>plot.new()</code>
-is called (whether or not that advances to the next ‘page’). The saved
+in use and are copied from the `device copy' whenever <code>plot.new()</code>
+is called (whether or not that advances to the next `page'). The saved
 copy keeps the state when the device was last completely cleared (e.g. 
 when <code>plot.new()</code> was called with <code>par(new=TRUE)</code>), and is
 used to replay the display list.
 
-   <p>The separation is not completely clean: the ‘device copy’ is altered if
+   <p>The separation is not completely clean: the `device copy' is altered if
 a plot with log scale(s) is set up via <code>plot.window()</code>.
 
    <p>There is yet another copy of most of the graphics parameters in
@@ -3770,7 +3727,7 @@ a plot with log scale(s) is set up via <code>plot.window()</code>.
 the current parameters across the processing of inline parameters in
 high-level graphics calls (handled by <code>ProcessInlinePars</code>).
 
-   <p>Snapshots of the base subsystem record the ‘saved device copy’ of the
+   <p>Snapshots of the base subsystem record the `saved device copy' of the
 <code>GPar</code> structure.
 
    <p>There remain quite a number of anomalies.  For example, function
@@ -3844,7 +3801,7 @@ Default: true.
 <br><dt><code>_R_CHECK_SUBDIRS_NOCASE_</code><a name="index-g_t_005fR_005fCHECK_005fSUBDIRS_005fNOCASE_005f-116"></a><dd>If true, check the case of directories such as <samp><span class="file">R</span></samp> and <samp><span class="file">man</span></samp>. 
 Default: true
 <br><dt><code>_R_CHECK_SUBDIRS_STRICT_</code><a name="index-g_t_005fR_005fCHECK_005fSUBDIRS_005fSTRICT_005f-117"></a><dd>Initial setting for <samp><span class="option">--check-subdirs</span></samp>. 
-Default: ‘<samp><span class="samp">default</span></samp>’ (which checks only tarballs, and checks in the
+Default: `<samp><span class="samp">default</span></samp>' (which checks only tarballs, and checks in the
 <samp><span class="file">src</span></samp> only if there is no <samp><span class="file">configure</span></samp> file). 
 <br><dt><code>_R_CHECK_USE_CODETOOLS_</code><a name="index-g_t_005fR_005fCHECK_005fUSE_005fCODETOOLS_005f-118"></a><dd>If true, make use of the <a href="http://CRAN.R-project.org/package=codetools"><strong>codetools</strong></a> package, which provides a
 detailed analysis of visibility of objects (but may give false
@@ -3874,11 +3831,11 @@ Default: true iff <code>.Platform$OS.type == "unix"</code>.
 <br><dt><code>_R_CHECK_FF_CALLS_</code><a name="index-g_t_005fR_005fCHECK_005fFF_005fCALLS_005f-126"></a><dd>Allows turning off <code>checkFF()</code> testing.  Legacy mostly. 
 Default: true. 
 <br><dt><code>_R_CHECK_LICENSE_</code><a name="index-g_t_005fR_005fCHECK_005fLICENSE_005f-127"></a><dd>Control whether/how license checks are performed. A possible value is
-‘<samp><span class="samp">maybe</span></samp>’ (warn in case of problems, but not about standardizable
+`<samp><span class="samp">maybe</span></samp>' (warn in case of problems, but not about standardizable
 non-standard license specs). 
 Default: true. 
 <br><dt><code>_R_CHECK_RD_EXAMPLES_T_AND_F_</code><a name="index-g_t_005fR_005fCHECK_005fRD_005fEXAMPLES_005fT_005fAND_005fF_005f-128"></a><dd>Control whether <code>check_T_and_F()</code> also looks for &ldquo;bad&rdquo; (global)
-‘<samp><span class="samp">T</span></samp>’/‘<samp><span class="samp">F</span></samp>’ uses in examples. 
+`<samp><span class="samp">T</span></samp>'/`<samp><span class="samp">F</span></samp>' uses in examples. 
 Off by default because this can result in false positives. 
 <br><dt><code>_R_CHECK_RD_CHECKRD_MINLEVEL_</code><a name="index-g_t_005fR_005fCHECK_005fRD_005fCHECKRD_005fMINLEVEL_005f-129"></a><dd>Controls the minimum level for reporting warnings from <code>checkRd</code>. 
 Default: -1. 
@@ -3947,13 +3904,13 @@ contravene CRAN policies.
 Default: true. 
 <br><dt><code>_R_CHECK_TIMINGS_</code><a name="index-g_t_005fR_005fCHECK_005fTIMINGS_005f-148"></a><dd>Optionally report timings for installation, examples, tests and
 running/re-building vignettes as part of the check log.  The format is
-‘<samp><span class="samp">[as/bs]</span></samp>’ for the total CPU time (including child processes)
-‘<samp><span class="samp">a</span></samp>’ and elapsed time ‘<samp><span class="samp">b</span></samp>’, except on Windows, when it is
-‘<samp><span class="samp">[bs]</span></samp>’.  In most cases timings are only given for ‘<samp><span class="samp">OK</span></samp>’ checks. 
+`<samp><span class="samp">[as/bs]</span></samp>' for the total CPU time (including child processes)
+`<samp><span class="samp">a</span></samp>' and elapsed time `<samp><span class="samp">b</span></samp>', except on Windows, when it is
+`<samp><span class="samp">[bs]</span></samp>'.  In most cases timings are only given for `<samp><span class="samp">OK</span></samp>' checks. 
 Times with an elapsed component over 10 mins are reported in minutes
-(with abbreviation ‘<samp><span class="samp">m</span></samp>’).  The value is the smallest numerical value
+(with abbreviation `<samp><span class="samp">m</span></samp>').  The value is the smallest numerical value
 in elapsed seconds that should be reported: non-numerical values
-indicate that no report is required, a value of ‘<samp><span class="samp">0</span></samp>’ that a report
+indicate that no report is required, a value of `<samp><span class="samp">0</span></samp>' that a report
 is always required. 
 Default: <code>""</code>. (<code>10</code> for CRAN checks.)
 
@@ -4065,7 +4022,7 @@ features will make for cleaner or more robust code.
 4.2 <acronym>BSD</acronym> systems as a baseline. 
 <a name="index-make-158"></a>
 <acronym>GNU</acronym> or other extensions, including pattern rules using
-‘<samp><span class="samp">%</span></samp>’, the automatic variable ‘<samp><span class="samp">$^</span></samp>’, the ‘<samp><span class="samp">+=</span></samp>’ syntax to
+`<samp><span class="samp">%</span></samp>', the automatic variable `<samp><span class="samp">$^</span></samp>', the `<samp><span class="samp">+=</span></samp>' syntax to
 append to the value of a variable, the (&ldquo;safe&rdquo;) inclusion of makefiles
 with no error, conditional execution, and many more, must not be used
 (see Chapter &ldquo;Features&rdquo; in the <cite><acronym>GNU</acronym> Make Manual</cite> for
@@ -4082,7 +4039,7 @@ or later, as no other <samp><span class="command">make</span></samp> is viable o
      <p>There are <acronym>POSIX</acronym> standards for these tools, but these may not
 be fully supported.  Baseline features could be determined from a book
 such as <cite>The UNIX Programming Environment</cite> by Brian W. Kernighan &amp;
-Rob Pike.  Note in particular that ‘<samp><span class="samp">|</span></samp>’ in a regexp is an extended
+Rob Pike.  Note in particular that `<samp><span class="samp">|</span></samp>' in a regexp is an extended
 regexp, and is not supported by all versions of <samp><span class="command">grep</span></samp> or
 <samp><span class="command">sed</span></samp>.  The Open Group Base Specifications, Issue 7, which are
 technically identical to  IEEE Std 1003.1 (POSIX), 2008,
@@ -4145,7 +4102,7 @@ their startup files, and using customization to set the
      (add-hook 'perl-mode-hook
                (lambda () (setq perl-indent-level 4)))
 </pre>
-   <p class="noindent">(The ‘GNU’ styles for Emacs' C and R modes use a basic indentation of 2,
+   <p class="noindent">(The `GNU' styles for Emacs' C and R modes use a basic indentation of 2,
 which has been determined not to display the structure clearly enough
 when using narrow fonts.)
 
@@ -4183,7 +4140,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <h2 class="chapter">10 Use of TeX dialects</h2>
 
 <p>Various dialects of TeX and used for different purposes in R.  The
-policy is that manuals be written in ‘<samp><span class="samp">texinfo</span></samp>’, and for convenience
+policy is that manuals be written in `<samp><span class="samp">texinfo</span></samp>', and for convenience
 the main and Windows FAQs are also.  This has the advantage that is is
 easy to produce HTML and plain text versions as well as typeset manuals.
 
@@ -4191,7 +4148,7 @@ easy to produce HTML and plain text versions as well as typeset manuals.
 typeset help documents and for vignettes.
 
    <p>Care needs to be taken about the assumptions made about the R user's
-system: it may not have either ‘<samp><span class="samp">texinfo</span></samp>’ or a TeX system
+system: it may not have either `<samp><span class="samp">texinfo</span></samp>' or a TeX system
 installed.  We have attempted to abstract out the cross-platform
 differences, and almost all the setting of typeset documents is done by
 <code>tools::texi2dvi</code>.  This is used for offline printing of help
@@ -4201,7 +4158,7 @@ directory <samp><span class="file">doc/manual</span></samp>.
 
    <p><code>tools::texi2dvi</code> makes use of a system command <samp><span class="command">texi2dvi</span></samp>
 where available.  On a Unix-alike this is usually part of
-‘<samp><span class="samp">texinfo</span></samp>’, whereas on Windows if it exists at all it would be an
+`<samp><span class="samp">texinfo</span></samp>', whereas on Windows if it exists at all it would be an
 executable, part of MiKTeX.  If none is available, the R code runs
 a sequence of <samp><span class="command">(pdf)latex</span></samp>, <samp><span class="command">bibtex</span></samp> and
 <samp><span class="command">makeindex</span></samp> commands.
@@ -4209,13 +4166,13 @@ a sequence of <samp><span class="command">(pdf)latex</span></samp>, <samp><span 
    <p>This process has been rather vulnerable to the versions of the external
 software used: particular issues have been <samp><span class="command">texi2dvi</span></samp> and
 <samp><span class="file">texinfo.tex</span></samp> updates, mismatches between the two<a rel="footnote" href="#fn-24" name="fnd-24"><sup>24</sup></a>,
-versions of the LaTeX package ‘<samp><span class="samp">hyperref</span></samp>’ and quirks in index
-production.  The licenses used for LaTeX and latterly ‘<samp><span class="samp">texinfo</span></samp>’
-prohibit us from including ‘known good’ versions in the R distribution.
+versions of the LaTeX package `<samp><span class="samp">hyperref</span></samp>' and quirks in index
+production.  The licenses used for LaTeX and latterly `<samp><span class="samp">texinfo</span></samp>'
+prohibit us from including `known good' versions in the R distribution.
 
    <p>On a Unix-alike <samp><span class="command">configure</span></samp> looks for the executables for TeX and
 friends and if found records the absolute paths in the system
-<samp><span class="file">Renviron</span></samp> file.  This used to record ‘<samp><span class="samp">false</span></samp>’ if no command
+<samp><span class="file">Renviron</span></samp> file.  This used to record `<samp><span class="samp">false</span></samp>' if no command
 was found, but it nowadays records the name for looking up on the path
 at run time.  The latter can be important for binary distributions: one
 does not want to be tied to, for example, TeXLive 2007.
@@ -4231,9 +4188,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="chapter">11 Future directions</h2>
 
-<p>This chapter is for notes about possible future changes to R: these
-are now listed only in the version of this manual for the development
-version of R.
+<p>This chapter is for notes about possible future changes to R: there
+is no commitment to make such changes, let alone to a timescale.
+
+   <p>For plans about 64-bit types see the version in the developemnt version
+of R, since support for longer vectors is being added there.
 
 <div class="node">
 <p><hr>
@@ -4507,7 +4466,7 @@ environment variable <samp><span class="env">R_WIN_NO_JUNCTIONS</span></samp> ha
    <p class="footnote"><small>[<a name="fn-23" href="#fnd-23">23</a>]</small> see the previous footnote.</p>
 
    <p class="footnote"><small>[<a name="fn-24" href="#fnd-24">24</a>]</small> Linux
-distributions tend to unbundle <samp><span class="file">texinfo.tex</span></samp> from ‘<samp><span class="samp">texinfo</span></samp>’.</p>
+distributions tend to unbundle <samp><span class="file">texinfo.tex</span></samp> from `<samp><span class="samp">texinfo</span></samp>'.</p>
 
    <p><hr></div>
 

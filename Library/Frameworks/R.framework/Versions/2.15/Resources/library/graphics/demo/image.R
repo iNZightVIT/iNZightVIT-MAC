@@ -1,5 +1,3 @@
-#  Copyright (C) 1997-2009 The R Core Team
-
 require(datasets)
 require(grDevices); require(graphics)
 

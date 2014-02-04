@@ -1,5 +1,3 @@
-#  Copyright (C) 1997-2009 The R Core Team
-
 #### -*- R -*-
 require(stats)
 Fr <- c(68,42,42,30, 37,52,24,43,

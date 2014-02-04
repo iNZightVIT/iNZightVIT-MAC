@@ -15,10 +15,6 @@
 ##' @return a list with 'value' and 'warning', where
 ##'   'value' may be an error caught.
 ##' @author Martin Maechler
-
-#  Copyright (C) 2010 The R Core Team
-
-
 tryCatch.W.E <- function(expr)
 {
     W <- NULL

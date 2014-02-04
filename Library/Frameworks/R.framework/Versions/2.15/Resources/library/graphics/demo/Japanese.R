@@ -1,5 +1,3 @@
-#  Copyright (C) 2003-2009 The R Core Team
-
 require(grDevices); require(graphics)
 
 ## --- Japanese characters in the Hershey Vector Fonts
