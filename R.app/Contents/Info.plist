@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BuildMachineOSBuild</key>
+	<string>10K549</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDocumentTypes</key>
@@ -144,17 +146,31 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>R 2.15.1 GUI 1.52 Leopard build 32-bit</string>
+	<string>R 3.0.2 GUI 1.62 Snow Leopard build</string>
 	<key>CFBundleSignature</key>
 	<string>Rgui</string>
 	<key>CFBundleVersion</key>
-	<string>6188</string>
+	<string>6558</string>
+	<key>DTCompiler</key>
+	<string></string>
+	<key>DTPlatformBuild</key>
+	<string>4C199</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>10K549</string>
+	<key>DTSDKName</key>
+	<string></string>
+	<key>DTXcode</key>
+	<string>0420</string>
+	<key>DTXcodeBuild</key>
+	<string>4C199</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>MIN_VERSION</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>R.app GUI 1.52 (6188 Leopard build 32-bit), S. Urbanek &amp; H.-J. Bibiko, © R Foundation for Statistical Computing, 2012</string>
+	<string>R.app GUI 1.62 (6558 Snow Leopard build), S. Urbanek &amp; H.-J. Bibiko, © R Foundation for Statistical Computing, 2012</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

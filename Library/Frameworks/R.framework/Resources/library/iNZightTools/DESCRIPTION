@@ -1,0 +1,14 @@
+Package: iNZightTools
+Type: Package
+Title: Tools for iNZight
+Version: 0.0.1
+Depends: survey
+Suggests: iNZight
+Date: 2013-11-29
+Author: Tom Elliott [aut, cre]
+Maintainer: Tom Elliott <tell029@aucklanduni.ac.nz>
+Description: Contains functions used for communication between 
+	     iNZight and other packages. Responsible for translation 
+	     of users input to R functionality.
+License: GPL-2
+Built: R 3.0.1; ; 2014-01-11 10:48:52 UTC; unix

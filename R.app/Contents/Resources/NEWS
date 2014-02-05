@@ -1,5 +1,97 @@
 NEWS for R.app GUI for Mac OS X
 
+-- Release Version 1.62 (6558) - supplied with R 3.0.2 --
+
+Last-update: 2013-06-26
+*	Compile Rinit.m with -O0 since ObjC optimizations
+	break in Mac OS X 10.9 DP
+
+-- Release Version 1.61 (6492) - supplied with R 3.0.1 --
+
+Last-update: 2013-04-05 [BDR]
+*	Custom q() function now checks for allowed inputs.
+
+-- Release Version 1.60 (6476) - supplied with R 3.0.0 --
+
+Last-update: 2013-03-04 [BDR]
+*	SVN branch as branches/MacGUI-2-x
+*	Require R >= 3.0.0 (earlier versions should use the branch).
+
+Last-update: 2013-03-04 [BDR]
+*	Remove toolbar icon to start X11 (which is often Xquartz, and
+	unneeded since 10.5).
+*	Add MLion64 configuration for 64-bit builds assuming >= 10.8
+	(will be needed once Xcode supports 10.9 since the 10.7 sdk will go)
+	and SnowLeopard64 (64-bit only, current OS)
+
+-- Release Version 1.53 (6451) - supplied with R 2.15.3 --
+
+Last-update: 2013-02-06 [HJBB]
+*	Fix crash while using block indent
+
+Last-update: 2013-01-21
+*	revert part of r6244 that moved 'odoc' proccessing to far
+	down and thus broke the documented behavior on drag&drop startup
+
+Last-update: 2013-01-20 [HJBB]
+*	Avoid superfluous lex output on stdout
+*	Treat a<-1 as a <- 1 and not a < -1
+
+Last-update: 2012-12-28 [BDR]
+*	New targets Lion and Lion64 for use with Xcode 4.5+
+*	Use hooks in Rinterface.h where possible
+*	No longer call getQuartzFunctions() since package grDevices in
+	R-devel knows if it is being called from R.app.
+
+Last-update: 2012-12-16 [BDR]
+*	Change version tests for R-devel to >= 3.0.0.
+*	More cleanup of conditional code for R < 2.10.0, 
+	including removing the residue of the pre-2.7.0 quartz() device.
+*	Private copies of R headers are no longer used.
+
+Last-update: 2012-10-26 [BDR]
+*	Add stubs for loadhistory() and savehistory() so the 
+	readline-based ones are not used.
+
+-- Release Version 1.52 (6335) - supplied with R 2.15.2 --
+
+Last-update: 2012-10-22 [BDR]
+*	Use --gui=qaua for startup.
+*	The R-MacOSX FAQ has been modernized: some parts were many years 
+	out of date.
+
+Last-update: 2012-09-19 [BDR]
+*	Set ptr_R_FlushConsole (long overdue!).
+*	REditor: represent NA strings as ' <NA> ' so they are preserved,
+	and empty strings are not mapped to NA.
+	(https://stat.ethz.ch/pipermail/r-sig-mac/2012-January/008941.html)
+*	The .Internal()s in GUI-tools.R have been replaced by .Call()s.
+*	Some long-obsolete conditional code has been removed from clarity.
+	R >= 2.10.0 is now required.
+*	options("BioC.Repos") is now set from the value in R itself.
+	This will be needed when BioC 2.11 is released on Oct 2.
+	It also respects the setting of the BioC mirror.
+
+Last-update: 2012-08-28 [HJBB]
+*	Improved handling of larger documents
+*	Fixed a crash if the R script editor has to handle
+	_very_ long lines
+
+Last-update: 2012-08-24 [HJBB]
+*	Added Code Folding of { ... } multi-line blocks
+	in R Script Editor (MacOSX >= 10.7); see gutter and/or
+	Menu > Format > Code Folding > ...
+
+Last-update: 2012-08-11 [HJBB]
+*	Fixed bug for not working code completion if in the
+	completion scope strings wrapped by '' are involved
+
+Last-update: 2012-07-31 [HJBB]
+*	Fixed broken block selection
+*	Fixed minor issue while dragging an item to RConsole or 
+	R Script editor if insertion cursor is located at an 
+	empty line
+
 -- Release Version 1.52 (6188) - supplied with R 2.15.1 --
 
 Last-update: 2012-05-16
@@ -1728,3 +1820,4 @@ SI	Stefano M Iacus
 SU	Simon Urbanek
 RG	Rob J Goedman
 HJBB	Hans-J. Bibiko
+BDR	Brian D Ripley

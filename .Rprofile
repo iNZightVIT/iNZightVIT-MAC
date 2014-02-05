@@ -6,7 +6,7 @@ local({
   options(repos = r)
 })
 
-FP <- file.path("Library", "Frameworks", "R.framework", "Versions", "2.15", "Resources")
+FP <- file.path("Library", "Frameworks", "R.framework", "Versions", "3.0", "Resources")
 Sys.setenv("R_HOME" = file.path(getwd(), FP))
 .libPaths(file.path(getwd(), FP, "library"))
 
@@ -20,12 +20,14 @@ suppressPackageStartupMessages({
   })
 })
 
+
 dev.new(width = 3.5, height = 2)
 grid.newpage()
 splashImg <- readPNG(system.file("images", "inzightvit-splash.png",
                                  package = "vit"),
                      exists("rasterImage"))
-grid.raster(splashImg, width = unit(3.5, "inches"), height = unit(2, "inches"))
+grid.raster(splashImg, width = unit(3.5, "inches"), height = unit(2, "inches"))  
+
 
 message("(Dept. of Statistics, Uni. of Auckland)")
 message("")
@@ -36,6 +38,10 @@ suppressWarnings({
 })
 
 tmp <- dev.off()
-rm(tmp)
+# rm(tmp)  # gives an error "cannot remove from base namespace"
 
-iNZightVIT()
+suppressPackageStartupMessages({
+  suppressWarnings({
+    iNZightVIT(disposeR = TRUE)
+  })
+})
