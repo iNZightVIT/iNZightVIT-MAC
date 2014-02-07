@@ -7,25 +7,12 @@ export R_DIR="`dirname \"$0\"`"
 export R_PROFILE="$R_DIR/updateiNZightVIT.R"
 export DYLD_FALLBACK_FRAMEWORK_PATH="$R_DIR/Library"
 export DYLD_FRAMEWORK_PATH="$R_DIR/Library/Frameworks/R.framework"
-export DYLD_LIBRARY_PATH="$R_DIR/Library/Frameworks/R.framework/Versions/2.15/Resources/lib"
-export R_LIBRARIES="$R_DIR/Library/Frameworks/R.framework/Versions/2.15/Resources/library"
+export DYLD_LIBRARY_PATH="$R_DIR/Library/Frameworks/R.framework/Versions/3.0/Resources/lib"
+export R_LIBRARIES="$R_DIR/Library/Frameworks/R.framework/Versions/3.0/Resources/library"
 
 # Set the current directory to where R happens to be located,
 # allows us to set R's current working directory when loading R.
 cd "$R_DIR"
-
-# Downloading the latest *binary* packages (not ideal)
-#curl -O http://www.stat.auckland.ac.nz/~wild/downloads/vit.zip
-#curl -O http://www.stat.auckland.ac.nz/~wild/downloads/iNZight.zip
-
-# Unzip them to our packages directory
-#unzip -oq vit.zip -d $R_LIBRARIES
-#unzip -oq iNZight.zip -d $R_LIBRARIES
-
-#echo $R_LIBRARIES
-
-# Removing them because we no longer need them.
-#rm vit.zip iNZight.zip
 
 # Load R and update packages first
 open -a "$R_DIR/R.app"
