@@ -1,4 +1,5 @@
-options(help_type = "html")
+options(help_type = "html", warn = -1,
+        show.error.messages = FALSE)
 
 local({
   r <- getOption("repos")
