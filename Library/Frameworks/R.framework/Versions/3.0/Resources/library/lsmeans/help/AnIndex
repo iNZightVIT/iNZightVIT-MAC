@@ -1,4 +1,5 @@
 lsmeans-package	lsmeans-package
+auto.noise	auto.noise
 del.eff.lsmc	pairwise.lsmc
 eff.lsmc	pairwise.lsmc
 fiber	fiber

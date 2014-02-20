@@ -4,7 +4,8 @@ balloonplot             Plot a graphical matrix where each cell
 bandplot                Plot x-y Points with Locally Smoothed Mean and
                         Standard Deviation
 barplot2                Enhanced Bar Plots
-boxplot.n               Produce a Boxplot Annotated with the Number of
+boxplot.n               Deprecated functions
+boxplot2                Produce a Boxplot Annotated with the Number of
                         Observations
 ci2d                    Create 2-dimensional empirical confidence
                         regions
@@ -12,12 +13,12 @@ col2hex                 Convert color names to hex RGB strings
 colorpanel              Generate a smoothly varying set of colors
 heatmap.2               Enhanced Heat Map
 hist2d                  Compute and Plot a 2-Dimensional Histogram
+lmplot2                 Plots to assess the goodness of fit for the
+                        linear model objects
 lowess                  Scatter Plot Smoothing
 ooplot.default          Create an OpenOffice style plot
 overplot                Plot multiple variables on the same region,
                         with appropriate axes
-plot.lm2                Plots to assess the goodness of fit for the
-                        linear model objects
 plotCI                  Plot Error Bars and Confidence Intervals
 plotmeans               Plot Group Means and Confidence Intervals
 qqnorm.aov              Makes a half or full normal plot for the

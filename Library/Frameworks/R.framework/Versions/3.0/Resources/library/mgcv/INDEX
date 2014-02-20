@@ -3,6 +3,7 @@ Predict.matrix.cr.smooth
                         Predict matrix method functions
 Predict.matrix.soap.film
                         Prediction matrix for soap film smooth
+Rrank                   Find rank of upper triangular matrix
 Tweedie                 GAM Tweedie family
 anova.gam               Approximate hypothesis tests related to GAM
                         fits
@@ -123,6 +124,8 @@ smooth.construct.so.smooth.spec
                         Soap film smoother constructer
 smooth.construct.sos.smooth.spec
                         Splines on the sphere
+smooth.construct.t2.smooth.spec
+                        Tensor product smoothing constructor
 smooth.construct.tensor.smooth.spec
                         Tensor product smoothing constructor
 smooth.construct.tp.smooth.spec

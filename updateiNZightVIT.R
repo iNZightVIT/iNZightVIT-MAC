@@ -9,6 +9,7 @@ if (.Platform$OS.type == "windows") {
     isWindows <- TRUE
     isLinux <- FALSE
     OSstring <- "Windows"
+    downloadMethod <- getOption("download.file.method", default = "auto")
 } else if (isOSX) {
     isWindows <- FALSE
     isLinux <- FALSE
@@ -17,17 +18,19 @@ if (.Platform$OS.type == "windows") {
     # so we need to do it explicitly
     library(utils)
     OSstring <- "OSX"
+    downloadMethod <- "curl"
 } else {
     isWindows <- FALSE
     isLinux <- TRUE
     OSstring <- "Linux"
+    downloadMethod <- "wget"
     stop("Updater not supported on this platform")
 }
 
 # Define updater function
 updateDistribution <- function() {
     # Increment each time the updater needs to be changed
-    UPDATER_VERSION <- numeric_version("0.2")
+    UPDATER_VERSION <- numeric_version("0.3")
 
     # Set CRAN to UoA for updating
     uoaCRAN <- structure("http://cran.stat.auckland.ac.nz",
@@ -38,8 +41,9 @@ updateDistribution <- function() {
         on.exit(options(repos = currCRAN))
     }
 
-    v <- read.csv("http://www.stat.auckland.ac.nz/~wild/downloads/versions.txt",
-                  header = TRUE, stringsAsFactors = FALSE)
+    versionsURL <- "https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/versions.txt"
+    download.file(versionsURL, "versions.txt", method = "curl")
+    v <- read.csv("versions.txt", header = TRUE, stringsAsFactors = FALSE)
 
     # Check whether the updater itself needs replacing
     updaterLoc <-
@@ -64,8 +68,8 @@ updateDistribution <- function() {
     # and give instructions to start again
     newestUpdater <- numeric_version(v[1, "Version"])
     if (UPDATER_VERSION < newestUpdater) {
-        webUpdaterLoc <- paste("http://www.stat.auckland.ac.nz/~wild/downloads/", v[1, "Name"], sep = "")
-        download.file(webUpdaterLoc, updaterLoc)
+        webUpdaterLoc <- paste("https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/", v[1, "Name"], sep = "")
+        download.file(webUpdaterLoc, updaterLoc, method = downloadMethod)
         if (isOSX) {
             cat("A new version of the iNZightVIT updater has been downloaded\n\nClose R and run the updater script again to use it.\n")
             return()
@@ -143,7 +147,8 @@ updateDistribution <- function() {
                     TRUE
 
             if (getNewPackage) {
-                urlprefix <- "http://www.stat.auckland.ac.nz/~wild/downloads/"
+                urlprefix <- sprintf("http://www.stat.auckland.ac.nz/~wild/downloads/iNZight/%s.%s/",
+                                     getRversion()$major, getRversion()$minor)
                 fn <- paste(r$Name, FILE_EXT, sep = "")
 
                 # If OSX, we need to be able to install from zip.
@@ -154,7 +159,7 @@ updateDistribution <- function() {
                     fileurl <- paste(urlprefix, fn, sep = "")
                     filepath <- file.path(getwd(), fn)
                     # Download
-                    download.file(fileurl, filepath)
+                    download.file(fileurl, filepath, method = downloadMethod)
                     # "Install" -- just unzipping a precompiled binary
                     system(sprintf("unzip -oq %s -d %s", filepath, Sys.getenv("R_LIBRARIES")))
                     # Remove
@@ -165,7 +170,7 @@ updateDistribution <- function() {
                 # Assume Windows from now on
                 tmploc <- file.path(tempdir(), fn)
                 download.file(paste(urlprefix, fn, sep = ""),
-                              destfile = tmploc)
+                              destfile = tmploc, method = downloadMethod)
                 success <- try(install.packages(tmploc, repos = NULL, type = FILE_TYPE), TRUE)
                 if (inherits(success, "try-error")) {
                     if (isOSX) {

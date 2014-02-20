@@ -5,13 +5,15 @@ bandplot	bandplot
 barplot2	barplot2
 barplot2.default	barplot2
 bluered	colorpanel
-boxplot.n	boxplot.n
+boxplot.n	gplots-deprecated
+boxplot2	boxplot2
 ci2d	ci2d
 col2hex	col2hex
 colorpanel	colorpanel
 greenred	colorpanel
 heatmap.2	heatmap.2
 hist2d	hist2d
+lmplot2	lmplot2
 lowess	lowess
 lowess.default	lowess
 lowess.formula	lowess
@@ -19,7 +21,7 @@ ooplot	ooplot
 ooplot.default	ooplot
 overplot	overplot
 panel.overplot	overplot
-plot.lm2	plot.lm2
+plot.lm2	gplots-deprecated
 plot.venn	venn
 plotCI	plotCI
 plotmeans	plotmeans

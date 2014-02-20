@@ -101,11 +101,11 @@ Q.eq <- function(x, y,
 	if(isDense)
 	    all(x == y | (is.na(x) & is.na(y)))
 	else ## 'x == y' blows up for large sparse matrices:
-	    isTRUE(all.equal(asC(x), asC(y), tol = 0.,
+	    isTRUE(all.equal(asC(x), asC(y), tolerance = 0.,
 			     check.attributes = dimnames.check))
     }
     else if(is.numeric(tol) && tol >= 0) {
-        isTRUE(all.equal(asC(x), asC(y), tol = tol,
+        isTRUE(all.equal(asC(x), asC(y), tolerance = tol,
                          check.attributes = dimnames.check))
     }
     else stop("'tol' must be NA or non-negative number")
@@ -225,7 +225,8 @@ mkLDL <- function(n, density = 1/3) {
     list(A = A, L = L, d.half = d.half, D = D)
 }
 
-eqDeterminant <- function(m1, m2, NA.Inf.ok=FALSE, ...) {
+eqDeterminant <- function(m1, m2, NA.Inf.ok=FALSE, tol=.Machine$double.eps^0.5, ...)
+{
     d1 <- determinant(m1) ## logarithm = TRUE
     d2 <- determinant(m2)
     d1m <- as.vector(d1$modulus)# dropping attribute
@@ -243,7 +244,7 @@ eqDeterminant <- function(m1, m2, NA.Inf.ok=FALSE, ...) {
     if(is.infinite(d1m)) d1$modulus <- sign(d1m)* .Machine$double.xmax
     if(is.infinite(d2m)) d2$modulus <- sign(d2m)* .Machine$double.xmax
     ## now they are finite or *one* of them is NA/NaN, and all.equal() will tell so:
-    all.equal(d1, d2, ...)
+    all.equal(d1, d2, tolerance=tol, ...)
 }
 
 ##' @param A a non-negative definite sparseMatrix, typically "dsCMatrix"
@@ -330,7 +331,7 @@ checkMatrix <- function(m, m.m = if(do.matrix) as(m, "matrix"),
 			do.matrix = !isSparse || prod(dim(m)) < 1e6,
 			do.t = TRUE, doNorm = TRUE, doOps = TRUE,
                         doSummary = TRUE, doCoerce = TRUE,
-			doCoerce2 = doCoerce && !isRsp,
+			doCoerce2 = doCoerce && !isRsp, doDet = do.matrix,
 			do.prod = do.t && do.matrix && !isRsp,
 			verbose = TRUE, catFUN = cat)
 {
@@ -473,7 +474,7 @@ checkMatrix <- function(m, m.m = if(do.matrix) as(m, "matrix"),
 	if(!isInd && !isRsp &&
            !(extends(cld, "TsparseMatrix") && Matrix:::is_duplicatedT(m, di = d)))
                                         # 'diag<-' is does not change attrib:
-	    stopifnot(identical(m, m.d))
+	    stopifnot(Qidentical(m, m.d))# e.g., @factors may differ
     }
     else if(!identical(m, m.d)) { # dense : 'diag<-' is does not change attrib
 	if(isTri && m@diag == "U" && m.d@diag == "N" &&
@@ -540,8 +541,10 @@ checkMatrix <- function(m, m.m = if(do.matrix) as(m, "matrix"),
 		CatF("symmpart(m) + skewpart(m) == m: ")
 		Q.eq.symmpart(m)
 		CatF("ok;  determinant(): ")
-		if(any(is.na(m.m)) && extends(cld, "triangularMatrix"))
-		    Cat(" skipped: is triang. and has NA")
+		if(!doDet)
+		    Cat(" skipped (!doDet): ")
+		else if(any(is.na(m.m)) && extends(cld, "triangularMatrix"))
+		    Cat(" skipped: is triang. and has NA: ")
 		else
 		    stopifnot(eqDeterminant(m, m.m, NA.Inf.ok=TRUE))
 		Cat("ok\n")

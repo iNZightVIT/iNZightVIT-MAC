@@ -158,7 +158,3 @@ tidy.eval(text = c("a<-1+1;a  # print the value", "matrix(rnorm(10),5)"))
 ## }
 
 
-## ----include=FALSE-------------------------------------------------------
-options(markdown.HTML.header = system.file('misc', 'vignette.css', package='knitr'))
-
-

@@ -1,7 +1,9 @@
 <!--
-%\VignetteEngine{knitr::knitr}
+%\VignetteEngine{knitr::docco_linear}
 %\VignetteIndexEntry{An Introduction to formatR}
 -->
+
+# An Introduction to formatR
 
 ## 1. Installation
 
@@ -270,9 +272,4 @@ Note when `keep.comment == TRUE`, you _must not write double quotes in the inlin
 
 "a valid character string with # in it"
 'a # in single quotes is not allowed'
-```
-
-
-```{r include=FALSE}
-options(markdown.HTML.header = system.file('misc', 'vignette.css', package='knitr'))
 ```

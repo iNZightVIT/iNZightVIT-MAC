@@ -3,8 +3,7 @@ AB.Ab.aB.ab             The AB-Ab-aB-ab Blood Group System
 AB.Ab.aB.ab2            The AB-Ab-aB-ab2 Blood Group System
 ABO                     The ABO Blood Group System
 AICvlm                  Akaike's Information Criterion
-Amh                     Ali-Mikhail-Haq Distribution's Bivariate
-                        Distribution
+Amh                     Ali-Mikhail-Haq Bivariate Distribution
 BICvlm                  Bayesian Information Criterion
 Benford                 Benford's Distribution
 Benini                  The Benini Distribution
@@ -69,8 +68,6 @@ Paralogistic            The Paralogistic Distribution
 Pareto                  The Pareto Distribution
 ParetoIV                The Pareto(IV/III/II) Distributions
 Perks                   The Perks Distribution
-Perom                   Captures of Peromyscus maniculatus, also known
-                        as deer mice.
 Plackett                Plackett's Bivariate Distribution
 PoissonPoints           Poisson Points Distribution
 Polono                  The Poisson Lognormal Distribution
@@ -112,8 +109,7 @@ acat                    Ordinal Regression with Adjacent Categories
                         Probabilities
 alaplace1               Asymmetric Laplace Distribution Family
                         Functions
-amh                     Ali-Mikhail-Haq Distribution Distribution
-                        Family Function
+amh                     Ali-Mikhail-Haq Distribution Family Function
 amlbinomial             Binomial Logistic Regression by Asymmetric
                         Maximum Likelihood Estimation
 amlexponential          Exponential Regression by Asymmetric Maximum
@@ -160,9 +156,9 @@ bratt                   Bradley Terry Model With Ties
 calibrate               Model Calibrations
 calibrate,rrvglm-method
                         Calibration for Constrained Regression Models
-calibrate.qrrvglm       Calibration for CQO, UQO and CAO models
+calibrate.qrrvglm       Calibration for CQO and CAO models
 calibrate.qrrvglm.control
-                        Control function for CQO/UQO/CAO calibration
+                        Control function for CQO/CAO calibration
 cao                     Fitting Constrained Additive Ordination (CAO)
 cao.control             Control Function for RR-VGAMs (CAO)
 cardioid                Cardioid Distribution Family Function
@@ -195,6 +191,8 @@ cumulative              Ordinal Regression with Cumulative
 dagum                   Dagum Distribution Family Function
 dalap                   The Laplace Distribution
 dbiclaytoncop           Clayton Copula (Bivariate) Distribution
+deermice                Captures of Peromyscus maniculatus, also known
+                        as deer mice.
 deplot.lmscreg          Density Plot for LMS Quantile Regression
 depvar                  Response variable extracted
 df.residual             Residual Degrees-of-Freedom
@@ -352,6 +350,7 @@ mix2exp                 Mixture of Two Exponential Distributions
 mix2normal              Mixture of Two Univariate Normal Distributions
 mix2poisson             Mixture of Two Poisson Distributions
 mlogit                  Multi-logit Link Function
+mmt                     mmt daily maximum temperatures
 model.framevlm          Construct the Model Frame of a VLM Object
 model.matrixvlm         Construct the Design Matrix of a VLM Object
 moffset                 Matrix Offset
@@ -411,6 +410,7 @@ prats                   Pregnant Rats Toxological Experiment Data
 predictqrrvglm          Predict Method for a CQO fit
 predictvglm             Predict Method for a VGLM fit
 prentice74              Prentice (1974) Log-gamma Distribution
+prinia                  Yellow-bellied Prinia
 probit                  Probit Link Function
 propodds                Proportional Odds Model for Ordinal Regression
 prplot                  Probability Plots for Categorical Data Analysis
@@ -469,9 +469,6 @@ truncweibull            Truncated Weibull Distribution Family Function
 ucberk                  University California Berkeley Graduate
                         Admissions
 uninormal               Univariate Normal Distribution
-uqo                     Fitting Unconstrained Quadratic Ordination
-                        (UQO)
-uqo.control             Control Function for UQO models
 venice                  Venice Maximum Sea Levels Data
 vgam                    Fitting Vector Generalized Additive Models
 vgam-class              Class "vgam"

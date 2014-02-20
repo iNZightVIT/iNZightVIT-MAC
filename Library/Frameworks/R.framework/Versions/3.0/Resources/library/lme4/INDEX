@@ -70,7 +70,8 @@ ranef                   Extract the modes of the random effects
 rePos                   Generator object for the rePos (random-effects
                         positions) class
 rePos-class             Class '"rePos"'
-refit                   Refit a model by maximum likelihood criterion
+refit                   Refit a model with a new response, by maximum
+                        likelihood criterion
 refitML                 Refit a model by maximum likelihood criterion
 residuals.merMod        residuals of merMod objects
 sigma                   Extract residual standard error

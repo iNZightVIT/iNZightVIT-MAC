@@ -1,11 +1,14 @@
 as.data.frame.XXmodcomp	pbkrtest-internal
 beets	DATA-beets
 budworm	DATA-budworm
+ddf_Lb	get_ddf_Lb
 getKR	getKR
 getLRT	PB-modcomp
 getLRT.lm	PB-modcomp
 getLRT.mer	PB-modcomp
 getLRT.merMod	PB-modcomp
+get_ddf_Lb	get_ddf_Lb
+get_ddf_Lb.lmerMod	get_ddf_Lb
 get_SigmaG	vcovAdj
 get_SigmaG.lmerMod	vcovAdj
 get_SigmaG.mer	vcovAdj

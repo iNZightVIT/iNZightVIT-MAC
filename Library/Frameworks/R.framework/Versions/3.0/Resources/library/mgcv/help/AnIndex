@@ -106,6 +106,7 @@ Predict.matrix.sf	Predict.matrix.soap.film
 Predict.matrix.soap.film	Predict.matrix.soap.film
 Predict.matrix.sos.smooth	smooth.construct.sos.smooth.spec
 Predict.matrix.sw	Predict.matrix.soap.film
+Predict.matrix.t2.smooth	Predict.matrix.cr.smooth
 Predict.matrix.tensor.smooth	Predict.matrix.cr.smooth
 Predict.matrix.tprs.smooth	Predict.matrix.cr.smooth
 Predict.matrix.ts.smooth	Predict.matrix.cr.smooth
@@ -118,6 +119,7 @@ qq.gam	qq.gam
 random.effects	random.effects
 residuals.gam	residuals.gam
 rig	rig
+Rrank	Rrank
 rTweedie	rTweedie
 s	s
 signal.regression	linear.functional.terms
@@ -137,6 +139,7 @@ smooth.construct.sf.smooth.spec	smooth.construct.so.smooth.spec
 smooth.construct.so.smooth.spec	smooth.construct.so.smooth.spec
 smooth.construct.sos.smooth.spec	smooth.construct.sos.smooth.spec
 smooth.construct.sw.smooth.spec	smooth.construct.so.smooth.spec
+smooth.construct.t2.smooth.spec	smooth.construct.t2.smooth.spec
 smooth.construct.tensor.smooth.spec	smooth.construct.tensor.smooth.spec
 smooth.construct.tp.smooth.spec	smooth.construct.tp.smooth.spec
 smooth.construct.ts.smooth.spec	smooth.construct.tp.smooth.spec

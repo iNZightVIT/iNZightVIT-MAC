@@ -50,7 +50,3 @@ d$line1[d$line1 == 1] = 2
 d
 
 
-## ----include=FALSE-------------------------------------------------------
-options(markdown.HTML.header = system.file('misc', 'vignette.css', package='knitr'))
-
-

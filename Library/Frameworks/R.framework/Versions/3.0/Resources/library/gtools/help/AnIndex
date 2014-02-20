@@ -11,6 +11,7 @@ ELISA	ELISA
 even	oddeven
 foldchange	foldchange
 foldchange2logratio	foldchange
+getDependencies	getDependencies
 gtools-defunct	gtools-defunct
 gtools-deprecated	gtools-deprecated
 inv.logit	logit

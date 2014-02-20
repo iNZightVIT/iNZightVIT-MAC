@@ -1,3 +1,23 @@
+        CHANGES IN highr VERSION 0.3
+
+BUG FIXES
+
+  o blank lines were not preserved in previous versions; now they can be
+  correctly preserved
+
+  o hilight() works when the code is only a comment; fixed the bug reported
+  at http://stackoverflow.com/q/18548020/559676 which was actually due to
+  the bug of utils::getParseData() in R 3.0.1
+
+  o Linux Mint has a built-in version of highlight under /usr/local/bin/
+  which is not Andre Simon's highlight, and this can hang highr
+  (https://groups.google.com/forum/#!topic/knitr/nicYgzqhwX8)
+
+MINOR CHANGES
+
+  o the package vignettes were built with the knitr::docco_classic engine;
+  see vignette(package = 'highr')
+
         CHANGES IN highr VERSION 0.2.1
 
 MINOR CHANGES

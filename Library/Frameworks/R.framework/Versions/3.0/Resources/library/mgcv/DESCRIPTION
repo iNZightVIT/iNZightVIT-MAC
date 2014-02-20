@@ -1,5 +1,5 @@
 Package: mgcv
-Version: 1.7-26
+Version: 1.7-28
 Author: Simon Wood <simon.wood@r-project.org>
 Maintainer: Simon Wood <simon.wood@r-project.org>
 Title: Mixed GAM Computation Vehicle with GCV/AIC/REML smoothness
@@ -14,8 +14,9 @@ Suggests: splines, parallel
 LazyLoad: yes
 ByteCompile: yes
 License: GPL (>= 2)
-Packaged: 2013-09-06 09:30:03 UTC; ripley
+Packaged: 2014-01-29 11:37:25 UTC; sw283
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-09-06 11:31:13
-Built: R 3.0.2; x86_64-apple-darwin10.8.0; 2013-09-25 11:55:51 UTC; unix
+Date/Publication: 2014-01-29 19:02:48
+Built: R 3.0.2; x86_64-apple-darwin10.8.0; 2014-01-30 06:44:34 UTC; unix
+Archs: mgcv.so.dSYM
