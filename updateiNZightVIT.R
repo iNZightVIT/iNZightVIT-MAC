@@ -2,6 +2,7 @@
 # this could be due to R_HOME being in the wrong place (i.e.
 # current dir instead of proper R_HOME dir). To counteract this,
 # we set the R_HOME along with the libPath.
+
 isOSX <- .Platform$OS.type != "windows" && Sys.info()["sysname"] == "Darwin"
 if (.Platform$OS.type == "windows") {
     Sys.setenv("R_HOME" = file.path(getwd(), "prog_files"))
@@ -20,6 +21,8 @@ if (.Platform$OS.type == "windows") {
     library(utils)
     OSstring <- "OSX"
     downloadMethod <- "curl"
+    # We need to set the directory properly:
+    setwd(strsplit(Sys.getenv("R_HOME"), "Library/Frameworks")[[1]][1])
 } else {
     isWindows <- FALSE
     isLinux <- TRUE
@@ -91,23 +94,23 @@ updateDistribution <- function() {
     v <- v[-1, ]
 
     # First check whether we have a sufficient version of R
-    R.rowv <- v$Version[v$Name == "R"]
-    if (getRversion() < R.rowv) {
-        if (isOSX) {
-            cat("A new release of iNZightVIT is required, visiting the website now.\n")
-            browseURL(HOMEPAGE)
-            return()
-        }
-        library(tcltk)
-        retval <- tk_messageBox(type = "ok",
-                                message = "A new release of iNZightVIT is required.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
-                                caption = "Update iNZightVIT",
-                                default = "ok",
-                                icon = "info")
-        if (retval == "ok")
-            browseURL(HOMEPAGE)
-        return()
-    }
+ #   R.rowv <- v$Version[v$Name == "R"]
+ #   if (getRversion() < R.rowv) {
+ #       if (isOSX) {
+ #           cat("A new release of iNZightVIT is required, visiting the website now.\n")
+ #           browseURL(HOMEPAGE)
+ #           return()
+ #       }
+ #       library(tcltk)
+ #       retval <- tk_messageBox(type = "ok",
+ #                               message = "A new release of iNZightVIT is required.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
+ #                               caption = "Update iNZightVIT",
+ #                               default = "ok",
+ #                               icon = "info")
+ #       if (retval == "ok")
+ #           browseURL(HOMEPAGE)
+ #       return()
+ #   }
 
     # Remove the R version row, no longer necessary
     v <- v[v$Name != "R", ]
@@ -178,7 +181,7 @@ updateDistribution <- function() {
 
             if (getNewPackage) {
                 urlprefix <-
-                    sprintf("http://www.stat.auckland.ac.nz/~wild/downloads/iNZight/%s.%s/",
+                    sprintf("https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/%s.%s/",
                             getRversion()$major, getRversion()$minor)
                 fn <- paste(r$Name, FILE_EXT, sep = "")
 
@@ -195,6 +198,7 @@ updateDistribution <- function() {
                     system(sprintf("unzip -oq %s -d %s", filepath, Sys.getenv("R_LIBRARIES")))
                     # Remove
                     file.remove(filepath)
+		    cat(paste("Installed package:", r$Name), "\n")
                     next
                 }
 
