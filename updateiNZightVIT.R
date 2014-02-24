@@ -10,6 +10,7 @@ if (.Platform$OS.type == "windows") {
     isLinux <- FALSE
     OSstring <- "Windows"
     downloadMethod <- getOption("download.file.method", default = "auto")
+    utils::setInternet2(TRUE)
 } else if (isOSX) {
     isWindows <- FALSE
     isLinux <- FALSE
@@ -42,8 +43,8 @@ updateDistribution <- function() {
     }
 
     versionsURL <- "https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/versions.txt"
-    download.file(versionsURL, "versions.txt", method = "curl")
-    v <- read.csv("versions.txt", header = TRUE, stringsAsFactors = FALSE)
+    download.file(versionsURL, "Library/versions.txt", method = downloadMethod)
+    v <- read.csv("Library/versions.txt", header = TRUE, stringsAsFactors = FALSE)
 
     # Check whether the updater itself needs replacing
     updaterLoc <-
@@ -68,7 +69,9 @@ updateDistribution <- function() {
     # and give instructions to start again
     newestUpdater <- numeric_version(v[1, "Version"])
     if (UPDATER_VERSION < newestUpdater) {
-        webUpdaterLoc <- paste("https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/", v[1, "Name"], sep = "")
+        webUpdaterLoc <-
+            paste("https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/",
+                  v[1, "Name"], sep = "")
         download.file(webUpdaterLoc, updaterLoc, method = downloadMethod)
         if (isOSX) {
             cat("A new version of the iNZightVIT updater has been downloaded\n\nClose R and run the updater script again to use it.\n")
@@ -139,7 +142,34 @@ updateDistribution <- function() {
 
         # If the package is not available on CRAN
         # e.g. iNZight, vit
-        if (! r$Name %in% rownames(available.packages())) {
+        # Have to manually specify gWidgets packages as using dev version
+        if (! r$Name %in% rownames(available.packages()) |
+            r$Name %in% c("gWidgets2", "gWidgets2RGtk2", "Acinonyx")) {
+
+            if (r$Name == "Acinonyx" & getRversion()$major == 2) {
+                try(install.packages("Acinonyx", repos = "http://rforge.net"))
+                if (inherits(success, "try-error")) {
+                    if (isOSX) {
+                        cat("An error has occurred, perhaps a new version of iNZightVIT is required, visiting the website now.\n")
+                        browseURL(HOMEPAGE)
+                        return()
+                    }
+                    library(tcltk)
+                    retval <- tk_messageBox(type = "ok",
+                                            message = "An error has occurred updating iNZightVIT.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
+                                            caption = "Update iNZightVIT",
+                                            default = "ok",
+                                            icon = "error")
+                    if (retval == "ok")
+                        browseURL(HOMEPAGE)
+                    file.remove(tmploc)
+                    return()
+                } else {
+                    cat(paste("Installed package:", r$Name), "\n")
+                }
+                next
+            }
+            
             getNewPackage <-
                 if (r$Name %in% rownames(installed.packages()))
                     package_version(r$Version) > packageVersion(r$Name)
@@ -147,8 +177,9 @@ updateDistribution <- function() {
                     TRUE
 
             if (getNewPackage) {
-                urlprefix <- sprintf("http://www.stat.auckland.ac.nz/~wild/downloads/iNZight/%s.%s/",
-                                     getRversion()$major, getRversion()$minor)
+                urlprefix <-
+                    sprintf("http://www.stat.auckland.ac.nz/~wild/downloads/iNZight/%s.%s/",
+                            getRversion()$major, getRversion()$minor)
                 fn <- paste(r$Name, FILE_EXT, sep = "")
 
                 # If OSX, we need to be able to install from zip.
