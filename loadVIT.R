@@ -8,7 +8,6 @@ local({
 })
 
 FP <- file.path("Library", "Frameworks", "R.framework", "Versions", "3.0", "Resources")
-Sys.setenv("R_HOME" = file.path(getwd(), FP))
 .libPaths(file.path(getwd(), FP, "library"))
 
 
