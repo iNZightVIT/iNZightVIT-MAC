@@ -12,6 +12,7 @@ Depends: methods, memoise, RGtk2, gWidgets2
 Suggests: testthat, cairoDevice
 LazyLoad: yes
 Collate: 'gWidgets2RGtk2-package.R' 'misc.R' 'gtk-misc.R'
+<<<<<<< HEAD
        'GComponent.R' 'GContainer.R' 'GWidget.R' 'icons.R'
        'startup.R' 'gbutton.R' 'ggroup.R' 'gframe.R'
        'gexpandgroup.R' 'gcheckbox.R' 'gcheckboxgroup.R'
@@ -24,3 +25,15 @@ Collate: 'gWidgets2RGtk2-package.R' 'misc.R' 'gtk-misc.R'
        'gvarbrowser.R' 'gedit.R' 'gformlayout.R'
        'gprogressbar.R'
 Built: R 3.0.1; ; 2014-02-27 20:17:38 UTC; unix
+=======
+        'GComponent.R' 'GContainer.R' 'GWidget.R' 'icons.R' 'startup.R'
+        'gbutton.R' 'ggroup.R' 'gframe.R' 'gexpandgroup.R'
+        'gcheckbox.R' 'gcheckboxgroup.R' 'gcombobox.R' 'gnotebook.R'
+        'gpanedgroup.R' 'gseparator.R' 'gstackwidget.R' 'gwindow.R'
+        'gmenu.R' 'gstatusbar.R' 'gtoolbar.R' 'gslider.R'
+        'gspinbutton.R' 'glayout.R' 'gradio.R' 'dialogs.R'
+        'gcalendar.R' 'gfile.R' 'gaction.R' 'ggraphics.R' 'gtable.R'
+        'gdf.R' 'gtext.R' 'gimage.R' 'glabel.R' 'gtimer.R' 'gtree.R'
+        'gvarbrowser.R' 'gedit.R' 'gformlayout.R' 'gprogressbar.R'
+Built: R 3.0.1; ; 2014-02-27 00:08:07 UTC; unix
+>>>>>>> 7e343e95d4bbf4b4aaa88e998c9f59c2e7cb4778

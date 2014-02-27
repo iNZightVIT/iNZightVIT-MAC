@@ -94,23 +94,23 @@ updateDistribution <- function() {
     v <- v[-1, ]
 
     # First check whether we have a sufficient version of R
- #   R.rowv <- v$Version[v$Name == "R"]
- #   if (getRversion() < R.rowv) {
- #       if (isOSX) {
- #           cat("A new release of iNZightVIT is required, visiting the website now.\n")
- #           browseURL(HOMEPAGE)
- #           return()
- #       }
- #       library(tcltk)
- #       retval <- tk_messageBox(type = "ok",
- #                               message = "A new release of iNZightVIT is required.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
- #                               caption = "Update iNZightVIT",
- #                               default = "ok",
- #                               icon = "info")
- #       if (retval == "ok")
- #           browseURL(HOMEPAGE)
- #       return()
- #   }
+    R.rowv <- v$Version[v$Name == "R"]
+    if (getRversion() < R.rowv) {
+        if (isOSX) {
+            cat("A new release of iNZightVIT is required, visiting the website now.\n")
+            browseURL(HOMEPAGE)
+            return()
+        }
+        library(tcltk)
+        retval <- tk_messageBox(type = "ok",
+                                message = "A new release of iNZightVIT is required.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
+                                caption = "Update iNZightVIT",
+                                default = "ok",
+                                icon = "info")
+        if (retval == "ok")
+            browseURL(HOMEPAGE)
+        return()
+    }
 
     # Remove the R version row, no longer necessary
     v <- v[v$Name != "R", ]
@@ -149,30 +149,6 @@ updateDistribution <- function() {
         if (! r$Name %in% rownames(available.packages()) |
             r$Name %in% c("gWidgets2", "gWidgets2RGtk2", "Acinonyx")) {
 
-            if (r$Name == "Acinonyx" & getRversion()$major == 2) {
-                try(install.packages("Acinonyx", repos = "http://rforge.net"))
-                if (inherits(success, "try-error")) {
-                    if (isOSX) {
-                        cat("An error has occurred, perhaps a new version of iNZightVIT is required, visiting the website now.\n")
-                        browseURL(HOMEPAGE)
-                        return()
-                    }
-                    library(tcltk)
-                    retval <- tk_messageBox(type = "ok",
-                                            message = "An error has occurred updating iNZightVIT.\n\nClick OK to visit the iNZightVIT website and download a new copy.",
-                                            caption = "Update iNZightVIT",
-                                            default = "ok",
-                                            icon = "error")
-                    if (retval == "ok")
-                        browseURL(HOMEPAGE)
-                    file.remove(tmploc)
-                    return()
-                } else {
-                    cat(paste("Installed package:", r$Name), "\n")
-                }
-                next
-            }
-            
             getNewPackage <-
                 if (r$Name %in% rownames(installed.packages()))
                     package_version(r$Version) > packageVersion(r$Name)
