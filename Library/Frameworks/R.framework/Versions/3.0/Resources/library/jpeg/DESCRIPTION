@@ -1,0 +1,13 @@
+Package: jpeg
+Version: 0.1-8
+Title: Read and write JPEG images
+Author: Simon Urbanek <Simon.Urbanek@r-project.org>
+Maintainer: Simon Urbanek <Simon.Urbanek@r-project.org>
+Depends: R (>= 2.9.0)
+Description: This package provides an easy and simple way to read, write and display bitmap images stored in the JPEG format. It can read and write both files and in-memory raw vectors.
+License: GPL-2 | GPL-3
+SystemRequirements: libjpeg
+URL: http://www.rforge.net/jpeg/
+Packaged: 2014-01-23 19:05:03 UTC; svnuser
+Built: R 3.0.2; x86_64-apple-darwin10.8.0; 2014-01-23 19:02:19 UTC; unix
+Archs: jpeg.so.dSYM
