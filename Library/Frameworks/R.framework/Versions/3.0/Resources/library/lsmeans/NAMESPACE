@@ -1,9 +1,0 @@
-import(Matrix)
-importFrom(multcomp, glht)
-import(plyr)
-
-S3method(print, lsm)
-S3method(print, data.frame.lsm)
-S3method(glht, lsmlf)
-
-exportPattern("^[[:alpha:]]+")

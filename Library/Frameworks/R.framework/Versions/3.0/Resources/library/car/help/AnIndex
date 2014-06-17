@@ -175,6 +175,7 @@ linearHypothesis.polr	linearHypothesis
 linearHypothesis.svyglm	linearHypothesis
 loessLine	ScatterplotSmoothers
 logit	logit
+makeHypothesis	linearHypothesis
 Mandel	Mandel
 Manova	Anova
 Manova.mlm	Anova
@@ -222,6 +223,7 @@ print.linearHypothesis.mlm	linearHypothesis
 print.outlierTest	outlierTest
 print.spreadLevelPlot	spreadLevelPlot
 print.summary.Anova.mlm	Anova
+printHypothesis	linearHypothesis
 probabilityAxis	TransformationAxes
 qq.plot	car-deprecated
 qqp	qqPlot

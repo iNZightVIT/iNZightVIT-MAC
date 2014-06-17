@@ -1,4 +1,5 @@
 addLast	gtools-defunct
+ASCIIfy	ASCIIfy
 ask	ask
 assert	gtools-defunct
 binsearch	binsearch
