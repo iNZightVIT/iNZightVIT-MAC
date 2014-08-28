@@ -1,6 +1,6 @@
 aareg	aareg
 agexact.fit	survival-internal
-agreg.fit	agreg.fit
+agreg.fit	survival-internal
 aml	aml
 anova.coxph	anova.coxph
 anova.coxphlist	anova.coxph
@@ -29,14 +29,13 @@ coxpenal.fit	survival-internal
 coxph	coxph
 coxph.control	coxph.control
 coxph.detail	coxph.detail
-coxph.fit	agreg.fit
+coxph.fit	survival-internal
 coxph.getdata	coxph
 coxph.object	coxph.object
 coxph.penalty	coxph
-coxph.wtest	coxph.wtest
+coxph.wtest	survival-internal
 dsurvreg	dsurvreg
 extractAIC.coxph.penal	coxph.object
-flchain	flchain
 format.Surv	Surv
 frailty	frailty
 frailty.gamma	frailty
@@ -55,8 +54,6 @@ jasa1	heart
 kidney	kidney
 labels.survreg	survreg
 leukemia	aml
-levels.tcut	tcut
-lines.survexp	lines.survfit
 lines.survfit	lines.survfit
 logan	logan
 lung	lung
@@ -116,7 +113,6 @@ residuals.coxph.penal	residuals.coxph
 residuals.survreg	residuals.survreg
 residuals.survreg.penal	residuals.survreg
 ridge	ridge
-rsurvreg	dsurvreg
 stanford2	stanford2
 strata	strata
 summary.aareg	summary.aareg
@@ -129,7 +125,6 @@ summary.survfit	summary.survfit
 summary.survreg	survreg.object
 Surv	Surv
 survConcordance	survConcordance
-survConcordance.fit	survConcordance
 survdiff	survdiff
 survdiff.fit	survival-internal
 survexp	survexp
@@ -163,6 +158,7 @@ survregDtest	survregDtest
 survSplit	survSplit
 tcut	tcut
 tobin	tobin
+tt	tt
 untangle.specials	untangle.specials
 uspop2	uspop2
 vcov.coxph	coxph

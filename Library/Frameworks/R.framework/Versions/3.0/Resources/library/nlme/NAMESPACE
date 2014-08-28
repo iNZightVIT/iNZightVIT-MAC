@@ -22,7 +22,7 @@ export(ACF, allCoef, asOneFormula, asTable, augPred, balancedGrouped,
        getGroupsFormula, getResponse, getResponseFormula, getVarCov,
        gls, glsControl, glsStruct, gnls, gnlsControl, gnlsStruct,
        groupedData, gsummary, Initialize, intervals, isBalanced,
-       isInitialized, LDEsysMat, lme, lmeControl, lmeStruct,
+       isInitialized, LDEsysMat, lme, lmeControl, lmeScale, lmeStruct,
        lmList, logDet, "matrix<-", Names, "Names<-", needUpdate,
        nfGroupedData, nlme, nlmeControl, nlmeStruct, nlsList,
        nmGroupedData, pdBlocked, pdCompSymm, pdConstruct, pdDiag,
@@ -37,9 +37,6 @@ export(anova.lme, nlsList.formula, plot.lme)
 
 # needed as name stored in the call via match.call
 export(lme.formula, lme.lmList, lmList.formula, nlme.formula, nlme.nlsList)
-
-# exported for package rms
-export(glsApVar, glsEstimate)
 
 S3method("[", groupedData)
 S3method("[", pdBlocked)
@@ -360,6 +357,8 @@ S3method(print, varComb)
 S3method(print, VarCorr.lme)
 S3method(print, VarCov)
 S3method(print, varFunc)
+#S3method(pruneLevels, factor)
+#S3method(pruneLevels, ordered)
 S3method(qqnorm, gls)
 S3method(qqnorm, lm)
 S3method(qqnorm, lme)

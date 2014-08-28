@@ -33,10 +33,8 @@ export(anova.gam, bam, bam.update, concurvity, cSplineDes,
        Predict.matrix.mrf.smooth,
        Predict.matrix.pspline.smooth,
        Predict.matrix.random.effect,
-       Predict.matrix.t2.smooth,
        qq.gam,
-       residuals.gam,rig,rTweedie, 
-       Rrank,s,
+       residuals.gam,rig,rTweedie, s,
        slanczos,
        smoothCon,smooth.construct,smooth.construct2,
        smooth.construct.cc.smooth.spec,
@@ -55,7 +53,6 @@ export(anova.gam, bam, bam.update, concurvity, cSplineDes,
        smooth.construct.sf.smooth.spec,
        smooth.construct.sw.smooth.spec,   
        smooth.construct.ad.smooth.spec,
-       smooth.construct.t2.smooth.spec,
        summary.gam,sp.vcov,
        spasm.construct,spasm.sp,spasm.smooth,
        t2,te,ti,tensor.prod.model.matrix,tensor.prod.penalties,
@@ -73,8 +70,8 @@ importFrom(graphics,axis,box,contour,hist,lines,mtext, par, persp,plot,points,
 #           var,vcov)
 
 importFrom(stats,anova,influence,cooks.distance,logLik,vcov,residuals,predict,model.matrix)
-importFrom(nlme,Dim,corMatrix,logDet,pdConstruct,pdFactor,pdMatrix,getGroupsFormula,lme,varFixed,lmeControl)
-#import(nlme)
+#importFrom(nlme,Dim,corMatrix,logDet,pdConstruct,pdFactor,pdMatrix,getGroupsFormula,lme,varFixed,lmeControl)
+import(nlme)
 importMethodsFrom(Matrix,t,colMeans,colSums,chol,solve,lu,expand)
 importFrom(Matrix,Diagonal,sparseMatrix,Matrix)
 #import(Matrix)

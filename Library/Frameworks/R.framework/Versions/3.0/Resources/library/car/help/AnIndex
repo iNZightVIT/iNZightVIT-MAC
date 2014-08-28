@@ -134,7 +134,7 @@ hccm.default	hccm
 hccm.lm	hccm
 Highway1	Highway1
 hist.boot	hist.boot
-identify3d	scatter3d
+Identify3d	scatter3d
 infIndexPlot	infIndexPlot
 infIndexPlot.lm	infIndexPlot
 influence.plot	influencePlot
@@ -295,7 +295,7 @@ tukeyNonaddTest	residualPlots
 UN	UN
 USPop	USPop
 vif	vif
-vif.lm	vif
+vif.default	vif
 Vocab	Vocab
 wcrossprod	wcrossprod
 WeightLoss	WeightLoss

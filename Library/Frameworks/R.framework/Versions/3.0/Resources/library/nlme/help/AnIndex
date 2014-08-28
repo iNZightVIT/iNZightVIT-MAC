@@ -125,7 +125,6 @@ corNatural	corNatural
 corRatio	corRatio
 corSpatial	corSpatial
 corSpher	corSpher
-corStruct	corClasses
 corSymm	corSymm
 covariate<-	Covariate
 covariate<-.varFunc	Covariate.varFunc
@@ -192,9 +191,7 @@ getVarCov	getVarCov
 getVarCov.gls	getVarCov
 getVarCov.lme	getVarCov
 gls	gls
-glsApVar	gls-internal
 glsControl	glsControl
-glsEstimate	gls-internal
 glsObject	glsObject
 glsStruct	glsStruct
 Glucose	Glucose
@@ -247,6 +244,7 @@ lme.groupedData	lme.groupedData
 lme.lmList	lme.lmList
 lmeControl	lmeControl
 lmeObject	lmeObject
+lmeScale	lmeScale
 lmeStruct	lmeStruct
 lmList	lmList
 lmList.formula	lmList

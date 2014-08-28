@@ -1,4 +1,4 @@
-stopifnot(require(Matrix), require(methods)) # Matrix classes; new, slot<-
+stopifnot(require(Matrix)) # at least its classes
 
 USCounties <-
     local({
