@@ -1,8 +1,6 @@
-# This is the update script for MAC
 library(utils)
 if (!"RCurl" %in% rownames(installed.packages()))
-  install.packages("RCurl", repos = "http://cran.stat.auckland.ac.nz/")
-  
+    install.packages("RCurl")
 library(RCurl)
 
 source_https <- function(url, ...) {
@@ -17,6 +15,6 @@ source_https <- function(url, ...) {
         source(ftmp)
     })
 }
+
 source_https("https://www.stat.auckland.ac.nz/~wild/downloads/iNZight/update.R")
-#source(file.choose())  # this is for debugging
 updateDistribution()
