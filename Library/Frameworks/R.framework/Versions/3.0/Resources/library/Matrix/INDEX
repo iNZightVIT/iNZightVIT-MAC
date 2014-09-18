@@ -1,3 +1,4 @@
+%*%-methods             Matrix (Cross) Products (of Transpose)
 BunchKaufman-methods    Bunch-Kaufman Decomposition Methods
 CAex                    Albers' example Matrix with "Difficult" Eigen
                         Factorization
@@ -87,6 +88,7 @@ forceSymmetric          Force a Matrix to 'symmetricMatrix' Without
                         Symmetry Checks
 formatSparseM           Formatting Sparse Numeric Matrices Utilities
 generalMatrix-class     Class "generalMatrix" of General Matrices
+graph2T                 Conversions "graph" <-> (sparse) Matrix
 iMatrix-class           Virtual Classes Not Yet Really Implemented and
                         Used
 image-methods           Methods for image() in Package 'Matrix'
@@ -99,7 +101,7 @@ is.na-methods           is.na(), is.infinite() Methods for 'Matrix'
 is.null.DN              Are the Dimnames 'dn' NULL-like ?
 isSymmetric-methods     Methods for Function isSymmetric in Package
                         'Matrix'
-isTriangular            isTriangular() and isDiagonal() and Methods
+isTriangular            isTriangular() and isDiagonal() Methods
 kronecker-methods       Methods for Function 'kronecker()' in Package
                         'Matrix'
 ldenseMatrix-class      Virtual Class "ldenseMatrix" of Dense Logical
@@ -134,6 +136,7 @@ rep2abI                 Replicate Vectors into 'abIndex' Result
 replValue-class         Virtual Class "replValue" - Simple Class for
                         subassignment Values
 rleDiff-class           Class "rleDiff" of rle(diff(.)) Stored Vectors
+rsparsematrix           Random Sparse Matrix
 solve-methods           Methods in Package Matrix for Function
                         'solve()'
 spMatrix                Sparse Matrix Constructor From Triplet
@@ -151,7 +154,6 @@ symmetricMatrix-class   Virtual Class of Symmetric Matrices in
                         package:Matrix
 symmpart                Symmetric Part and Skew(symmetric) Part of a
                         Matrix
-tcrossprod              Cross-product of transpose
 triangularMatrix-class
                         Virtual Class of Triangular Matrices in
                         package:Matrix
