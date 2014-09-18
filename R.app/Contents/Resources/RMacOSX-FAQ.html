@@ -33,7 +33,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <h2 class="unnumbered">R for Mac OS X FAQ</h2>
 
 <p><h2>Frequently Asked Questions on R for Mac OS X</h2>
-<h2>Version 3.0.2 2013-05-17, R.app 1.62</h2>
+<h2>Version 3.1.1 2014-07-11, R.app 1.65</h2>
 <address>Stefano M. Iacus</address>
 <address>Simon Urbanek</address>
 <address>Rob J. Goedman</address>
@@ -113,7 +113,7 @@ the <span class="sc">R.app</span> GUI (see <a href="#R_002eapp">R.app</a>).  The
 preferred by Macintosh users.
 
    <p>Prior to <acronym>R</acronym> 3.0.0 there were separate 32- and 64-bit version of
-<span class="sc">R.app</span>: nowadays only 64-bit builds are supported.
+<span class="sc">R.app</span>: nowadays only 64-bit builds are supported in binary form.
 
 <div class="node">
 <p><hr>
@@ -1019,10 +1019,7 @@ which will contain lines like
 <samp><span class="file">~/.R/Makevars</span></samp>: see the section `Customizing package compilation'
 of the `R Installation and Administration Manual'.
 
-   <p>These settings are likely to change before release, to something like
-<pre class="example">     CC = /opt/R/bin/gcc-4.7 -std=gnu99
-</pre>
-   <div class="node">
+<div class="node">
 <p><hr>
 <a name="Where-are-the-packages-I've-installed%3f"></a>
 <a name="Where-are-the-packages-I_0027ve-installed_003f"></a>
@@ -1269,9 +1266,14 @@ later).  The first time things are done in the X server there can be a
 long delay whilst a font cache is constructed; starting the server can
 take several seconds.
 
+   <p>Mac OS X 10.9 and higher no longer include X11
+by default and it has to be obtained separately from
+<a href="http://xquartz.macosforge.org">http://xquartz.macosforge.org</a>.
+
    <p>If you don't like the X11 style of widgets and use command-line <acronym>R</acronym> you
 would probably want to build R using the Aqua version of Tcl/Tk (see the
-`R Installation and Administration Manual').
+`R Installation and Administration Manual'). Note, however, that such
+builds do not work when used in the <span class="sc">R.app</span> GUI.
 
 <div class="node">
 <p><hr>

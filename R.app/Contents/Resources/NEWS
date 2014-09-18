@@ -1,5 +1,26 @@
 NEWS for R.app GUI for Mac OS X
 
+-- Release Version 1.65 (6784) - supplied with R 3.1.1 --
+
+Last-update: 2014-04-16
+*	replace defunct .find.package with find.package
+
+-- Release Version 1.64 (6734) - supplied with R 3.1.0 --
+
+Last-update: 2014-04-10
+*	enforce activity on Mavericks when busy to prevent AppNap
+
+*	change default configuration to Release which is agnostic
+	to the SDK used; auto-detect the build name
+
+-- Release Version 1.63 (6659) - supplied with R 3.0.3 --
+
+Last-update: 2013-12-11 [RG]
+*	minor fixes
+
+Last-update: 2013-11-05 [RG]
+*	history patch by Randy Lai
+
 -- Release Version 1.62 (6558) - supplied with R 3.0.2 --
 
 Last-update: 2013-06-26
